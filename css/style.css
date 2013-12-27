@@ -1,0 +1,29 @@
+html {
+	height: 100%;
+}
+    
+body {
+	background: url('../img/grid.png');
+	background-repeat: repeat;
+    padding: 1%;
+	font-family: 'open sans';
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: 300;
+	margin-bottom: 0;
+}
+
+h3{
+	font-size: 20px;
+	font-weight: 100;
+	margin-top: 0;
+	margin-bottom: 1%;
+}
+
+h6{
+	font-family: 'open sans';
+	font-size: 15px;
+	font-weight: 300;
+}
