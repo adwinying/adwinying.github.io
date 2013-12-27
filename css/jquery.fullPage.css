@@ -61,13 +61,13 @@ body, html {
 }
 
 .controlArrow.prev{
-	left:15px;
+	left:10%;
 	width: 0px;
 	border-width: 38.5px 34px 38.5px 0;
 	border-color: transparent #fff transparent transparent;
 }
 .controlArrow.next{  
-	right:15px;
+	right:10%;
 	border-width: 38.5px 0 38.5px 34px;
 	border-color: transparent transparent transparent #fff;
 }
