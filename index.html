@@ -21,10 +21,10 @@
 	<script>
 		$(document).ready(function() {
 			$.fn.fullpage({
-				anchors: ['welcome', 'about', 'contact'],
+				anchors: ['main', 'about', 'contact'],
 				navigation: true,
 				navigationPosition: 'right',
-				navigationTooltips: ['welcome', 'about', 'contact'],
+				navigationTooltips: ['Main', 'About', 'Contact'],
 				slidesNavigation: true,
 				slidesNavPosition: 'bottom',
 			});			
@@ -34,24 +34,39 @@
 </head>
 
 <body>
-	<div class="section active">
-		<h1>Hello.</h1>
-		<h3>Welcome to Adwin Ying's Official site.</h3>
+	<div class="section active" id="page1">
+		<div id="text1">
+			<h1>Hello.</h1>
+			<h3>Welcome to Adwin Ying's Official site.</h3>
+		</div>
+		<div id="img11">
+			<img src="img/face.png" alt="Derp." width="100%" height="100%">
+		</div>
 	</div>
 	
-	<div class="section">
-		<h1>About.</h1>
-		<h3>Adwin is your average guy. 20 years old and a student, he just likes to find interesting stuff.</h3>
-		<h6>
-		Adwin loves to mess with a lot of stuff, ranging from cooking, coding and an occasional gamer.
-		He's a strong advocate of minimalism, which is obviously reflected in this site.
-		</h6>
+	<div class="section" id="page2">
+		<div id="img21">
+			<img src="img/ideas.png" alt="Lightbulbs." width="50%" height="50%">
+		</div>
+		<div id="text2">
+			<h1>About.</h1>
+			<h3>Adwin is your average guy. 20 years old and a student, he just likes to find interesting stuff.</h3>
+			<h6>
+			Adwin loves to mess with a lot of stuff, ranging from cooking, coding and an occasional gamer.
+			He's a strong advocate of minimalism, which is obviously reflected in this site.
+			</h6>
+		</div>		
 	</div>
 	
-	<div class="section">
-		<h1>Contact.</h1>
-		<h3>Connect with Adwin with the following social networks:</h3>
-		<h6>Facebook, Twitter, Instagram, Email</h6>
+	<div class="section" id="page3">
+		<div id="text3">
+			<h1>Contact.</h1>
+			<h3>Connect with Adwin with the following social networks:</h3>
+			<h6>Facebook, Twitter, Instagram, Email</h6>
+		</div>
+		<div id="img31">
+			<img src="img/rise.png" alt="Lightbulbs." width="100%" height="100%">
+		</div>
 	</div>
 </body>
 </html>
