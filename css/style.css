@@ -68,6 +68,19 @@ h6{
 	top: 0px;
 }
 
+#imgcon{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#img22, #img23, #img24{
+	width: 30%;
+	display: inline-block;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
 /*Page 3*/
 #page3{
 	background: #fff;
