@@ -39,10 +39,11 @@ h6{
 
 /*Page 1*/
 #page1{
-	background: #f2f2f2;
+	background: #666666;
 }
 #text1{
-	padding-top: 25%;
+	padding-top: 10%;
+	padding-bottom: 10%;
 	float: left;
 	width: 70%;
 }
@@ -55,6 +56,7 @@ h6{
 #page2{
 	position: relative;
 	background: #161616;
+	padding-left: 22%;
 }
 
 #page2 h1, #page2 h2, #page2 h3, #page2 h6{
@@ -83,7 +85,7 @@ h6{
 
 /*Page 3*/
 #page3{
-	background: #fff;
+	background: #e3e3e3;
 }
 #img31{
 	position: absolute;
