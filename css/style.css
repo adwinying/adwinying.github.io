@@ -58,27 +58,23 @@ h6{
 	background: #161616;
 	padding-left: 22%;
 }
-
 #page2 h1, #page2 h2, #page2 h3, #page2 h6{
 	color:#fff;
 }
-
 #img21{
 	position: absolute;
 	width: 40%;
 	right: 0px;
 	top: 0px;
 }
-
 #imgcon{
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-#img22, #img23, #img24{
-	width: 30%;
+.stuff{
 	display: inline-block;
+	width: 30%;
 	padding-left: 1%;
 	padding-right: 1%;
 }
@@ -91,4 +87,15 @@ h6{
 	position: absolute;
 	bottom: -0.75%;
 	left: 0.5%;
+}
+#imgcon2{
+	margin-left: -1%;
+}
+.social{
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	width: 8%;
+	padding-left: 1%;
+	padding-right: 1%;
 }
