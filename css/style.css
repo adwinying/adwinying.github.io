@@ -47,6 +47,9 @@ h6{
 	float: left;
 	width: 70%;
 }
+#page1 h1, #page1 h3{
+	color:#fff;
+}
 #img11{
 	float: right;
 	width: 30%;
@@ -103,7 +106,9 @@ h6{
 #notfound{
 	background: #666666;
 }
-
+#nfdiv h1, #nfdiv h3, #nfdiv h6{
+	color: #fff;
+}
 #nfdiv{
 	padding-top: 12%;
 	text-align: center;
