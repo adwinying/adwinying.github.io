@@ -1,25 +1,270 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<title>iAdwin</title>
+	<meta charset="utf-8">
 	<meta name="title" content="iAdwin" />
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
+	<meta content="text/css" http-equiv="Content-Style-Type"></meta>
+	<meta content="text/javascript" http-equiv="Content-Script-Type"></meta>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Landing page of Adwin Ying." />
 
 	<meta content="http://iAdw.in" property="og:url" />
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<meta name="author" content="Adwin Ying">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/png" href="http://iAdw.in/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="http://iAdw.in/favicon-16x16.png" sizes="16x16">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="mstile-144x144.png">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
 	<link rel="canonical" href="http://iAdw.in" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<meta name="author" content="Adwin Ying">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet" type="text/css">
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
 	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script> 
-	<link href='css/style.css' rel='stylesheet' type='text/css'>
-	
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!-- FontAwesome -->
+	<script src="https://use.fontawesome.com/22c74b36da.js"></script>
+
+	<!-- Custom stylesheet -->
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
 </head>
 
 <body>
+	<div class="mobile-nav visible-xs-block">
+		<ul>
+			<li><a href="#about">About</a></li>
+			<li><a href="#skills">Skills</a></li>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="#connect">Connect</a></li>
+		</ul>
+	</div>
 
+	<div class="hero">
+		<div class="menu">
+			<button class="nav-btn visible-xs-block pull-right" type="button">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+
+		<div class="content">
+			<p>Landing page of</p>
+			<h1>Adwin Ying</h1>
+		</div>
+	</div>
+
+	<div class="nav hidden-xs">
+		<a href="#about">About</a>
+		<a href="#skills">Skills</a>
+		<a href="#projects">Projects</a>
+		<a href="#connect">Connect</a>
+	</div>
+
+	<div class="section" id="about">
+		<div class="container-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 title">
+				<h2>About Adwin</h2>
+			</div>
+			<div class="image">
+				<picture>
+				    <source srcset="img/about-profile.png, img/about-profile-2x.png 2x">
+				    <img srcset="img/about-profile.png, img/about-profile-2x.png 2x" alt="Profile picture">
+				</picture>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 content">
+				<p><i>Nagoya, Japan</i></p>
+				<p>4th year engineering student at <a href="http://www.nagoya-u.ac.jp/">Nagoya University</a>, currently affiliated with <a href="http://www.ertl.jp/">ERTL</a>. Self-taught web dev. Speaks English, 中文, Bahasa Melayu, 日本語. Hobbies include baking, cycling and traveling.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="skills">
+		<div class="container-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 title">
+				<h2>Skills</h2>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-html5" aria-hidden="true"></i>
+					<h3>HTML | HTML5</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-css3" aria-hidden="true"></i>
+					<h3>CSS | CSS3</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<h3>JavaScript</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-arrows-alt" aria-hidden="true"></i>
+					<h3>Responsive Web</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<h3>jQuery</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-columns" aria-hidden="true"></i>
+					<h3>Bootstrap</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-wordpress" aria-hidden="true"></i>
+					<h3>Wordpress</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code-fork" aria-hidden="true"></i>
+					<h3>Git | Github</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<h3>C</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<h3>Python</h3>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<h3>LaTeX</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="projects">
+		<div class="container-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 title">
+				<h2>Projects</h2>
+				<h3><i>Past Projects</i></h3>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 project">
+				<div class="col-xs-12 col-sm-4 col-md-4 image">
+					<img src="img/projects-acter.jpg">
+					<a href="http://actercarton.com"><span>View</span></a>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 description">
+					<h3>Acter Carton</h3>
+					<p><i>August 2013</i></p>
+					<p>Official company website of Acter Carton Enterprise Sdn. Bhd.</p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 project">
+				<div class="col-xs-12 col-sm-4 col-md-4 image">
+					<img src="img/projects-iadwin-old.jpg">
+					<a href="https://github.com/adwinying/adwinying.github.io/branches"><span>View</span></a>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 description">
+					<h3>iAdwin (old)</h3>
+					<p><i>December 2013</i></p>
+					<p>Previous iteration of iAdwin.</p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 project">
+				<div class="col-xs-12 col-sm-4 col-md-4 image">
+					<img src="img/projects-mageplus.jpg">
+					<a href="https://www.mageplus.jp/ib"><span>View</span></a>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 description">
+					<h3>Mage+ Photobook App Website</h3>
+					<p><i>July 2016</i></p>
+					<p>Introducing Mage+ Photobook App to tourists coming to Japan.</p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 title">
+				<h3><i>Current Projects</i></h3>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 project">
+				<div class="col-xs-12 col-sm-4 col-md-4 image">
+					<img src="img/projects-thumb.jpg">
+					<a href="https://www.mageplus.jp/"><span>View</span></a>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 description">
+					<h3>Mage+ Photobook Team (Part-time)</h3>
+					<p><i>June 2016 - Current</i></p>
+					<p>Website creation, translation work and iOS/Android app testing.</p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 project">
+				<div class="col-xs-12 col-sm-4 col-md-4 image">
+					<img src="img/projects-code.jpg">
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 description">
+					<h3>Learning New Languages</h3>
+					<p>Learning Ruby, SQL, and PHP. Expanding toolset by picking up different frameworks such as node.js, Ruby on Rails etc. Currently focusing on iOS development (Swift/Objective C).</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="connect">
+		<div class="container-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 title">
+				<h2>Connect</h2>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 content">
+				<p>Connect with Adwin through social media or request a resumé through email:</p>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a class="btn btn-default list" href="https://fb.me/adwinying" role="button">
+					<i class="fa fa-facebook-f" aria-hidden="true"></i>
+					<h3>Facebook</h3>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a class="btn btn-default list" href="https://linkedin.com/adwinying" role="button">
+					<i class="fa fa-linkedin" aria-hidden="true"></i>
+					<h3>LinkedIn</h3>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a class="btn btn-default list" href="https://github.com/adwinying" role="button">
+					<i class="fa fa-github" aria-hidden="true"></i>
+					<h3>GitHub</h3>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a class="btn btn-default list" href="mailto:adwinying[at]gmail[dot]com" role="button">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<h3>Email</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="footer">
+		<div class="container-fluid">
+			<p>iAdwin &copy; 2016 Adwin Ying.</p>
+		</div>
+	</div>
 </body>
 </html>
