@@ -1,5 +1,5 @@
 var main = function(){
-	$('button').click(function(){
+	$('.menu-button').click(function(){
 		$('.mobile-nav').toggleClass('show');
 	});
 
