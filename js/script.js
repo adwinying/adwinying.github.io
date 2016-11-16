@@ -3,16 +3,6 @@ var main = function(){
 		$('.mobile-nav').toggleClass('show');
 	});
 
-	overlayOn = function(){
-		$(this).addClass("overlay");
-	};
-
-	overlayOff = function(){
-		$(this).removeClass("overlay");
-	};
-
-	$('#projects.section .image').hover(overlayOn, overlayOff);
-
 	$(window).scroll(function(){
 		var scroll 			= $(window).scrollTop();
 		var aboutTrigger	= $('#about.section').offset().top - 250;
