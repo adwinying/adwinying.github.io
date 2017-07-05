@@ -136,11 +136,11 @@ body{
 }
 
 .skills-col-wrapper{
+	width: 100%;
 	border: 2px solid #000;
 	border-radius: 7px;
 	margin: 30px 0;
 	padding: 7px 18px 25px;
-	height: calc(100% - 60px);
 }
 .skills-col-icon{
 	position: absolute;
@@ -288,6 +288,9 @@ body{
 		clear: left;
 		display: flex;
 		align-items: stretch;
+	}
+	.skills-col{
+		display: flex;
 	}
 
 	#skills.section .container-fluid,
