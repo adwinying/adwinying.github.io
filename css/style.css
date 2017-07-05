@@ -135,6 +135,40 @@ body{
 	max-width: 50%;
 }
 
+.skills-col-wrapper{
+	border: 2px solid #000;
+	border-radius: 7px;
+	margin: 30px 0;
+	padding: 7px 18px 25px;
+	height: calc(100% - 60px);
+}
+.skills-col-icon{
+	position: absolute;
+	top: calc(30px - 19px);
+	left: 50%;
+	background-color: #fff;
+	border: 2px solid #000;
+	border-radius: 50%;
+	padding: 5px;
+	height: 38px;
+	width: 38px;
+	font-size: 1.3em;
+	line-height: 1.1;
+	transform: translateX(-50%);
+}
+.skills-col-title{
+	display: inline-block;
+	font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.skills-col-list{
+	text-align: left;
+	font-size: 1.6em;
+	padding: 0 20px;
+}
 
 #projects.section .project{
 	padding-bottom: 50px;
@@ -248,10 +282,13 @@ body{
 		max-width: 30%;
 	}
 
-	#skills.section .container-fluid{
-		max-width: 860px;
+	.skills-container{
+		clear: left;
+		display: flex;
+		align-items: stretch;
 	}
 
+	#skills.section .container-fluid,
 	#projects.section .container-fluid{
 		max-width: 900px;
 	}
