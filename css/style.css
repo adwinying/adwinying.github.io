@@ -166,8 +166,10 @@ body{
 }
 .skills-col-list{
 	text-align: left;
-	font-size: 1.6em;
 	padding: 0 20px;
+}
+.skills-col-list h4{
+	font-size: 1.4em;
 }
 
 #projects.section .project{
