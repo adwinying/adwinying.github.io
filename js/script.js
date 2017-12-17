@@ -9,7 +9,7 @@ var main = function(){
 		var skillsTrigger	= $('#skills.section').offset().top - 250;
 		var projectsTrigger	= $('#projects.section').offset().top - 250;
 		var connectTrigger	= $('#connect.section').offset().top - 250;
-
+    
 		if(scroll >= aboutTrigger){
 			$('#about.section').addClass("toggle");
 		}else{
