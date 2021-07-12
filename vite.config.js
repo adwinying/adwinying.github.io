@@ -1,17 +1,11 @@
 import { resolve } from 'path'
 import handlebars from 'vite-plugin-handlebars'
+import context from './data'
 
 export default {
   plugins: [
     handlebars({
-      context: {
-        navLinks: [
-          { url: '#about', title: 'About' },
-          { url: '#skills', title: 'Skills' },
-          { url: '#projects', title: 'Projects' },
-          { url: '#connect', title: 'Connect' },
-        ],
-      },
+      context,
       partialDirectory: resolve(__dirname, 'partials'),
       helpers: {
         iconPath: (iconName) => `icons/${iconName}`,
