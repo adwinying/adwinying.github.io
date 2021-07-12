@@ -1,262 +1,40 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<title>iAdwin</title>
-	<meta charset="utf-8">
-	<meta name="title" content="iAdwin" />
-	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
-	<meta content="text/css" http-equiv="Content-Style-Type"></meta>
-	<meta content="text/javascript" http-equiv="Content-Script-Type"></meta>
+  <meta charset="UTF-8" />
+  <title>iAdwin</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="iAdwin: The landing page of Adwin Ying, Self-taught web dev." />
+  <meta name="title" content="iAdwin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The landing page of Adwin Ying." />
+  <meta content="http://iAdw.in" property="og:url" />
 
-	<meta content="http://iAdw.in" property="og:url" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" href="//iAdw.in/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="//iAdw.in/favicon-16x16.png" sizes="16x16">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="mstile-144x144.png">
-	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
-	<link rel="canonical" href="http://iAdw.in" />
-	<meta name="author" content="Adwin Ying">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="mstile-144x144.png">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+  <link rel="canonical" href="http://iAdw.in" />
+  <meta name="author" content="Adwin Ying">
 
-	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet" type="text/css">
-	<link href="css/normalize.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/style.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap">
 </head>
 
-<body>
-	<div class="mobile-nav visible-xs-block">
-		<ul>
-			<li><a href="#about">About</a></li>
-			<li><a href="#skills">Skills</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#connect">Connect</a></li>
-		</ul>
-	</div>
+<body class="font-sans">
+  {{> nav_mobile }}
 
-	<div class="hero">
-		<div class="menu visible-xs-block">
-			<div class="menu-button pull-right">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</div>
-		</div>
+  {{> hero }}
 
-		<div class="content">
-			<p>Landing page of</p>
-			<h1>Adwin Ying</h1>
-		</div>
-	</div>
+  {{> nav_desktop }}
 
-	<div class="nav hidden-xs">
-		<a href="#about">About</a>
-		<a href="#skills">Skills</a>
-		<a href="#projects">Projects</a>
-		<a href="#connect">Connect</a>
-	</div>
+  {{> about }}
 
-	<div class="section" id="about">
-		<div class="container-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 title">
-				<h2>About Adwin</h2>
-			</div>
-			<div class="image">
-				<picture>
-				    <source srcset="img/about-profile.png, img/about-profile-2x.png 2x">
-				    <img srcset="img/about-profile.png, img/about-profile-2x.png 2x" alt="Profile picture">
-				</picture>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 content">
-				<p><i>Tokyo, Japan</i></p>
-				<p>Self-taught web dev. <a href="//freecodecamp.com"><i class="fa fa-free-code-camp"></i>freeCodeCamp</a> <a href="//www.freecodecamp.com/adwinying/front-end-certification">Front End</a>, <a href="//www.freecodecamp.com/adwinying/data-visualization-certification">Data Visualization</a> and <a href="//www.freecodecamp.com/adwinying/back-end-certification">Back End</a> certified. Speaks English, 中文, Bahasa Melayu, 日本語. Hobbies include cooking and traveling.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="section" id="skills">
-		<div class="container-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 title">
-				<h2>Skills</h2>
-			</div>
-			<div class="skills-container">
-				<div class="col-xs-12 col-sm-4 skills-col">
-					<div class="skills-col-wrapper">
-						<div class="skills-col-icon">
-							<i class="fa fa-user"></i>
-						</div>
-						<h3 class="skills-col-title">Client Side</h3>
-						<div class="skills-col-list">
-							<h4>HTML | HTML5</h4>
-							<h4>CSS | CSS3</h4>
-							<h4>SASS</h4>
-							<h4>JavaScript | ES6</h4>
-							<h4>jQuery</h4>
-							<h4>ReactJS | Redux</h4>
-							<h4>Vue.js</h4>
-							<h4>D3.js</h4>
-							<h4>Bootstrap</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 skills-col">
-					<div class="skills-col-wrapper">
-						<div class="skills-col-icon">
-							<i class="fa fa-server"></i>
-						</div>
-						<h3 class="skills-col-title">Server Side</h3>
-						<div class="skills-col-list">
-							<h4>PHP</h4>
-							<h4>Node.js</h4>
-							<h4>Express.js</h4>
-							<h4>MongoDB</h4>
-							<h4>Web Sockets (Socket.io)</h4>
-							<h4>MySQL/PostgreSQL</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 skills-col">
-					<div class="skills-col-wrapper">
-						<div class="skills-col-icon">
-							<i class="fa fa-code"></i>
-						</div>
-						<h3 class="skills-col-title">Others</h3>
-						<div class="skills-col-list">
-							<h4>C</h4>
-							<h4>CI/CD (GitlabCI)</h4>
-							<h4>Docker / Vagrant</h4>
-							<h4>Ansible</h4>
-							<h4>Elastic Stack</h4>
-							<h4>Sentry</h4>
-							<h4>LaTeX</h4>
-							<h4>Git | Github | Gitlab</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="section" id="projects">
-		<div class="container-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 title">
-				<h2>Projects</h2>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 project">
-				<div class="col-xs-12 col-sm-4 col-md-4 image">
-					<a href="https://www.mageplus.jp/ehon">
-						<div class="image-wrapper">
-							<img src="img/projects-ehon.jpg">
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-8 col-md-8 description">
-					<h3>Mage+ Picture Book Application<h4>
-					<p><i>October 2016</i></p>
-					<p>Mage+絵本フォトブックアプリの公式HP。</p>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 project">
-				<div class="col-xs-12 col-sm-4 col-md-4 image">
-					<a href="http://futabanenga.com/futaba/business/nenga/">
-						<div class="image-wrapper">
-							<img src="img/projects-futaba.jpg">
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-8 col-md-8 description">
-					<h3>Futaba Co. Ltd. Official Homepage<h4>
-					<p><i>February 2017</i></p>
-					<p>フタバ株式会社公式HP。</p>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 project">
-				<div class="col-xs-12 col-sm-4 col-md-4 image">
-					<a href="http://codepen.io/collection/XkeOZm/">
-						<div class="image-wrapper">
-							<img src="img/projects-fcc-front.jpg">
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-8 col-md-8 description">
-					<h3>FCC:Front End Projects</h3>
-					<p><i>April 2017</i></p>
-					<p>A series of Front End Projects done to obtain Front End Certification from
-						<a href="http://freecodecamp.com">freeCodeCamp</a></p>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 project">
-				<div class="col-xs-12 col-sm-4 col-md-4 image">
-					<a href="https://codepen.io/collection/AObkaY/">
-						<div class="image-wrapper">
-							<img src="img/projects-fcc-data.jpg">
-						</div>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-8 col-md-8 description">
-					<h3>FCC:Data Visualization Projects</h3>
-					<p><i>May 2017</i></p>
-					<p>A series of Data Visualization Projects done to obtain Data Visualization Certification from
-						<a href="http://freecodecamp.com">freeCodeCamp</a>. Utilizes ReactJS or D3.js together with SASS.</p>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<a class="btn btn-default list" href="https://github.com/adwinying" role="button">
-					<i class="fa fa-github" aria-hidden="true"></i>
-					<h3>More Projects at GitHub</h3>
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="section" id="connect">
-		<div class="container-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 title">
-				<h2>Connect</h2>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 content">
-				<p>Connect with Adwin through social media or request a resumé through email:</p>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<a class="btn btn-default list" href="https://fb.me/adwinying" role="button">
-					<i class="fa fa-facebook-f" aria-hidden="true"></i>
-					<h3>Facebook</h3>
-				</a>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<a class="btn btn-default list" href="https://linkedin.com/in/adwinying" role="button">
-					<i class="fa fa-linkedin" aria-hidden="true"></i>
-					<h3>LinkedIn</h3>
-				</a>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<a class="btn btn-default list" href="https://github.com/adwinying" role="button">
-					<i class="fa fa-github" aria-hidden="true"></i>
-					<h3>GitHub</h3>
-				</a>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<a class="btn btn-default list" href="mailto:adwinying[at]gmail[dot]com" role="button">
-					<i class="fa fa-envelope" aria-hidden="true"></i>
-					<h3>Email</h3>
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="section" id="footer">
-		<div class="container-fluid">
-			<p>iAdwin &copy; 2016 Adwin Ying.</p>
-		</div>
-	</div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="js/script.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
+
 </html>
