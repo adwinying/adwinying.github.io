@@ -11,5 +11,8 @@
     "tailwindcss": "^2.2.4",
     "vite": "^2.4.0",
     "vite-plugin-handlebars": "^1.6.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.2.1"
   }
 }
