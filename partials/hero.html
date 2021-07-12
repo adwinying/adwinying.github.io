@@ -3,7 +3,9 @@
   px-3 md:px-6 lg:px-10
   bg-hero-mobile hero:bg-hero bg-cover bg-center bg-no-repeat bg-local">
   <!-- Hamburger toggle -->
-  <div class="md:hidden absolute top-4 right-5 w-9 p-2">
+  <div
+    class="md:hidden absolute top-4 right-5 w-9 p-2"
+    @click="isMobileNavOpen = !isMobileNavOpen">
     {{> (iconPath "menu") class="w-full text-white" }}
   </div>
 
