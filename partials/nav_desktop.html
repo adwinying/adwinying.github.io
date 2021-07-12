@@ -1,7 +1,11 @@
 <!-- Nav (Desktop) -->
 <nav class="hidden md:flex justify-center items-center h-[3.75rem]
-    space-x-20 font-title tracking-wider uppercase">
+  space-x-20 font-title tracking-wider uppercase">
   {{#each navLinks}}
-    <a href="{{url}}">{{title}}</a>
+    <a
+      href="{{url}}"
+      @click.prevent="smoothScroll">
+      {{title}}
+    </a>
   {{/each}}
 </nav>
