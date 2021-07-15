@@ -1,0 +1,14 @@
+<!-- Section title -->
+<div class="flex justify-center mb-8">
+  <h2
+    x-data="{ isShown: false }"
+    x-ref="title"
+    :class="isShown ? 'after:w-full' : 'after:w-0'"
+    class="font-title text-2xl text-center tracking-wider uppercase
+      after:block after:-mt-1 after:mx-auto
+      after:border-b-2 after:border-black
+      after:transition-all after:duration-300"
+    @scroll.window.passive="isShown = $refs.title.getBoundingClientRect().top + 200 < window.innerHeight">
+    {{> @partial-block }}
+  </h2>
+</div>

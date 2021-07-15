@@ -1,0 +1,14 @@
+<!-- Nav (Desktop) -->
+<nav class="hidden md:flex justify-center items-center h-[3.75rem]
+  space-x-20 font-title tracking-wider uppercase">
+  {{#each navLinks}}
+    <a
+      href="{{url}}"
+      class="after:block after:w-0 hover:after:w-full after:-mt-1 after:mx-auto
+        after:border-b-2 after:border-black
+        after:transition-all after:duration-300"
+      @click.prevent="smoothScroll">
+      {{title}}
+    </a>
+  {{/each}}
+</nav>

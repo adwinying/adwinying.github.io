@@ -1,46 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>404! - iAdwin</title>
-	<meta charset="utf-8">
-	<meta name="title" content="iAdwin" />
-	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></meta>
-	<meta content="text/css" http-equiv="Content-Style-Type"></meta>
-	<meta content="text/javascript" http-equiv="Content-Script-Type"></meta>
+  <meta charset="UTF-8" />
+  <title>404 - iAdwin</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Landing page of Adwin Ying." />
+  <meta name="title" content="iAdwin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The landing page of Adwin Ying." />
+  <meta name="author" content="Adwin Ying">
+  <meta content="http://iAdw.in" property="og:url" />
 
-	<meta content="http://iAdw.in" property="og:url" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192">
-	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-	<link rel="canonical" href="http://iAdw.in" />
-	<meta name="author" content="Adwin Ying">
-
-	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet" type="text/css">
-	<link href="css/normalize.css" rel="stylesheet" type="text/css">
-	
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-	<!-- FontAwesome -->
-	<script src="https://use.fontawesome.com/22c74b36da.js"></script>
-
-	<!-- Custom stylesheet -->
-	<link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://iAdw.in" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap">
 </head>
 
-<body>
-	<div class="section" id="not-found">
-		<div class="container-fluid">
-			<h2>iADWIN</h2>
-			<h1>404!</h1>
-			<h3>[Page Not Found]</h3>
-			<p>The page you're looking for could not be found. Perhaps you would like to go back to the <a href="/">main page</a>?</p>
-		</div>
-	</div>
+<body class="font-sans">
+  {{> not_found }}
+
+  <script type="module">import './style.css'</script>
 </body>
+
 </html>
