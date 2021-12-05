@@ -7,9 +7,9 @@ export default function ReactCounter() {
 
   return (
     <div id="react" className="counter">
-      <button onClick={subtract}>-</button>
+      <button type="button" onClick={subtract}>-</button>
       <pre>{count}</pre>
-      <button onClick={add}>+</button>
+      <button type="button" onClick={add}>+</button>
     </div>
   );
 }
