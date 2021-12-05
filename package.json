@@ -1,19 +1,16 @@
 {
-  "version": "0.0.0",
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.0",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4",
-    "vite": "^2.4.0",
-    "vite-plugin-handlebars": "^1.6.0"
-  },
-  "dependencies": {
-    "alpinejs": "^3.2.1",
-    "smoothscroll-polyfill": "^0.4.4"
+    "@astrojs/renderer-react": "^0.3.1",
+    "@types/react": "^17.0.37",
+    "astro": "^0.21.10"
   }
 }
