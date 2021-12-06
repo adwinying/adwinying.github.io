@@ -1,6 +1,6 @@
 ---
 import CommonHead from "@/components/CommonHead.tsx";
-import ReactCounter from '@/components/ReactCounter.tsx';
+import Hero from "@/components/Hero.tsx";
 ---
 
 <html lang="en">
@@ -10,14 +10,7 @@ import ReactCounter from '@/components/ReactCounter.tsx';
 
 <body>
   <main>
-    <header>
-      <div>
-        <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-        <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-      </div>
-    </header>
-
-    <ReactCounter client:visible />
+    <Hero />
   </main>
 </body>
 </html>
