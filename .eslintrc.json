@@ -41,7 +41,9 @@
       "jsx": "never",
       "ts": "never",
       "tsx": "never"
-    }]
+    }],
+    // disable default props validation since we don't use it
+    "react/require-default-props": "off"
   },
   "settings": {
     "import/parsers": {
