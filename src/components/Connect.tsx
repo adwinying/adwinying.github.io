@@ -15,7 +15,12 @@ export default function Connect() {
           grid grid-cols-1 md:grid-cols-3 gap-x-7 gap-y-5"
       >
         {connect.map((item) => (
-          <ButtonIcon href={item.url} icon={item.icon} className="block w-full">
+          <ButtonIcon
+            key={item.url}
+            href={item.url}
+            icon={item.icon}
+            className="block w-full"
+          >
             {item.title}
           </ButtonIcon>
         ))}

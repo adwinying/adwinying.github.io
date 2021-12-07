@@ -24,7 +24,7 @@ export default function Skill({ title, icon, contents }: Props) {
 
       <ul className="space-y-3 text-xl font-light">
         {contents.map((content) => (
-          <li>{content}</li>
+          <li key={content}>{content}</li>
         ))}
       </ul>
     </div>

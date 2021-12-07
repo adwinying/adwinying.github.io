@@ -10,7 +10,7 @@ export default function Skills() {
           md:space-y-0 mx-auto mt-10 max-w-4xl"
       >
         {skills.map(({ title, icon, contents }) => (
-          <Skill title={title} icon={icon} contents={contents} />
+          <Skill key={title} title={title} icon={icon} contents={contents} />
         ))}
       </div>
     </Section>

@@ -9,6 +9,7 @@ export default function NavMobile() {
     >
       {navLinks.map(({ name, url }) => (
         <a
+          key={url}
           className="js-section-link w-full px-4 py-1.5 text-center"
           href={url}
         >

@@ -9,6 +9,7 @@ export default function Projects() {
       <div className="space-y-12 md:space-y-20 mt-10 mb-16 mx-auto max-w-4xl">
         {projects.map(({ title, tags, description, img, url }) => (
           <Project
+            key={title}
             title={title}
             tags={tags}
             description={description}
