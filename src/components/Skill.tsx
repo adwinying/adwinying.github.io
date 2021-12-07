@@ -1,17 +1,9 @@
 import { Skill as SkillType } from "@/data/skills";
-import CodeIcon from "@/components/icons/Code";
-import ServerIcon from "@/components/icons/Server";
-import UserIcon from "@/components/icons/User";
-
-const skillIcons: Record<string, typeof UserIcon> = {
-  user: UserIcon,
-  server: ServerIcon,
-  code: CodeIcon,
-};
+import Icons from "@/components/icons/Icons";
 
 type Props = SkillType & {};
 export default function Skill({ title, icon, contents }: Props) {
-  const SkillIcon = skillIcons[icon];
+  const SkillIcon = Icons[icon];
 
   return (
     <div className="flex-1 relative px-6 py-6 rounded-md border-2 border-black">
