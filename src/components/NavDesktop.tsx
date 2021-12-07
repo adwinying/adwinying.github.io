@@ -10,7 +10,8 @@ export default function NavDesktop() {
         <a
           key={url}
           href={url}
-          className="after:block after:w-0 hover:after:w-full after:-mt-1 after:mx-auto
+          className="js-section-link
+            after:block after:w-0 hover:after:w-full after:-mt-1 after:mx-auto
             after:border-b-2 after:border-black
             after:transition-all after:duration-300"
         >

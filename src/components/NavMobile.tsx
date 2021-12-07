@@ -8,7 +8,10 @@ export default function NavMobile() {
         transition-all ease-in-out transition-duration-500"
     >
       {navLinks.map(({ name, url }) => (
-        <a className="w-full px-4 py-1.5 text-center" href={url}>
+        <a
+          className="js-section-link w-full px-4 py-1.5 text-center"
+          href={url}
+        >
           {name}
         </a>
       ))}
