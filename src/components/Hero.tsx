@@ -8,7 +8,7 @@ export default function Hero() {
       bg-hero-mobile hero:bg-hero bg-cover bg-center bg-no-repeat bg-local"
     >
       {/* Hamburger toggle */}
-      <div className="md:hidden absolute top-4 right-5 w-9 p-2">
+      <div className="js-nav-toggle md:hidden absolute top-4 right-5 w-9 p-2">
         <MenuIcon className="w-full text-white" />
       </div>
 
