@@ -1,5 +1,5 @@
 import Section from "@/components/common/Section";
-import Link from "./common/Link";
+import Link from "@/components/common/Link";
 
 export default function About() {
   return (
