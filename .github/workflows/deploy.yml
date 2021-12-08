@@ -1,14 +1,11 @@
-name: CD
+name: Deploy
 
 on:
-  push:
-    branches:
-      - master
-
+  workflow_call:
   workflow_dispatch:
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Setup node environment
@@ -46,6 +43,10 @@ jobs:
 
       - name: Create CNAME file
         run: echo "iadw.in" >> CNAME
+        working-directory: dist
+
+      - name: Supress default behavior
+        run: touch .nojekyll
         working-directory: dist
 
       - name: Prepare git for commit
