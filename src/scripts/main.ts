@@ -31,9 +31,39 @@ function initSectionLinks() {
   });
 }
 
+// animate section title when visible in viewport
+function initSectionTitle() {
+  const titles = document.querySelectorAll(".js-section-title");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.boundingClientRect.top <= 0) return;
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("after:w-full");
+          entry.target.classList.remove("after:w-0");
+        } else {
+          entry.target.classList.remove("after:w-full");
+          entry.target.classList.add("after:w-0");
+        }
+      });
+    },
+    {
+      rootMargin: "0px 0px -100px 0px",
+      threshold: 1.0,
+    }
+  );
+
+  titles.forEach((title) => {
+    observer.observe(title);
+  });
+}
+
 function main() {
   initMobileNav();
   initSectionLinks();
+  initSectionTitle();
 }
 
 smoothscroll.polyfill();

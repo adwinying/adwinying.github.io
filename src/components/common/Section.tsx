@@ -15,7 +15,7 @@ export default function Section({
 }: Props) {
   return (
     <section id={id} className={`px-7 py-16 md:py-32 ${className}`}>
-      {title && <SectionTitle>{title}</SectionTitle>}
+      {title && <SectionTitle className="mb-8">{title}</SectionTitle>}
 
       {children}
     </section>
