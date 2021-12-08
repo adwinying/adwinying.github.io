@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "ts-check": "tsc --noEmit --project tsconfig.json"
   },
   "devDependencies": {
     "@astrojs/renderer-react": "^0.3.1",
