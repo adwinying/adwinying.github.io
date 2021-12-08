@@ -1,0 +1,67 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup node environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/fermium'
+
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          path: master
+          ref: master
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: master
+
+      - name: Rebuild for production
+        run: npm run build
+        working-directory: master
+
+      - name: Checkout dist branch
+        uses: actions/checkout@v2
+        with:
+          path: dist
+          ref: dist
+
+      - name: Clean dist contents
+        run: rm -rf *
+        working-directory: dist
+
+      - name: Copy new dist contents
+        run: cp -r "$GITHUB_WORKSPACE/master/dist"/* .
+        working-directory: dist
+
+      - name: Create CNAME file
+        run: echo "iadw.in" >> CNAME
+        working-directory: dist
+
+      - name: Prepare git for commit
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        working-directory: dist
+
+      - name: Stage built assets
+        run: git add .
+        working-directory: dist
+
+      - name: Commit built assets
+        run: git commit -m "Updating site from commit $GITHUB_SHA"
+        working-directory: dist
+
+      - name: Push built assets
+        run: git push
+        working-directory: dist

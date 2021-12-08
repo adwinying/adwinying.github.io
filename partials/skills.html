@@ -1,0 +1,13 @@
+<!-- Skills -->
+{{#> common/section id="skills" }}
+  {{#> common/section_title }}
+    Skills
+  {{/common/section_title}}
+
+  <div class="md:flex md:items-stretch md:space-x-7 space-y-16 md:space-y-0
+    mx-auto mt-10 max-w-4xl">
+    {{#each skills}}
+      {{> components/skills_container this }}
+    {{/each}}
+  </div>
+{{/common/section}}
