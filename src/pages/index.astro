@@ -1,0 +1,39 @@
+---
+import CommonHead from "@/components/CommonHead.tsx";
+import NavMobile from "@/components/NavMobile.tsx";
+import Hero from "@/components/Hero.tsx";
+import NavDesktop from "@/components/NavDesktop.tsx";
+import About from "@/components/About.tsx";
+import Skills from "@/components/Skills.tsx";
+import Projects from "@/components/Projects.tsx";
+import Connect from "@/components/Connect.tsx";
+import Footer from "@/components/Footer.tsx";
+---
+
+<html lang="en">
+<head>
+  <CommonHead />
+</head>
+
+<body>
+  <main>
+    <NavMobile />
+
+    <Hero />
+
+    <NavDesktop />
+
+    <About />
+
+    <Skills />
+
+    <Projects />
+
+    <Connect />
+
+    <Footer />
+  </main>
+
+  <script src={Astro.resolve("../scripts/main.ts")} type="module" async defer />
+</body>
+</html>

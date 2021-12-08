@@ -1,0 +1,12 @@
+{
+  "include": ["**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "paths": {
+      "@/*": ["src/*"],
+    }
+  }
+}
