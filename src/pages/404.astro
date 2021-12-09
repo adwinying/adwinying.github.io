@@ -1,20 +1,16 @@
 ---
-import CommonHead from "@/components/CommonHead.tsx";
+import BaseLayout from "@/layouts/base.astro";
 import Header from "@/components/Header.tsx";
 import NotFound from "@/components/NotFound.tsx";
 import Footer from "@/components/Footer.tsx";
 ---
 
-<html lang="en">
-<head>
-  <CommonHead title="Not Found" />
-</head>
+<BaseLayout>
+  <div class="flex flex-col bg-gray-50 min-h-screen">
+    <Header />
 
-<body class="flex flex-col bg-gray-50 min-h-screen">
-  <Header />
+    <NotFound />
 
-  <NotFound />
-
-  <Footer />
-</body>
-</html>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,5 +1,5 @@
 ---
-import CommonHead from "@/components/CommonHead.tsx";
+import BaseLayout from "@/layouts/base.astro";
 import NavMobile from "@/components/NavMobile.tsx";
 import Hero from "@/components/Hero.tsx";
 import NavDesktop from "@/components/NavDesktop.tsx";
@@ -10,12 +10,7 @@ import Connect from "@/components/Connect.tsx";
 import Footer from "@/components/Footer.tsx";
 ---
 
-<html lang="en">
-<head>
-  <CommonHead />
-</head>
-
-<body>
+<BaseLayout>
   <main>
     <NavMobile />
 
@@ -35,5 +30,4 @@ import Footer from "@/components/Footer.tsx";
   </main>
 
   <script src={Astro.resolve("../scripts/main.ts")} type="module" async defer />
-</body>
-</html>
+</BaseLayout>

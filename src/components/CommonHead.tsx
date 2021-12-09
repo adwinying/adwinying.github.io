@@ -1,5 +1,3 @@
-import "@/styles/global.css";
-
 type Props = {
   title?: string;
   description?: string;
