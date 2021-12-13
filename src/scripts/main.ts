@@ -50,7 +50,7 @@ function initSectionTitle() {
       });
     },
     {
-      rootMargin: "0px 0px -100px 0px",
+      rootMargin: "0px 0px -200px 0px",
       threshold: 1.0,
     }
   );
