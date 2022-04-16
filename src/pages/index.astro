@@ -29,5 +29,6 @@ import Footer from "@/components/Footer.tsx";
     <Footer />
   </main>
 
-  <script src={Astro.resolve("../scripts/main.ts")} type="module" async defer />
 </BaseLayout>
+
+<script async defer hoist type="module">import "@/scripts/main.ts";</script>
