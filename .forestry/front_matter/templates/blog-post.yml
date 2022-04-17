@@ -1,4 +1,55 @@
 ---
 label: Blog post
 hide_body: false
-fields: []
+fields:
+- name: layout
+  type: text
+  config:
+    required: true
+  label: Layout
+  description: Layout to use to display blog post
+  hidden: true
+  default: "@/layouts/blogpost.astro"
+- name: draft
+  type: boolean
+  label: Draft
+  description: Is this blog post a draft?
+  default: true
+- name: thumbnail
+  type: file
+  config:
+    maxSize: 64
+  label: Featured Image
+  description: Featured image of blog post
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: Blog post title
+- name: date
+  type: datetime
+  label: Published At
+  description: Timestamp of post published at
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+  description: Tags for blog post
+- name: excerpt
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+    max: 160
+  label: Excerpt
+  description: Blog post excerpt
