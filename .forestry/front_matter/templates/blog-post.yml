@@ -24,7 +24,7 @@ fields:
 - name: title
   type: text
   config:
-    required: false
+    required: true
   label: Title
   description: Blog post title
 - name: date
