@@ -1,0 +1,17 @@
+---
+import CommonHead from "@/components/CommonHead.tsx";
+
+const { title } = Astro.props
+---
+
+<html lang="en">
+<head>
+  <CommonHead title={title} />
+
+  <slot name="head" />
+</head>
+
+<body>
+  <slot />
+</body>
+</html>
