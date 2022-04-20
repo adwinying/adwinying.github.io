@@ -17,7 +17,7 @@ excerpt: excerpt goes here.
 
 The quick brown fox jumps over the lazy dog.
 
-![test alt](src/uploads/cb6d779b-cc42-4eb2-9719-42e4989642bd.png "this is an image caption")
+![test alt](/src/uploads/cb6d779b-cc42-4eb2-9719-42e4989642bd.png "this is an image caption")
 
 ```js
 const test = (a, b) => a + b
