@@ -1,6 +1,6 @@
 ---
 layout: "@/layouts/blogpost.astro"
-draft: false
+draft: true
 date: 2022-04-18T04:47:18.000+09:00
 tags:
 - some
