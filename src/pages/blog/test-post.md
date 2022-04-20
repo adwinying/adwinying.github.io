@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/blogpost.astro"
-draft: true
-date: 2022-04-18T04:47:18+09:00
+draft: false
+date: 2022-04-18T04:47:18.000+09:00
 tags:
 - some
 - test
@@ -20,3 +20,9 @@ The quick brown fox jumps over the lazy dog.
 ![asdasd](https://images.unsplash.com/photo-1610397648930-477b8c7f0943?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1030&q=80) 
 
 ![](src/uploads/cb6d779b-cc42-4eb2-9719-42e4989642bd.png)
+
+jdoasijdow
+
+dqweqwe
+
+qwe
