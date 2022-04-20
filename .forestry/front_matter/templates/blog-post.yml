@@ -52,6 +52,7 @@ pages:
 - src/pages/blog/enabling-https-in-a-ghost-docker-environment.md
 - src/pages/blog/how-to-install-phpcd-plugin-for-vim.md
 - src/pages/blog/how-to-set-up-bridge-networking-with-a-wireless-interface-in-kvm.md
+- src/pages/blog/how-to-set-up-file-backups-with-kopia-rclone.md
 - src/pages/blog/implementing-password-reset-via-api-in-laravel.md
 - src/pages/blog/kitchen-sink.md
 - src/pages/blog/my-experience-with-vfio-single-gpu-passthrough.md
