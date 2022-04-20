@@ -57,3 +57,4 @@ pages:
 - src/pages/blog/kitchen-sink.md
 - src/pages/blog/my-experience-with-vfio-single-gpu-passthrough.md
 - src/pages/blog/prevent-ubuntu-server-from-going-to-sleep-when-laptop-lid-is-closed.md
+- src/pages/blog/setting-up-port-forwarding-on-an-oracle-cloud-instance.md
