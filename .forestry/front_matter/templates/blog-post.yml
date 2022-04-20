@@ -49,5 +49,6 @@ fields:
   label: Excerpt
 pages:
 - src/pages/blog/creating-a-docker-image-for-laravel-from-scratch.md
+- src/pages/blog/enabling-https-in-a-ghost-docker-environment.md
 - src/pages/blog/implementing-password-reset-via-api-in-laravel.md
 - src/pages/blog/kitchen-sink.md
