@@ -48,4 +48,4 @@ fields:
     max: 160
   label: Excerpt
 pages:
-- src/pages/blog/test-post.md
+- src/pages/blog/kitchen-sink.md
