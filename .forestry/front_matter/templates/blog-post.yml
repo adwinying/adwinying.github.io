@@ -48,4 +48,5 @@ fields:
     max: 160
   label: Excerpt
 pages:
+- src/pages/blog/creating-a-docker-image-for-laravel-from-scratch.md
 - src/pages/blog/kitchen-sink.md
