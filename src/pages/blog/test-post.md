@@ -21,6 +21,11 @@ The quick brown fox jumps over the lazy dog.
 
 ![](src/uploads/cb6d779b-cc42-4eb2-9719-42e4989642bd.png)
 
+```js
+const test = (a, b) => a + b
+const aLongString = 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.'
+```
+
 jdoasijdow
 
 dqweqwe
