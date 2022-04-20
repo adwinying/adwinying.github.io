@@ -11,4 +11,16 @@ export default defineConfig({
     port: 3000,
   },
   integrations: [react(), tailwind()],
+  markdown: {
+    remarkPlugins: [
+      "remark-gfm",
+      ["@fec/remark-images", { elasticContainer: false }],
+    ],
+    rehypePlugins: ["rehype-slug"],
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "nord",
+      wrap: false,
+    },
+  },
 });

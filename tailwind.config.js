@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+        serif: ["Georgia", ...defaultTheme.fontFamily.serif],
         title: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: () => ({
@@ -24,5 +25,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

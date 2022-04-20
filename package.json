@@ -13,6 +13,8 @@
   "devDependencies": {
     "@astrojs/react": "^0.1.0",
     "@astrojs/tailwind": "^0.2.0",
+    "@fec/remark-images": "^0.6.0-alpha",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
@@ -29,6 +31,8 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "2.5.1",
     "react-dom": "^18.0.0",
+    "rehype-slug": "^5.0.1",
+    "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
