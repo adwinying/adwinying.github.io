@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2022-04-07T00:03:18+09:00
+date: 2022-04-07T00:03:18.000+09:00
 tags:
 - oracle
 - cloud
@@ -11,6 +10,7 @@ tags:
 thumbnail: ''
 title: Setting up Port Forwarding on an Oracle Cloud Instance
 excerpt: The troubles of port forwarding using an Oracle Cloud instance.
+slug: setting-up-port-forwarding-on-an-oracle-cloud-instance
 
 ---
 Earlier this year, I came across Oracle Cloud's generous free ARM compute resources (up to 4CPU and 24GB RAM). It sounded too good to be true, but I tried running a couple of services on an instance and it seemed to work pretty well. In fact, I was wondering why I should pay $5/month for a Vultr VPS when this is free...

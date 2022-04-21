@@ -6,8 +6,8 @@ webhook_url:
 sections:
 - type: directory
   path: src/posts
-  label: Blog
-  create: all
+  label: Posts
+  create: documents
   match: "**/*"
   templates:
   - blog-post

@@ -20,7 +20,7 @@ fields:
 - name: slug
   type: text
   config:
-    required: false
+    required: true
   label: Slug
 - name: date
   type: datetime
@@ -45,3 +45,15 @@ fields:
       format: markdown
     max: 160
   label: Excerpt
+pages:
+- src/posts/2000-01-01-kitchen-sink.md
+- src/posts/2018-03-05-creating-a-docker-image-for-laravel-from-scratch.md
+- src/posts/2018-08-26-implementing-password-reset-via-api-in-laravel.md
+- src/posts/2018-09-01-enabling-https-in-a-ghost-docker-environment.md
+- src/posts/2018-11-05-how-to-install-phpcd-plugin-for-vim.md
+- src/posts/2021-02-06-my-experience-with-vfio-single-gpu-passthrough.md
+- src/posts/2022-01-22-how-to-set-up-bridge-networking-with-a-wireless-interface-in-kvm.md
+- src/posts/2022-01-30-how-to-set-up-file-backups-with-kopia-rclone.md
+- src/posts/2022-01-30-prevent-ubuntu-server-from-going-to-sleep-when-laptop-lid-is-closed.md
+- src/posts/2022-04-07-setting-up-port-forwarding-on-an-oracle-cloud-instance.md
+- src/posts/2022-04-15-word-processors-suck-at-formatting-use-html-instead.md

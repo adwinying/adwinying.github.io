@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2021-02-06T23:30:12+09:00
+date: 2021-02-06T23:30:12.000+09:00
 tags:
 - vfio
 - vm
@@ -12,6 +11,7 @@ tags:
 thumbnail: ''
 title: My Experience with VFIO + Single GPU Passthrough
 excerpt: Summed up my experience setting up VFIO on an Arch Linux desktop.
+slug: my-experience-with-vfio-single-gpu-passthrough
 
 ---
 ## Desktop Specs

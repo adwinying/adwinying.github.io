@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
 date: 2000-01-01T00:00:00.000+09:00
 tags:
@@ -8,6 +7,7 @@ tags:
 - tag
 thumbnail: /src/uploads/3600fd0b-416f-4ff6-a026-aa06007ffc5b.png
 title: Kitchen Sink
+slug: kitchen-sink
 excerpt: excerpt goes here.
 
 ---

@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2018-11-05T23:23:18+09:00
+date: 2018-11-05T23:23:18.000+09:00
 tags:
 - tutorial
 - vim
@@ -10,6 +9,7 @@ tags:
 thumbnail: ''
 title: How to Install phpcd Plugin for vim
 excerpt: ''
+slug: how-to-install-phpcd-plugin-for-vim
 
 ---
 [phpcd](https://github.com/lvht/phpcd.vim) is a autocompletion plugin for vim. It integrates well with [deoplete](https://github.com/Shougo/deoplete.nvim#configuration), providing useful suggestions when coding in php.

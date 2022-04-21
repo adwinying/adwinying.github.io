@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2022-01-30T23:56:51+09:00
+date: 2022-01-30T23:56:51.000+09:00
 tags:
 - tutorial
 - backup
@@ -10,6 +9,7 @@ tags:
 thumbnail: ''
 title: How to set up File Backups with Kopia + Rclone
 excerpt: ''
+slug: how-to-set-up-file-backups-with-kopia-rclone
 
 ---
 I was attempting to restore my backups from [Duplicati](https://duplicati.com) but it kept failing for unknown reasons. Fortunately it was just a test and I still had my original copy intact. A quick search seems to show people have been moving away from duplicati in favor of other solutions like [Duplicacy](https://duplicacy.com) and [Restic](https://restic.net). Many people had vouched for [Kopia](https://kopia.io) so I tried it out.

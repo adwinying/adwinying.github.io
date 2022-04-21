@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2018-03-05T01:00:00+09:00
+date: 2018-03-05T01:00:00.000+09:00
 tags:
 - docker
 - laravel
@@ -10,6 +9,7 @@ tags:
 thumbnail: ''
 title: Creating a Docker image for Laravel from scratch
 excerpt: How to make a docker image from scratch for Laravel.
+slug: creating-a-docker-image-for-laravel-from-scratch
 
 ---
 ## Background

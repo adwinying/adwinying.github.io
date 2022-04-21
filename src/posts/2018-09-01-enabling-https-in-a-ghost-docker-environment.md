@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2018-09-01T23:10:16+09:00
+date: 2018-09-01T23:10:16.000+09:00
 tags:
 - docker
 - ghost
@@ -9,6 +8,7 @@ tags:
 thumbnail: ''
 title: Enabling HTTPS in a Ghost + Docker environment
 excerpt: How to enable HTTPS for ghost's docker image.
+slug: enabling-https-in-a-ghost-docker-environment
 
 ---
 So I have a [Ghost](https://ghost.org) blog running on top of [Docker](https://www.docker.com/) on a [DigitalOcean](https://www.digitalocean.com/) cloud server. One fine day, I got an email from ghost announcing Ghost v2 is out. Since I'm a sucker for shiny new things I attempted to upgrade and see what's the fuss is all about. But that's not the main point.

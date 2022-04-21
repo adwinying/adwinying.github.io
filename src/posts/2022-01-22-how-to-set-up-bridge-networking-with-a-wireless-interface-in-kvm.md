@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2022-01-22T23:36:29+09:00
+date: 2022-01-22T23:36:29.000+09:00
 tags:
 - tutorial
 - kvm
@@ -12,6 +11,7 @@ tags:
 thumbnail: ''
 title: How to set up Bridge Networking with a Wireless Interface in KVM
 excerpt: ''
+slug: how-to-set-up-bridge-networking-with-a-wireless-interface-in-kvm
 
 ---
 By default, KVM sets up a NAT network for guest VMs. This is fine for most use cases, but I wanted to access the guest VMs via my local network. Bridge networks allow guest VMs to obtain an IP address on the local network's subnet, which allows any device on the network to communicate directly with the guest VM.

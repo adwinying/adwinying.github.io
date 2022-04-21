@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2022-04-15T00:13:27+09:00
+date: 2022-04-15T00:13:27.000+09:00
 tags:
 - word-processing
 - markdown
@@ -10,6 +9,7 @@ tags:
 thumbnail: ''
 title: Word Processors suck at formatting, use HTML instead
 excerpt: Ditch your word processor and use HTML instead for that pixel perfect formatting.
+slug: word-processors-suck-at-formatting-use-html-instead
 
 ---
 After getting burnt for the nth time, I gave up on word processors and created documents in HTML instead.
@@ -18,33 +18,33 @@ After getting burnt for the nth time, I gave up on word processors and created d
 
 ### Word processors cannot guarantee formatting
 
-With Microsoft's introduction of the XML document format (`.docx`, `.xlsx`  etc.) formatting issues were largely fixed, but the vendor lock-in  still remains. Google Docs and other open source alternatives like  LibreOffice have offered Microsoft Office documents still the beginning  but they can't seem to perfectly parse Office files.
+With Microsoft's introduction of the XML document format (`.docx`, `.xlsx` etc.) formatting issues were largely fixed, but the vendor lock-in still remains. Google Docs and other open source alternatives like LibreOffice have offered Microsoft Office documents still the beginning but they can't seem to perfectly parse Office files.
 
 I mean, if these programs could reproduce it down to the pixel we wouldn't need PDFs am I right?
 
 ### HTML is great at reproducing layouts and design
 
-Websites have been able to achieve consistent design throughout different  browsers, thanks to common web standards. We can take advantage of this  feature by producing consistent looking documents that are independent  of software (ie. web browsers) and hardware.
+Websites have been able to achieve consistent design throughout different browsers, thanks to common web standards. We can take advantage of this feature by producing consistent looking documents that are independent of software (ie. web browsers) and hardware.
 
 ### Get a web version of your document for free
 
-HTML files are well, made for the web so you can optimize your document to  be not just readable for printing but also for web browsers too. Imagine  a resume document that is readable on the web and looks good when  printed out as well!
+HTML files are well, made for the web so you can optimize your document to be not just readable for printing but also for web browsers too. Imagine a resume document that is readable on the web and looks good when printed out as well!
 
 ### Version management is a breeze
 
-If you put the HTML file in a version management system like Git, you can  easily track changes made to an HTML file and roll back changes if  necessary.
+If you put the HTML file in a version management system like Git, you can easily track changes made to an HTML file and roll back changes if necessary.
 
 ## What about Markdown?
 
-When it comes to documents for the common folk, Markdown seems to be an  obvious choice thanks to its easy to understand syntax. However,  formatting isn't included in Markdown and different parsers have  different styles, making it hard to change parsers if needed.
+When it comes to documents for the common folk, Markdown seems to be an obvious choice thanks to its easy to understand syntax. However, formatting isn't included in Markdown and different parsers have different styles, making it hard to change parsers if needed.
 
 ## Setting up HTML to create documents
 
-HTML without styling looks pretty bad and the base styling is inconsistent  between browsers. Hence we need a bit of preparation before we can  start:
+HTML without styling looks pretty bad and the base styling is inconsistent between browsers. Hence we need a bit of preparation before we can start:
 
 ### Install TailwindCSS
 
-[TailwindCSS](https://tailwindcss.com/),  currently my favorite CSS framework does not come with styling for any  tags by default, making it easy to style the document the way you want  it. However, setting up styles for headings and paragraphs from scratch  is a pain in the butt so I added [TailwindCSS's typography plugin](https://tailwindcss.com/docs/typography-plugin), which provides excellent styling for text right out of the box.
+[TailwindCSS](https://tailwindcss.com/), currently my favorite CSS framework does not come with styling for any tags by default, making it easy to style the document the way you want it. However, setting up styles for headings and paragraphs from scratch is a pain in the butt so I added [TailwindCSS's typography plugin](https://tailwindcss.com/docs/typography-plugin), which provides excellent styling for text right out of the box.
 
 As I prefer to have my documents to be self-contained in a single file for portability, I use [TailwindCSS's Play CDN](https://tailwindcss.com/docs/installation/play-cdn) method to install it, just by adding a single line into the `<head>` tag of your HTML file:
 
@@ -54,7 +54,7 @@ As I prefer to have my documents to be self-contained in a single file for porta
 
 ### Install Google Fonts
 
-As  we can't guarantee that the fonts we use in a document is available on  all machines, we use web fonts to ensure the typography remains  consistent regardless of machine used. After selecting a font, we import  the stylesheet and overwrite TailwindCSS's default font CSS rules like  this:
+As we can't guarantee that the fonts we use in a document is available on all machines, we use web fonts to ensure the typography remains consistent regardless of machine used. After selecting a font, we import the stylesheet and overwrite TailwindCSS's default font CSS rules like this:
 
 ```html
 <link
@@ -84,7 +84,7 @@ I also defined three additional rules; `max-w` and `mx-auto` to recreate the wid
 
 ### Optimizing for print
 
-Sometimes  the document may look broken on the print preview page. We can fix this  by defining additional classes just for print using the `print:` prefix class:
+Sometimes the document may look broken on the print preview page. We can fix this by defining additional classes just for print using the `print:` prefix class:
 
 ```html
 <a class="print:no-underline" href="https://iAdw.in">https://iAdw.in</a>
@@ -142,8 +142,8 @@ Combining everything above, here's a template to get started making documents in
 </head>
 
 <body class="max-w-3xl mx-5 sm:mx-auto my-8 prose prose-neutral
-    dark:prose-invert dark:bg-neutral-900
-    print:my-0">
+  dark:prose-invert dark:bg-neutral-900
+  print:my-0">
 
   <h1>My Document</h1>
 

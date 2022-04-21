@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/blogpost.astro"
 draft: true
-date: 2018-08-26T22:55:38+09:00
+date: 2018-08-26T22:55:38.000+09:00
 tags:
 - laravel
 - php
@@ -11,6 +10,7 @@ tags:
 thumbnail: ''
 title: Implementing Password Reset via API in Laravel
 excerpt: How to implement password reset via API in Laravel.
+slug: implementing-password-reset-via-api-in-laravel
 
 ---
 I recently implemented [Laravel Passport](https://laravel.com/docs/5.6/passport) in a Laravel project that utilizes [Vue.js](https://vuejs.org/). This project also requires a password reset feature. The bad news is, Laravel's built in password reset feature was only meant for conventional blade templates. However, the good news is most of the password reset features could still be used with a few modifications.
