@@ -35,7 +35,7 @@ export default function commonHead(props: Props) {
       />
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
       />
     </>
   );
