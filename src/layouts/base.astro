@@ -1,12 +1,12 @@
 ---
 import CommonHead from "@/components/CommonHead.tsx";
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <html lang="en">
 <head>
-  <CommonHead title={title} />
+  <CommonHead title={title} description={description} />
 
   <slot name="head" />
 </head>
