@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import BlogHeader from "@/components/BlogHeader.tsx";
+import BlogPost from "@/components/BlogPost.tsx";
+import Footer from "@/components/Footer.tsx";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("/src/posts/*.md");
+  const filteredPosts = posts.filter(({ frontmatter }) => (
+    process.env.NODE_ENV === "development" || !frontmatter.draft
+  ));
+
+  return filteredPosts.map((post) => ({
+    params: { slug: post.frontmatter.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { frontmatter, Content } = post;
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}>
+  <BlogHeader />
+
+  <BlogPost {...frontmatter}>
+    <Content />
+  </BlogPost>
+
+  <Footer />
+</BaseLayout>

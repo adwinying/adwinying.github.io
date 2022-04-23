@@ -20,6 +20,9 @@ module.exports = {
       screens: {
         hero: "800px",
       },
+      maxWidth: {
+        blog: "46rem",
+      },
     },
   },
   variants: {
