@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import BlogHeader from "@/components/BlogHeader.tsx";
+import TagIndex from "@/components/TagIndex.tsx";
+import Footer from "@/components/Footer.tsx";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("/src/posts/*.md");
+  const filteredPosts = posts.filter(({ frontmatter }) => (
+    process.env.NODE_ENV === "development" || !frontmatter.draft
+  ));
+
+  const tagMap = {};
+
+  filteredPosts.forEach(({ frontmatter }) => {
+    const { title, date, slug, tags } = frontmatter;
+
+    tags.forEach((tag) => {
+      const tagPosts = tagMap[tag] ?? [];
+
+      tagMap[tag] = [
+        ...tagPosts,
+        { title, date, slug, tags },
+      ];
+    })
+  })
+
+  return Object.entries(tagMap).map(([tag, posts]) => ({
+    params: { tag },
+    props: { posts },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts Tagged ${tag}`}
+  description={`A list of posts that are tagged with ${tag}`}>
+  <BlogHeader />
+
+  <TagIndex className="mt-4 mb-12 flex-grow" tag={tag} posts={posts} />
+
+  <Footer />
+</BaseLayout>
