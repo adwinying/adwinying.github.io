@@ -10,7 +10,7 @@ tags:
 - vm
 thumbnail: ''
 title: How to set up Bridge Networking with a Wireless Interface in KVM
-excerpt: ''
+excerpt: If you want your VMs to have IP addresses in the same subnet as your local network.
 slug: how-to-set-up-bridge-networking-with-a-wireless-interface-in-kvm
 
 ---
