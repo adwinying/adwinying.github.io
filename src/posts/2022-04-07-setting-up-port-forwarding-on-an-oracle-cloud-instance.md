@@ -21,7 +21,7 @@ So, I took the plunge and tried to migrate my tunnel server from Vultr to Oracle
 
 Traditional cloud services gives you a lot more control over your VM's network, so does Oracle Cloud. By default, all ports except 22 (SSH) are closed, and you need to explicitly state which ports to open for the VM.
 
-![Oracle Cloud compute instance ingress rules](/src/uploads/ingress-rules.png "Configure ingress rules for the virtual cloud network your VM instance is under")
+![Oracle Cloud compute instance ingress rules](/uploads/ingress-rules.png "Configure ingress rules for the virtual cloud network your VM instance is under")
 
 ## Updating iptable rules to the correct physical interface
 

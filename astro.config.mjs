@@ -16,7 +16,14 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       "remark-gfm",
-      ["@fec/remark-images", { elasticContainer: false }],
+      [
+        "@fec/remark-images",
+        {
+          elasticContainer: false,
+          srcDir: "./public",
+          targetDir: "./public",
+        },
+      ],
     ],
     rehypePlugins: ["rehype-slug"],
     syntaxHighlight: "shiki",

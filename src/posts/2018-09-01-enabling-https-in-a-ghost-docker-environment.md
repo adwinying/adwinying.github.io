@@ -15,7 +15,7 @@ So I have a [Ghost](https://ghost.org) blog running on top of [Docker](https://w
 
 As you may guessed from the title, I 1-uped the difficulty by attempting to add HTTPS support as well. I tried to do so when setting up the blog initially but decided setting it up was plenty and decided to call it a day. Furthermore, as Chrome [doesn't wanna play nice with non-HTTPS sites](https://www.theverge.com/2018/2/8/16991254/chrome-not-secure-marked-http-encryption-ssl) in the near future, now couldn't have been a better time to implement HTTPS. This time around, I finally manage to get HTTPS running, or else this blog post wouldn't exist right?
 
-![Browser address bar showing a green lock](/src/uploads/https.png "Having that green lock puts a smile on my face")
+![Browser address bar showing a green lock](/uploads/https.png "Having that green lock puts a smile on my face")
 
 _If you don't really care about how it works and you just want to set it up, the files and setup instructions are up on my_ [_Github_](https://github.com/adwinying/docker-ghost).
 
