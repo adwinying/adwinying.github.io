@@ -1,12 +1,46 @@
 ---
+import { SEO } from "astro-seo";
 import CommonHead from "@/components/CommonHead.tsx";
 
-const { title, description } = Astro.props
+const title = Astro.props.title ?? "iAdwin";
+const pageTitle = Astro.props.title ? `${title} - iAdwin` : title;
+const description = Astro.props.description ?? "The landing page of Adwin Ying.";
+const type = Astro.props.isPost ? "article": "website";
+const image = Astro.site + (Astro.props.image ?? "img/social.jpg");
+
+const seo ={
+  title: pageTitle,
+  description,
+  openGraph: {
+    basic: {
+      title,
+      type,
+      image,
+    },
+    optional: {
+      description,
+    },
+    image: {
+      alt: title,
+    }
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  extend: {
+    meta: [
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { name: "author", content: "Adwin Ying" },
+    ],
+  },
+}
+
 ---
 
 <html lang="en">
 <head>
-  <CommonHead title={title} description={description} />
+  <SEO {...seo} />
+  <CommonHead />
 
   <slot name="head" />
 </head>

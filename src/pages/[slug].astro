@@ -18,11 +18,14 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { frontmatter, Content } = post;
+const { title, excerpt, thumbnail } = frontmatter;
 ---
 
 <BaseLayout
-  title={frontmatter.title}
-  description={frontmatter.description}>
+  title={title}
+  description={excerpt}
+  image={thumbnail}
+  isPost>
   <BlogHeader />
 
   <BlogPost {...frontmatter}>

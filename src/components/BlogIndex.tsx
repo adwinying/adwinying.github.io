@@ -6,7 +6,7 @@ type Props = {
     frontmatter: {
       title: string;
       slug: string;
-      excerpt?: string;
+      excerpt: string;
       date: string;
       tags?: string[];
     };
