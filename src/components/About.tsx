@@ -3,7 +3,7 @@ import Link from "@/components/common/Link";
 
 export default function About() {
   return (
-    <Section id="about" title="About Adwin" className="bg-gray-50">
+    <Section id="about" title="About Adwin">
       <div className="w-44 mx-auto mb-4">
         <img
           src="img/avatar.png"

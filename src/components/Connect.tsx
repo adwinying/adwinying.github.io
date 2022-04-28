@@ -4,7 +4,7 @@ import ButtonIcon from "./common/ButtonIcon";
 
 export default function Connect() {
   return (
-    <Section id="connect" title="Connect">
+    <Section id="connect" title="Connect" className="bg-white">
       <div className="max-w-4xl mx-auto text-gray-800 text-center">
         Connect with Adwin through social media or request a resumé through
         email:

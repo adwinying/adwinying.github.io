@@ -15,7 +15,7 @@ const filteredPosts = posts.filter(({ frontmatter }) => (
   description="A place to gather and sort thoughts.">
   <BlogHeader />
 
-  <BlogIndex className="mt-4 mb-12" posts={filteredPosts} />
+  <BlogIndex className="mt-4 mb-12 flex-grow" posts={filteredPosts} />
 
   <Footer />
 </BaseLayout>

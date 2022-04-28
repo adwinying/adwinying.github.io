@@ -3,7 +3,7 @@ import navLinks from "@/data/navLinks";
 export default function NavDesktop() {
   return (
     <nav
-      className="hidden md:flex justify-center items-center h-[3.75rem]
+      className="hidden md:flex justify-center items-center h-[3.75rem] bg-white
         space-x-20 font-title tracking-wider uppercase"
     >
       {navLinks.map(({ name, url }) => (
