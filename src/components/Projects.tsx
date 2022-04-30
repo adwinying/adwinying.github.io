@@ -6,7 +6,7 @@ import Project from "@/components/Project";
 export default function Projects() {
   return (
     <Section id="projects" title="Featured Projects">
-      <div className="space-y-12 md:space-y-20 mt-10 mb-16 mx-auto max-w-4xl">
+      <div className="mx-auto mt-10 mb-16 max-w-4xl space-y-12 md:space-y-20">
         {projects.map(({ title, tags, description, img, url }) => (
           <Project
             key={title}

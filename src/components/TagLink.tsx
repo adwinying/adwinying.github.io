@@ -7,7 +7,7 @@ export default function TagLink({ className, tag }: Props) {
   return (
     <a
       href={`/tag/${tag}`}
-      className={`text-gray-600 text-sm hover:underline underline-offset-1 ${className}`}
+      className={`text-sm text-gray-600 underline-offset-1 hover:underline ${className}`}
     >
       {tag}
     </a>

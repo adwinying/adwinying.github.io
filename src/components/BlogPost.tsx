@@ -19,17 +19,17 @@ export default function BlogPost({
   children,
 }: Props) {
   return (
-    <article className="mx-auto p-5 pb-9 max-w-blog">
-      <div className="font-sans mb-8">
+    <article className="mx-auto max-w-blog p-5 pb-9">
+      <div className="mb-8 font-sans">
         {thumbnail && (
           <img
-            className="mb-5 w-full aspect-video object-cover"
+            className="mb-5 aspect-video w-full object-cover"
             src={thumbnail}
             alt={title}
           />
         )}
 
-        <h1 className="mb-1 font-bold text-5xl text-gray-900">{title}</h1>
+        <h1 className="mb-1 text-5xl font-bold text-gray-900">{title}</h1>
 
         <span className="inline-block text-sm text-gray-600">
           {Intl.DateTimeFormat("en-GB", {
@@ -43,10 +43,10 @@ export default function BlogPost({
       </div>
 
       <div
-        className="max-w-none font-serif prose prose-lg
+        className="prose prose-lg max-w-none font-serif
           prose-headings:font-sans
-          prose-figcaption:text-center prose-figcaption:text-sm
-          prose-figcaption:font-sans prose-figcaption:-mt-6
+          prose-figcaption:-mt-6 prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm
           prose-img:mx-auto"
       >
         {children}
@@ -54,7 +54,7 @@ export default function BlogPost({
         <hr />
       </div>
 
-      <BlogAuthor className="font-sans text-base mt-14 mb-9" />
+      <BlogAuthor className="mt-14 mb-9 font-sans text-base" />
 
       <Link
         href="/blog"

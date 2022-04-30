@@ -2,8 +2,8 @@ import Link from "@/components/common/Link";
 
 export default function NotFound() {
   return (
-    <main className="flex-grow container mx-auto px-4 py-10 md:py-48">
-      <div className="max-w-4xl mx-auto text-center">
+    <main className="container mx-auto flex-grow px-4 py-10 md:py-48">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="mb-3 font-light">
           <span className="block text-8xl">404!</span>
           <span className="block text-2xl">[Page Not Found]</span>

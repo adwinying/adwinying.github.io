@@ -8,7 +8,7 @@ type Props = {
 export default function BlogAuthor({ className }: Props) {
   return (
     <div
-      className={`flex flex-col sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 space-y-3 ${className}`}
+      className={`flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 ${className}`}
     >
       <div className="w-28 sm:w-32">
         <img
@@ -18,7 +18,7 @@ export default function BlogAuthor({ className }: Props) {
         />
       </div>
 
-      <div className="flex-1 flex flex-col space-y-1">
+      <div className="flex flex-1 flex-col space-y-1">
         <span className="text-2xl font-bold">Adwin Ying</span>
 
         <p className="text-gray-800">

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="py-3 text-gray-50 text-center bg-black">
+    <footer className="bg-black py-3 text-center text-gray-50">
       iAdwin &copy; 2021 Adwin Ying.
     </footer>
   );

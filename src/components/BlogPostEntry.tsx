@@ -11,7 +11,7 @@ export default function BlogPostEntry({ url, title, date, tags = [] }: Props) {
   return (
     <div className="flex flex-col space-y-0.5">
       <a href={url}>
-        <h2 className="font-bold text-gray-900 text-3xl">{title}</h2>
+        <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
       </a>
 
       <span className="inline-block text-sm text-gray-600">

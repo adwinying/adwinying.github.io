@@ -5,19 +5,19 @@ import LinkIcon from "@/components/icons/Link";
 type Props = ProjectType & {};
 export default function Project({ title, tags, description, img, url }: Props) {
   return (
-    <div className="md:flex md:space-x-7 md:items-center">
+    <div className="md:flex md:items-center md:space-x-7">
       <div className="w-full md:w-1/3">
         <img
-          className="w-full border-[3px] border-black rounded-md"
+          className="w-full rounded-md border-[3px] border-black"
           src={`img/${img}`}
           alt={title}
         />
       </div>
 
-      <div className="w-full md:w-2/3 py-5 md:py-0 text-center md:text-left">
+      <div className="w-full py-5 text-center md:w-2/3 md:py-0 md:text-left">
         <h3
-          className="flex justify-center md:justify-start items-center
-            space-x-1 mb-1.5 text-2xl font-light"
+          className="mb-1.5 flex items-center justify-center
+            space-x-1 text-2xl font-light md:justify-start"
         >
           <span>{title}</span>
           <Link href={url} ariaLabel="Preview">
@@ -26,13 +26,13 @@ export default function Project({ title, tags, description, img, url }: Props) {
         </h3>
 
         <div
-          className="flex flex-wrap gap-x-1.5 gap-y-1 justify-center
-            md:justify-start mb-3"
+          className="mb-3 flex flex-wrap justify-center gap-x-1.5
+            gap-y-1 md:justify-start"
         >
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-gray-800 text-white text-sm rounded-full"
+              className="rounded-full bg-gray-800 px-3 py-1 text-sm text-white"
             >
               {tag}
             </span>

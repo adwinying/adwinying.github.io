@@ -13,8 +13,8 @@ type Props = {
 
 export default function TagIndex({ className, tag, posts = [] }: Props) {
   return (
-    <div className={`max-w-blog mx-auto px-5 ${className}`}>
-      <h1 className="mb-6 font-sans font-bold text-4xl">Posts Tagged: {tag}</h1>
+    <div className={`mx-auto max-w-blog px-5 ${className}`}>
+      <h1 className="mb-6 font-sans text-4xl font-bold">Posts Tagged: {tag}</h1>
 
       <BlogPostEntries
         posts={posts

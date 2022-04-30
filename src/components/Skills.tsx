@@ -6,8 +6,8 @@ export default function Skills() {
   return (
     <Section id="skills" title="Skills" className="bg-white">
       <div
-        className="md:flex md:items-stretch md:space-x-7 space-y-16
-          md:space-y-0 mx-auto mt-10 max-w-4xl"
+        className="mx-auto mt-10 max-w-4xl space-y-16 md:flex md:items-stretch
+          md:space-x-7 md:space-y-0"
       >
         {skills.map(({ title, icon, contents }) => (
           <Skill key={title} title={title} icon={icon} contents={contents} />

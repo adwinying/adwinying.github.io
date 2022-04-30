@@ -15,7 +15,7 @@ type Props = {
 
 export default function BlogIndex({ className, posts = [] }: Props) {
   return (
-    <div className={`max-w-blog mx-auto px-5 ${className}`}>
+    <div className={`mx-auto max-w-blog px-5 ${className}`}>
       <BlogPostEntries
         posts={posts
           .sort(

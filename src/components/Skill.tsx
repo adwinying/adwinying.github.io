@@ -6,18 +6,18 @@ export default function Skill({ title, icon, contents }: Props) {
   const SkillIcon = Icons[icon];
 
   return (
-    <div className="flex-1 relative px-6 py-6 rounded-md border-2 border-black">
+    <div className="relative flex-1 rounded-md border-2 border-black px-6 py-6">
       <div
-        className="flex justify-center items-center absolute top-0 left-1/2
-          w-10 h-10 bg-white rounded-full border-2 border-black transform
-          -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-0 left-1/2 flex h-10 w-10 -translate-x-1/2
+          -translate-y-1/2 transform items-center justify-center rounded-full
+          border-2 border-black bg-white"
       >
         <SkillIcon className="h-5" />
       </div>
 
       <h3
-        className="mt-1 mb-4 font-title text-xl text-center tracking-wider
-          uppercase"
+        className="mt-1 mb-4 text-center font-title text-xl uppercase
+          tracking-wider"
       >
         {title}
       </h3>

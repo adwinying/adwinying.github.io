@@ -4,7 +4,7 @@ import Link from "@/components/common/Link";
 export default function About() {
   return (
     <Section id="about" title="About Adwin">
-      <div className="w-44 mx-auto mb-4">
+      <div className="mx-auto mb-4 w-44">
         <img
           src="img/avatar.png"
           srcSet="img/avatar.png, img/avatar-2x.png 2x"
@@ -12,7 +12,7 @@ export default function About() {
         />
       </div>
 
-      <div className="max-w-lg mx-auto text-center">
+      <div className="mx-auto max-w-lg text-center">
         <p className="mb-2 italic">Tokyo, Japan</p>
         <p className="text-gray-800">
           Self-taught full-stack web dev. Speaks English, 中文, Bahasa Melayu,

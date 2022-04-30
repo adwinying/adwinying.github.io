@@ -3,17 +3,17 @@ import navLinks from "@/data/navLinks";
 export default function NavDesktop() {
   return (
     <nav
-      className="hidden md:flex justify-center items-center h-[3.75rem] bg-white
-        space-x-20 font-title tracking-wider uppercase"
+      className="hidden h-[3.75rem] items-center justify-center space-x-20
+        bg-white font-title uppercase tracking-wider md:flex"
     >
       {navLinks.map(({ name, url }) => (
         <a
           key={url}
           href={url}
           className="js-section-link
-            after:block after:w-0 hover:after:w-full after:-mt-1 after:mx-auto
-            after:border-b-2 after:border-black
-            after:transition-all after:duration-300"
+            after:mx-auto after:-mt-1 after:block after:w-0 after:border-b-2
+            after:border-black after:transition-all after:duration-300
+            hover:after:w-full"
         >
           {name}
         </a>
