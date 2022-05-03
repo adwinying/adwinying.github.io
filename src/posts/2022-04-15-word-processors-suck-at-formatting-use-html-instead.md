@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: 2022-04-15T00:13:27.000+09:00
 tags:
 - word-processing

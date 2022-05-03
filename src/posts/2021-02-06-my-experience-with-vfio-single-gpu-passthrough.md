@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: 2021-02-06T23:30:12.000+09:00
 tags:
 - vfio
