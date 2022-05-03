@@ -5,7 +5,7 @@ type Props = {
   className?: string;
 };
 
-export default function BlogAuthor({ className }: Props) {
+export default function BlogAuthor({ className = "" }: Props) {
   return (
     <div
       className={`flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 ${className}`}

@@ -3,7 +3,7 @@ type Props = {
   tag: string;
 };
 
-export default function TagLink({ className, tag }: Props) {
+export default function TagLink({ className = "", tag }: Props) {
   return (
     <a
       href={`/tag/${tag}`}

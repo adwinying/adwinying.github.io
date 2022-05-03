@@ -35,7 +35,7 @@ const seo ={
   },
 }
 
-const { className } = Astro.props
+const className = Astro.props.className ?? "";
 ---
 
 <html lang="en">

@@ -6,7 +6,12 @@ type Props = {
   className?: string;
   children?: ReactNode;
 };
-export default function Link({ href, ariaLabel, className, children }: Props) {
+export default function Link({
+  href,
+  ariaLabel,
+  className = "",
+  children,
+}: Props) {
   return (
     <a
       className={`text-blue-400 hover:text-blue-700 ${className}`}

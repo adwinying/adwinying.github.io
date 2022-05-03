@@ -13,7 +13,7 @@ type Props = {
   }[];
 };
 
-export default function BlogIndex({ className, posts = [] }: Props) {
+export default function BlogIndex({ className = "", posts = [] }: Props) {
   return (
     <div className={`mx-auto max-w-blog px-5 ${className}`}>
       <BlogPostEntries

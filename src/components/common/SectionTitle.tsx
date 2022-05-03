@@ -4,7 +4,7 @@ type Props = {
   className?: string;
   children?: ReactNode;
 };
-export default function SectionTitle({ className, children }: Props) {
+export default function SectionTitle({ className = "", children }: Props) {
   return (
     <div className="flex justify-center">
       <h2

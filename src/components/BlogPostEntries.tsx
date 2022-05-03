@@ -10,7 +10,7 @@ type Props = {
   }[];
 };
 
-export default function BlogPostEntries({ className, posts }: Props) {
+export default function BlogPostEntries({ className = "", posts }: Props) {
   return (
     <div className={`flex flex-col space-y-8 ${className}`}>
       {posts.map((post) => (
