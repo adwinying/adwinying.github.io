@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>How to set up File Backups with Kopia + Rclone - iAdwin</title>
+
+<link rel="canonical" href="https://iadw.in/how-to-set-up-file-backups-with-kopia-rclone/">
+
+<meta name="description" content="Incremental file backups with support for multiple free cloud providers.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="How to set up File Backups with Kopia + Rclone">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iadw.in/">
+<meta property="og:url" content="https://iadw.in/how-to-set-up-file-backups-with-kopia-rclone/">
+
+
+<meta property="og:description" content="Incremental file backups with support for multiple free cloud providers.">
+
+
+
+
+
+
+<meta property="og:image:url" content="https://iadw.in/">
+
+
+
+<meta property="og:image:height">
+<meta property="og:image:alt" content="How to set up File Backups with Kopia + Rclone">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Adwin Ying" name="author">
+
+
+  <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
+
+  
+<link rel="stylesheet" href="/assets/asset.c4c0705f.css"></link>
+</head>
+
+<body class="flex flex-col bg-gray-50 min-h-screen ">
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">How to set up File Backups with Kopia + Rclone</h1><span class="inline-block text-sm text-gray-600">30 Jan 2022 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/tutorial" class="text-sm text-gray-600 underline-offset-1 hover:underline ">tutorial</a>, <a href="/tag/backup" class="text-sm text-gray-600 underline-offset-1 hover:underline ">backup</a>, <a href="/tag/kopia" class="text-sm text-gray-600 underline-offset-1 hover:underline ">kopia</a>, <a href="/tag/rclone" class="text-sm text-gray-600 underline-offset-1 hover:underline ">rclone</a></span></div><div class="prose prose-lg max-w-none font-serif
+          prose-headings:font-sans
+          prose-figcaption:-mt-6 prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm
+          prose-img:mx-auto"><p>I was attempting to restore my backups from <a href="https://duplicati.com">Duplicati</a> but it kept failing for unknown reasons. Fortunately it was just a test and I still had my original copy intact. A quick search seems to show people have been moving away from duplicati in favor of other solutions like <a href="https://duplicacy.com">Duplicacy</a> and <a href="https://restic.net">Restic</a>. Many people had vouched for <a href="https://kopia.io">Kopia</a> so I tried it out.</p>
+<p>Kopia is a golang-based backup program. It supports most features that a typical backup solution support, including encrypted backups and incremental backups. Kopia also supports backing up to cloud storage providers via <a href="https://rclone.org">Rclone</a> as well as object storage providers such as AWS's S3.</p>
+<h2 id="setting-up-rclone">Setting up Rclone</h2>
+<p>Before setting up Kopia, we need to first set up Rclone. Rclone enables file syncing between major cloud providers and your local filesystem.</p>
+<p>Rclone can be install via apt but it seems like not all cloud providers are supported. As an alternative I installed Rclone via the bash script that they provided:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ curl https://rclone.org/install.sh </span><span style="color: #81A1C1">|</span><span style="color: #D8DEE9FF"> sudo bash</span></span></code></pre>
+<p>Setting up Rclone is pretty straightforward. Just run the following command and Rclone will guide you through the configuration process.</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ rclone config</span></span></code></pre>
+<p>Rclone saves all the configuration data into <code>~/.config/rclone/rclone.conf</code>.</p>
+<h2 id="setting-up-kopia">Setting up Kopia</h2>
+<p>With Rclone set up, we can proceed to setting up Kopia. First, we install Kopia via <code>apt</code>:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ sudo apt install kopia</span></span></code></pre>
+<p>Then, we create a repository, which we specify the backup destination and also initializes the files required for kopia to keep track of the backup snapshots. In my case, I set up a remote with rclone called <code>mega</code> which uses <a href="https://mega.nz">MEGA</a> as the backup destination, and I wanted to save all the backup data in a directory in MEGA called <code>kopia</code>:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia repository create rclone --remote-path=mega:/kopia</span></span></code></pre>
+<p>We then run the following command to make sure kopia is functioning properly:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia repository validate-provider </span></span></code></pre>
+<p>Kopia comes with pretty sane defaults out of the box. But compression is not enabled by default hence we enable it with the following command:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia policy </span><span style="color: #88C0D0">set</span><span style="color: #D8DEE9FF"> --global --compression=pgzip</span></span></code></pre>
+<p>Kopia provides other compression methods which are <a href="https://kopia.io/docs/advanced/compression/">detailed here</a>.</p>
+<h2 id="creating-a-backup-snapshot">Creating a backup snapshot</h2>
+<p>Creating a snapshot is really simple. All it takes is just a single command:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia snapshot create path/to/backup/dir</span></span></code></pre>
+<p>The first backup takes a while to complete. The time taken to backup varies with the size of the directory and also backup destination. For me a 10GB directory took around 40 minutes.</p>
+<p>Subsequent backups took around 3 minutes as Kopia compares with the existing backup and only re-uploads the difference.</p>
+<h2 id="restoring-a-backup-snapshot">Restoring a backup snapshot</h2>
+<p>Assuming that we're restoring from a different device, we would first need to set up Rclone and Kopia again. Repeat the same setup as before before proceeding.</p>
+<p>Then, we first list out the available snapshots that we had made:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia snapshot list</span></span>
+<span class="line"><span style="color: #D8DEE9FF">adwin@thenas:/home/adwin/testdir                                                           2022-01-26 02:02:16 JST kdee0f71b89c000704fb66ed1810d4c1c 526.1 MB drwxr-xr-x files:12910 dirs:2049 </span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">latest-2..5,daily-2</span><span style="color: #ECEFF4">)</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  + 3 identical snapshots </span><span style="color: #81A1C1">until</span><span style="color: #D8DEE9FF"> 2022-01-26 11:00:06 JST</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  2022-01-30 15:47:03 JST k9240a5a786392e75209476659b9d2bb4 528.1 MB drwxr-xr-x files:12910 dirs:2049 </span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">latest-1,hourly-1,daily-1,weekly-1,monthly-1,annual-1</span><span style="color: #ECEFF4">)</span></span></code></pre>
+<p>We then state the snapshot ID (the string after the timestamp) that we want to restore, along with the restore destination directory:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ kopia snapshot restore kdee0f71b89c000704fb66ed1810d4c1c path/to/restore/dir</span></span></code></pre>
+<p>This method of restore works for small backups, but it takes a significantly long time to restore compared to backup. A 300MB backup took around 45 minutes to restore, which is a bit too long in my opinion.</p>
+<p>However, attempting to restore the 10GB backup kept getting stuck midway. <a href="https://kopia.discourse.group/t/rclone-restores-very-slowly/162/3">This post from the Kopia forums</a> suggests that we first make a local copy of the repository using <code>rclone sync</code> and restore from it:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ rclone sync --transfers=8 -P mega:/kopia path/to/kopiarepo</span></span>
+<span class="line"><span style="color: #D8DEE9FF">$ kopia repo connect filesystem --path path/to/kopiarepo</span></span>
+<span class="line"><span style="color: #D8DEE9FF">$ kopia restore </span><span style="color: #81A1C1">&lt;</span><span style="color: #D8DEE9FF">snapshot id</span><span style="color: #81A1C1">&gt;</span><span style="color: #D8DEE9FF"> path/to/restore/dir</span></span></code></pre>
+<p>I ran <code>rclone sync</code> with 8 simultaneous transfers (8 seems to be the sweet spot) and show the sync progress with <code>-P</code>. <code>rclone sync</code> will resume from where it left off if it got interrupted. I find it really useful as the syncing process tend to get stuck halfway (Most cloud storage providers seems to block downloads if you download too much in a short period of time).</p>
+<h3 id="rclone-sync-with-various-cloud-storage-providers">Rclone sync with various cloud storage providers</h3>
+<p>To see which cloud provider would be suitable for Kopia backups I tested Google Drive, Microsoft OneDrive and MEGA.</p>
+<h4 id="google-drive">Google Drive</h4>
+<p>Google Drive starts off strong (with speeds of ~3MB/s) for around 30 files or so before getting stuck. I recommend downloading from the web interface, which zips the directory contents in chunks of 2GB instead of using <code>rclone sync</code>.</p>
+<h4 id="microsoft-onedrive">Microsoft OneDrive</h4>
+<p>OneDrive only allows 2-4 simultaneous downloads but at pretty high speeds (~3MB/s). However, OneDrive sync sometimes do get stuck, probably due to rate limiting. On one attempt I managed to download a ~5GB repository in 3 minutes.</p>
+<h4 id="mega">MEGA</h4>
+<p>MEGA allows for simulatenous downloads. All 8 transfers were working at the same time, but speeds are limited to ~300KB/s for each download stream.</p>
+<p>Regardless of cloud provider, if you ever get rate limited it is probably better to retry again after a couple of hours.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/img/avatar.png, /img/avatar-2x.png 2x" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-blue-400 hover:text-blue-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-blue-400 hover:text-blue-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><a class="text-blue-400 hover:text-blue-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div><a class="text-blue-400 hover:text-blue-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2021 Adwin Ying.</footer>
+</body></html>

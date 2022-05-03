@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Enabling HTTPS in a Ghost + Docker environment - iAdwin</title>
+
+<link rel="canonical" href="https://iadw.in/enabling-https-in-a-ghost-docker-environment/">
+
+<meta name="description" content="How to enable HTTPS for ghost's docker image.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Enabling HTTPS in a Ghost + Docker environment">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iadw.in/">
+<meta property="og:url" content="https://iadw.in/enabling-https-in-a-ghost-docker-environment/">
+
+
+<meta property="og:description" content="How to enable HTTPS for ghost's docker image.">
+
+
+
+
+
+
+<meta property="og:image:url" content="https://iadw.in/">
+
+
+
+<meta property="og:image:height">
+<meta property="og:image:alt" content="Enabling HTTPS in a Ghost + Docker environment">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Adwin Ying" name="author">
+
+
+  <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
+
+  
+<link rel="stylesheet" href="/assets/asset.c4c0705f.css"></link>
+</head>
+
+<body class="flex flex-col bg-gray-50 min-h-screen ">
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">Enabling HTTPS in a Ghost + Docker environment</h1><span class="inline-block text-sm text-gray-600">01 Sept 2018 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/docker" class="text-sm text-gray-600 underline-offset-1 hover:underline ">docker</a>, <a href="/tag/ghost" class="text-sm text-gray-600 underline-offset-1 hover:underline ">ghost</a>, <a href="/tag/https" class="text-sm text-gray-600 underline-offset-1 hover:underline ">https</a></span></div><div class="prose prose-lg max-w-none font-serif
+          prose-headings:font-sans
+          prose-figcaption:-mt-6 prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm
+          prose-img:mx-auto"><p>So I have a <a href="https://ghost.org">Ghost</a> blog running on top of <a href="https://www.docker.com/">Docker</a> on a <a href="https://www.digitalocean.com/">DigitalOcean</a> cloud server. One fine day, I got an email from ghost announcing Ghost v2 is out. Since I'm a sucker for shiny new things I attempted to upgrade and see what's the fuss is all about. But that's not the main point.</p>
+<p>As you may guessed from the title, I 1-uped the difficulty by attempting to add HTTPS support as well. I tried to do so when setting up the blog initially but decided setting it up was plenty and decided to call it a day. Furthermore, as Chrome <a href="https://www.theverge.com/2018/2/8/16991254/chrome-not-secure-marked-http-encryption-ssl">doesn't wanna play nice with non-HTTPS sites</a> in the near future, now couldn't have been a better time to implement HTTPS. This time around, I finally manage to get HTTPS running, or else this blog post wouldn't exist right?</p>
+<p></p><figure class="remarkri--figure"><picture class="remarkri--picture"><img srcset="/uploads/https-320.png" src="/uploads/https-320.png" alt="Browser address bar showing a green lock" class="remarkri--img" loading="eager"></picture><figcaption class="remarkri--figcaption">Having that green lock puts a smile on my face</figcaption></figure>
+<p><em>If you don't really care about how it works and you just want to set it up, the files and setup instructions are up on my</em> <a href="https://github.com/adwinying/docker-ghost"><em>Github</em></a>.</p>
+<h2 id="ghost-and-https">Ghost and HTTPS</h2>
+<p>So the way Ghost supports HTTPS is via nginx. This is achieved by using a <a href="https://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a>, where nginx would "redirect" a request to the corresponding web service by looking at the host URL. For example, you could have example1.com and example2.com hosting different services on the same machine pointing to the same IP address; and nginx would direct the request to the right service depending on the host URL of the request. It's almost like magic!</p>
+<h2 id="the-barebones-docker--ghost">The Barebones Docker + Ghost</h2>
+<p>To start off, we would use the <a href="https://hub.docker.com/_/ghost/">official</a> Docker image for Ghost. Since entering all the container parameters every time in the command line is a pain in the ass, we would compose a utilize Docker Compose by creating a <code>docker-compose.yml</code> file:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #8FBCBB">version</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&#39;</span><span style="color: #A3BE8C">2</span><span style="color: #ECEFF4">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #8FBCBB">services</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">ghost:2</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">restart</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">always</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">ports</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">2368:2368</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># To persist user data after container has been destroyed</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./content:/var/lib/ghost/content</span></span></code></pre>
+<p>This basically starts the Ghost container, connects the container's port 2368 with the host machine's port 2368 and links the host machines working directory <code>content</code> folder with <code>ghost/content</code> folder, so if any data is created would persist even after the container is destroyed.</p>
+<p>To spin up the instance, just run <code>docker-compose up</code> and when its done you should be able to access it on <a href="http://localhost:2368">http://localhost:2368</a>.</p>
+<h2 id="nginx---the-reverse-proxy-handler">nginx - The reverse proxy handler</h2>
+<p>Next, we're going to set up nginx. Now since we are using Docker, we might as well containerize nginx as well. <a href="https://hub.docker.com/r/jwilder/nginx-proxy/">jwilder's</a> nginx-proxy has provided a very useful nginx image that will detect all the Docker containers and automagically configure the nginx reverse proxy. All we need to do is to define the environmental variables for the containers that we would want to use nginx with.</p>
+<p>In order to set up nginx, we would add the following onto our existing <code>docker-compose.yml</code> file:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">  </span><span style="color: #616E88"># Reverse Proxy container</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">nginx_proxy</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">jwilder/nginx-proxy:latest</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">ports</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># Expose port 80 and 443 to host machine </span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">80:80</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">443:443</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># To monitor the status/events of other docker containers</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/var/run/docker.sock:/tmp/docker.sock:ro</span></span></code></pre>
+<p>In addition, we make additional modifications to the existing Ghost container:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">  </span><span style="color: #616E88"># ghost container</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">ghost:2</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">restart</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">always</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">expose</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># instead of exposing the port directly to host,</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># we expose to only the internal docker network</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&#39;</span><span style="color: #A3BE8C">2368</span><span style="color: #ECEFF4">&#39;</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./content:/var/lib/ghost/content</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">environment</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">url=https://blog.example.com</span><span style="color: #D8DEE9FF">  </span><span style="color: #616E88"># URL value needed by Ghost</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">VIRTUAL_HOST=blog.example.com</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># The domain we want to use</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">depends_on</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre>
+<p>If everything goes well, rerun <code>docker-compose up</code> and you should be able to connect to the Ghost instance from the Docker host by executing the following command:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ curl -H </span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">Host: blog.example.com</span><span style="color: #ECEFF4">&quot;</span><span style="color: #D8DEE9FF"> localhost:80</span></span></code></pre>
+<p>If you see a bunch of HTML tags, then great! Time to set up HTTPS.</p>
+<h2 id="managing-https-certificates">Managing HTTPS certificates</h2>
+<p>In order to set up HTTPS, we need to obtain a certificate from a trusted provider. <a href="https://letsencrypt.org/">Let's Encrypt</a> has been providing free certificates for HTTPS, which is what we will be using. Unfortunately, the certs provided has a pretty short lifespan but with the magic of Docker we can spin up a container to automate this process as well. jcrs' <a href="https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion/#lets-encrypt">letsencrypt-nginx-proxy-companion</a>, as the name suggests, complements the nginx-proxy image by issuing HTTPS certs that could be used by nginx.</p>
+<p><em>NOTE: You'll need an existing domain that supports</em> <a href="https://letsencrypt.org/docs/caa/">CAA</a>.</p>
+<p>So, we add another container in our existing <code>docker-compose.yml</code> file:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #616E88"># Let&#39;s Encrypt SSL Cert Manager container</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ssl_manager</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">jrcs/letsencrypt-nginx-proxy-companion:latest</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># Need to monitor docker containers too</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/var/run/docker.sock:/var/run/docker.sock:ro</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># We create a folder to store the certs</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./ssl_certs/:/etc/nginx/certs:rw</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes_from</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># Allow it to access nginx&#39;s volumes</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">depends_on</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre>
+<p>In addition, we need to make changes to our existing containers as well:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #B48EAD">...</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">environment</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">url=https://blog.example.com</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">VIRTUAL_HOST=blog.example.com</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">LETSENCRYPT_HOST=blog.example.com</span><span style="color: #D8DEE9FF">   </span><span style="color: #616E88"># Host you would like to use, typically same as VIRTUAL_HOST</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">LETSENCRYPT_EMAIL=admin@example.com</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># A valid email so Let&#39;s Encrypt could notify you when your certs are expiring when auto-renewal failed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">nginx_proxy</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #B48EAD">...</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">labels</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># Allow letsencrypt container to identify the nginx_proxy container</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy</span><span style="color: #ECEFF4">&quot;</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/var/run/docker.sock:/tmp/docker.sock:ro</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./ssl_certs:/etc/nginx/certs:ro</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># Allow nginx to read generated certs</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/etc/nginx/vhost.d</span><span style="color: #D8DEE9FF">              </span><span style="color: #616E88"># Directories that letsencrypt container needs to access</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/usr/share/nginx/html</span><span style="color: #D8DEE9FF">           </span><span style="color: #616E88"># Directories that letsencrypt container needs to access</span></span></code></pre>
+<p>Time to see the final results! Rerun <code>docker-compose up -d</code> and allow the containers to work its magic, and if everything goes well you should be able to access your Ghost instance in your web browser with HTTPS via the host URL you defined earlier.</p>
+<h2 id="future-work">Future Work</h2>
+<p>In the server where I host my Docker instances, I also have other projects hosted on the same server without using Docker. Hence, I have apache set up which is running natively on my server in order to direct incoming requests to the correct destination. This results in the need to go through 2 different reverse proxies to reach my ghost instance.</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">Request -&gt; Apache (native install) -&gt; nginx (docker) -&gt; Ghost container</span></span></code></pre>
+<p>This works fine with port 80 HTTP but not port 443 HTTPS. As a workaround I disabled HTTPS on Apache, and allow HTTPS connections to connect directly to the nginx container. A proper fix seems to be to define the certs in the apache install instead of the nginx as mentioned in the <a href="https://ubuntuforums.org/showthread.php?t=2064909">Ubuntu forums</a>. Seems workable and would like to make it happen soon...</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/adwinying/docker-ghost/blob/master/docker-compose.yml">Github repo to this project</a></li>
+<li><a href="https://blog.alexellis.io/your-ghost-blog/">Alex's blog</a></li>
+<li><a href="https://redth.codes/ghost-docker-new-blog/">redth.codes blog</a></li>
+<li><a href="https://hub.docker.com/r/jwilder/nginx-proxy/">Docker Hub: jwilder/nginx-proxy</a></li>
+<li><a href="https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion">Docker Hub: jcrs/letsencrypt-nginx-proxy-companion</a></li>
+<li><a href="https://ubuntuforums.org/showthread.php?t=2064909">Reverse Proxy with HTTPS</a></li>
+</ul><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/img/avatar.png, /img/avatar-2x.png 2x" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-blue-400 hover:text-blue-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-blue-400 hover:text-blue-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><a class="text-blue-400 hover:text-blue-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div><a class="text-blue-400 hover:text-blue-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2021 Adwin Ying.</footer>
+</body></html>
