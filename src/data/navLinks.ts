@@ -20,6 +20,10 @@ const navLinks: NavLink[] = [
     name: "Connect",
     url: "#connect",
   },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
 ];
 
 export default navLinks;

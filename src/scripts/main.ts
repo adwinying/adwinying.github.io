@@ -10,7 +10,7 @@ function initMobileNav() {
     e.preventDefault();
 
     nav?.classList.toggle("h-0");
-    nav?.classList.toggle("h-[147px]");
+    nav?.classList.toggle("h-[184px]");
   });
 }
 
@@ -19,13 +19,16 @@ function initSectionLinks() {
   const links = document.querySelectorAll(".js-section-link");
 
   links.forEach((link) => {
+    const linkEl = link as HTMLAnchorElement;
+    const targetHref = linkEl.getAttribute("href");
+
+    const isHashedLink = targetHref?.substring(0, 1) === "#" ?? false;
+    if (!isHashedLink) return;
+
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const linkEl = e.target as HTMLAnchorElement;
-      const targetHref = linkEl.getAttribute("href");
       const targetEl = document.querySelector(targetHref ?? "");
-
       targetEl?.scrollIntoView({ behavior: "smooth" });
     });
   });
