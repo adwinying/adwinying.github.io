@@ -19,7 +19,7 @@ export default function BlogPost({
   children,
 }: Props) {
   return (
-    <article className="mx-auto max-w-blog p-5 pb-9">
+    <article className="mx-auto w-full max-w-blog p-5 pb-9">
       <div className="mb-8 font-sans">
         {thumbnail && (
           <img
