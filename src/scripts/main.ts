@@ -4,13 +4,16 @@ import smoothscroll from "smoothscroll-polyfill";
 // toggle mobile nav menu on click
 function initMobileNav() {
   const navToggle = document.querySelector(".js-nav-toggle");
-  const nav = document.querySelector(".js-nav");
+  const navWrapper = document.querySelector(".js-nav") as HTMLDivElement;
+  const nav = navWrapper?.querySelector("nav") as HTMLDivElement;
+  const navHeight = nav?.getBoundingClientRect().height;
+  const navHeightInPx = `${navHeight}px`;
 
   navToggle?.addEventListener("click", (e) => {
     e.preventDefault();
 
-    nav?.classList.toggle("h-0");
-    nav?.classList.toggle("h-[184px]");
+    navWrapper.style.paddingBottom =
+      navWrapper.style.paddingBottom === navHeightInPx ? "0px" : navHeightInPx;
   });
 }
 
