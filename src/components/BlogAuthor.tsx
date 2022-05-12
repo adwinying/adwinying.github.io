@@ -30,10 +30,12 @@ export default function BlogAuthor({ className = "" }: Props) {
           <Link href="https://www.reddit.com/r/homelab/">homelab-ing</Link>.
         </p>
 
-        <Link href="/" className="flex space-x-1">
-          <ChainIcon className="w-4" />
-          <span>https://iAdw.in</span>
-        </Link>
+        <div className="flex">
+          <Link href="/" className="flex space-x-1">
+            <ChainIcon className="w-4" />
+            <span>https://iAdw.in</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
