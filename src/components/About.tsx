@@ -6,8 +6,8 @@ export default function About() {
     <Section id="about" title="About Adwin">
       <div className="mx-auto mb-4 w-44">
         <img
-          src="img/avatar.png"
-          srcSet="img/avatar.png, img/avatar-2x.png 2x"
+          src="/img/avatar.png"
+          srcSet="/img/avatar.png, /img/avatar-2x.png 2x"
           alt="Profile avatar"
         />
       </div>
