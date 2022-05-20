@@ -39,7 +39,9 @@ const test = (a, b) => a + b
 const aLongString = 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.'
 ```
 
-Tincidunt dui ut ornare lectus. Blandit libero volutpat sed cras. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Cursus in hac habitasse platea dictumst quisque. Vulputate dignissim suspendisse in est ante in nibh. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Non quam lacus suspendisse faucibus interdum. Volutpat ac tincidunt vitae semper. Diam donec adipiscing tristique risus nec.
+Tincidunt dui ut ornare lectus. Blandit libero volutpat sed cras. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Cursus in hac habitasse platea dictumst quisque. Vulputate dignissim suspendisse in est ante in nibh. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Non quam lacus suspendisse faucibus interdum. Volutpat ac tincidunt vitae semper. Diam donec adipiscing tristique risus nec.o
+
+> 10% luck, 20% skill, 15% concentrated power of will
 
 Sit amet est placerat in egestas erat imperdiet sed euismod. Ut ornare lectus sit amet. Id diam vel quam elementum pulvinar etiam non quam. Sit amet luctus venenatis lectus magna fringilla. Neque volutpat ac tincidunt vitae semper quis lectus. Eros donec ac odio tempor. Tincidunt id aliquet risus feugiat in ante metus. Dolor sed viverra ipsum nunc. Ultrices dui sapien eget mi proin. Turpis egestas integer eget aliquet nibh praesent.
 
