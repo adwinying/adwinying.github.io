@@ -41,37 +41,106 @@
   <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
 
   
-<link rel="stylesheet" href="/assets/asset.64214057.css"></link>
+<link rel="stylesheet" href="/assets/asset.a7449c37.css"></link>
 </head>
 
 <body class="flex flex-col bg-gray-50 min-h-screen ">
   <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">Setting up Port Forwarding on an Oracle Cloud Instance</h1><span class="inline-block text-sm text-gray-600">06 Apr 2022 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/oracle" class="text-sm text-gray-600 underline-offset-1 hover:underline ">oracle</a>, <a href="/tag/cloud" class="text-sm text-gray-600 underline-offset-1 hover:underline ">cloud</a>, <a href="/tag/port-forwarding" class="text-sm text-gray-600 underline-offset-1 hover:underline ">port-forwarding</a>, <a href="/tag/networking" class="text-sm text-gray-600 underline-offset-1 hover:underline ">networking</a>, <a href="/tag/troubleshooting" class="text-sm text-gray-600 underline-offset-1 hover:underline ">troubleshooting</a></span></div><div class="prose prose-lg max-w-none font-serif
-          prose-headings:font-sans
-          prose-figcaption:-mt-6 prose-figcaption:text-center
-          prose-figcaption:font-sans prose-figcaption:text-sm
-          prose-img:mx-auto"><p>Earlier this year, I came across Oracle Cloud's generous free ARM compute resources (up to 4CPU and 24GB RAM). It sounded too good to be true, but I tried running a couple of services on an instance and it seemed to work pretty well. In fact, I was wondering why I should pay $5/month for a Vultr VPS when this is free...</p>
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"><p>Earlier this year, I came across Oracle Cloud's generous free ARM compute resources (up to 4CPU and 24GB RAM). It sounded too good to be true, but I tried running a couple of services on an instance and it seemed to work pretty well. In fact, I was wondering why I should pay $5/month for a Vultr VPS when this is free...</p>
 <p>So, I took the plunge and tried to migrate my tunnel server from Vultr to Oracle Cloud. I created a new instance and then ran my <a href="https://github.com/adwinying/server-provisioning">Ansible provisioning script</a> on the new instance, updated my DNS to point at the new instance and then... things were broken. My hosted services aren't accessible outside of my local network, and I couldn't SSH into any of my machines in the local network even with VPN activated.</p>
 <h2 id="ingress-firewall-rules">Ingress Firewall Rules</h2>
 <p>Traditional cloud services gives you a lot more control over your VM's network, so does Oracle Cloud. By default, all ports except 22 (SSH) are closed, and you need to explicitly state which ports to open for the VM.</p>
-<p></p><figure class="remarkri--figure"><picture class="remarkri--picture"><source srcset="/uploads/ingress-rules-960.png, /uploads/ingress-rules-1920.png 2x" media="(min-width: 960px)"><source srcset="/uploads/ingress-rules-640.png, /uploads/ingress-rules-1280.png 2x, /uploads/ingress-rules-1920.png 3x" media="(min-width: 640px)"><img srcset="/uploads/ingress-rules-320.png, /uploads/ingress-rules-640.png 2x, /uploads/ingress-rules-960.png 3x" src="/uploads/ingress-rules-320.png" alt="Oracle Cloud compute instance ingress rules" class="remarkri--img" loading="eager"></picture><figcaption class="remarkri--figcaption">Configure ingress rules for the virtual cloud network your VM instance is under</figcaption></figure>
+<figure><style >
+    
+
+    .astro-imagetools-picture-E4F2C53E {
+      --opacity: 1;
+      --z-index: 0;
+    }
+
+    
+            .astro-imagetools-picture-E4F2C53E img {
+              z-index: 1;
+              position: relative;
+            }
+          
+
+    .astro-imagetools-picture-E4F2C53E::after {
+      inset: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: opacity 1s;
+      opacity: var(--opacity);
+      z-index: var(--z-index);
+    }
+  
+        .astro-imagetools-picture-E4F2C53E img {
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+
+        .astro-imagetools-picture-E4F2C53E::after {
+          background-size: cover;
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVQokV1SW07DMBDM/a/ASbgAf3xW8AFSIYLyqNrYjl/rJINm3bgpllb2vmZ3dt3tXno8Pr/h/fMbRQRZBNM03cg8zypbWymlynSrd/dPBncPv9h9WETvEFNqASIFUgqMsRjH8Zp4KbIsi9pEpOkdpowljQoWYgTP+XxGCBHOOVjnMBijnXvvYa2FcyOGYVBgEVFb7XxGF1NGLpN2FmPUSjnnRlO74A2ozsO4w+ELx+OxMWKcUmYyHwxaAVPKjTKDa4GlFWDc6XSCMUbf9DfA1ACvHbIq6dBeC6Sbjuk31mL0HiEEHU+d5waQSQQlvdo151NUp2+7bTLgnAlKQM6Q9pAE3RpIkNo6GoVVthvl4XL2+z36vtflrOf1J6DjxnRG28TL/V9WPxmR5vo3+aU4Lucj/gCOKb8M6Kav9wAAAABJRU5ErkJggg==");
+          background-position: 50% 50%;
+        }
+      </style><picture
+    
+    class="astro-imagetools-picture astro-imagetools-picture-E4F2C53E"
+    style="position: relative; display: inline-block;  max-width: 100%; height: auto;"
+    ><source
+            srcset="/assets/ingress-rules@320w.042d1e45.avif 320w, /assets/ingress-rules@2405w.e3ccb1f6.avif 2405w, /assets/ingress-rules@4230w.ae162e5b.avif 4230w, /assets/ingress-rules@5794w.c3e79022.avif 5794w, /assets/ingress-rules@7097w.4efceb5b.avif 7097w, /assets/ingress-rules@8140w.7cbdeb0f.avif 8140w, /assets/ingress-rules@8922w.54785215.avif 8922w, /assets/ingress-rules@9443w.07e95751.avif 9443w, /assets/ingress-rules@2666w.d7b2f423.avif 2666w"
+            sizes="(min-width: 2666px) 2666px, 100vw"
+            width="2666"
+            height="1202"
+            type="image/avif"
+            
+          />
+<source
+            srcset="/assets/ingress-rules@320w.d0fa98b6.webp 320w, /assets/ingress-rules@2405w.93ea698d.webp 2405w, /assets/ingress-rules@4230w.15665aea.webp 4230w, /assets/ingress-rules@5794w.bffdaf6f.webp 5794w, /assets/ingress-rules@7097w.257bc931.webp 7097w, /assets/ingress-rules@8140w.5f9768b0.webp 8140w, /assets/ingress-rules@8922w.5ea39308.webp 8922w, /assets/ingress-rules@9443w.1c745db6.webp 9443w, /assets/ingress-rules@2666w.5bf307cf.webp 2666w"
+            sizes="(min-width: 2666px) 2666px, 100vw"
+            width="2666"
+            height="1202"
+            type="image/webp"
+            
+          />
+<img
+    
+    src="/assets/ingress-rules@2666w.cc2070fb.png"
+    alt="Oracle Cloud compute instance ingress rules"
+    srcset="/assets/ingress-rules@320w.bb06b972.png 320w, /assets/ingress-rules@2405w.2e0b7714.png 2405w, /assets/ingress-rules@4230w.e5774dca.png 4230w, /assets/ingress-rules@5794w.f025a965.png 5794w, /assets/ingress-rules@7097w.ac50c6fc.png 7097w, /assets/ingress-rules@8140w.ff8dd6b7.png 8140w, /assets/ingress-rules@8922w.b20ead90.png 8922w, /assets/ingress-rules@9443w.939a7f7a.png 9443w, /assets/ingress-rules@2666w.cc2070fb.png 2666w"
+    sizes="(min-width: 2666px) 2666px, 100vw"
+    width="2666"
+    height="1202"
+    loading="lazy"
+    decoding="async"
+    class="astro-imagetools-img"
+    style="display: inline-block; overflow: hidden; vertical-align: middle;  max-width: 100%; height: auto;"
+    onload="parentElement.style.setProperty('--z-index', 1);parentElement.style.setProperty('--opacity', 0);"
+  />
+  </picture>
+<figcaption>Configure ingress rules for the virtual cloud network your VM instance is under</figcaption></figure>
 <h2 id="updating-iptable-rules-to-the-correct-physical-interface">Updating iptable rules to the correct physical interface</h2>
 <p>After doing some sanity checks with <a href="https://www.digitalocean.com/community/tutorials/how-to-forward-ports-through-a-linux-gateway-with-iptables">DigitalOcean's excellent tutorial on port forwarding with iptables</a>, I realized that the physical interfaces had changed and I updated them, but <code>curl</code> still shows <code>Connection Refused</code>...</p>
 <h2 id="disabling-default-iptable-rules">Disabling default iptable rules</h2>
 <p>So I decided it was time to dig deep and look into the firewall rules on the VM instance itself. Running the following commands will list all the active rules:</p>
 <pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ sudo iptables -S</span></span></code></pre>
 <p>And it seems to me that Oracle Cloud has defined a couple of rules by default. I disabled the default rules by going to <code>/etc/iptables/rules.v4</code> and commented out the rules, leaving only the following rules enabled:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">*filter</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">*filter</span></span>
 <span class="line"><span style="color: #d8dee9ff">:INPUT ACCEPT [0:0]</span></span>
 <span class="line"><span style="color: #d8dee9ff">:FORWARD ACCEPT [0:0]</span></span>
 <span class="line"><span style="color: #d8dee9ff">:OUTPUT ACCEPT [0:0]</span></span>
 <span class="line"><span style="color: #d8dee9ff">:InstanceServices - [0:0]</span></span>
-<span class="line"><span style="color: #d8dee9ff">COMMIT</span></span></code></pre>
+<span class="line"><span style="color: #d8dee9ff">COMMIT</span></span></code></pre><figcaption>iptable rules</figcaption></figure>
 <p>Pretty much everything is enabled, which you might think is bad for security, but I had <code>ufw</code> configured so it should be fine...</p>
 <h2 id="defining-wireguards-interface-mtu">Defining Wireguard's Interface MTU</h2>
 <p>After disabling the iptable rules, <code>curl</code> no longer returns <code>Connection Refused</code>, but it seems to be stuck forever. Time to inspect packets with <code>tcpdump</code>:</p>
 <pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ sudo tcpdump -i wg0 port 80</span></span></code></pre>
 <p>I ran the above commands on the Oracle Cloud instance and the port forward destination, and here are the logs:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span></span>
 <span class="line"><span style="color: #d8dee9ff">listening on wg0, link-type RAW (Raw IP), capture size 262144 bytes</span></span>
 <span class="line"><span style="color: #d8dee9ff">15:03:18.073434 IP tunnel.63661 &gt; 192.168.50.2.http: Flags [S], seq 2140683422, win 65535, options [mss 1414,nop,wscale 6,nop,nop,TS val 2514772347 ecr 0,sackOK,eol], length 0</span></span>
 <span class="line"><span style="color: #d8dee9ff">15:03:18.203423 IP 192.168.50.2.http &gt; tunnel.63661: Flags [S.], seq 3390514814, ack 2140683423, win 64296, options [mss 1380,sackOK,TS val 2682332000 ecr 2514772347,nop,wscale 7], length 0</span></span>
@@ -86,9 +155,8 @@
 <span class="line"><span style="color: #d8dee9ff">^C</span></span>
 <span class="line"><span style="color: #d8dee9ff">10 packets captured</span></span>
 <span class="line"><span style="color: #d8dee9ff">10 packets received by filter</span></span>
-<span class="line"><span style="color: #d8dee9ff">0 packets dropped by kernel</span></span></code></pre>
-<p>Public-facing server (Oracle Cloud)</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">tcpdump: verbose output suppressed, use -v[v]... for full protocol decode</span></span>
+<span class="line"><span style="color: #d8dee9ff">0 packets dropped by kernel</span></span></code></pre><figcaption>Public-facing server (Oracle Cloud)</figcaption></figure>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">tcpdump: verbose output suppressed, use -v[v]... for full protocol decode</span></span>
 <span class="line"><span style="color: #d8dee9ff">listening on wg0, link-type RAW (Raw IP), snapshot length 262144 bytes</span></span>
 <span class="line"><span style="color: #d8dee9ff">15:02:49.785777 IP 192.168.50.1.63661 &gt; therig.http: Flags [S], seq 2140683422, win 65535, options [mss 1414,nop,wscale 6,nop,nop,TS val 2514772347 ecr 0,sackOK,eol], length 0</span></span>
 <span class="line"><span style="color: #d8dee9ff">15:02:49.785854 IP therig.http &gt; 192.168.50.1.63661: Flags [S.], seq 3390514814, ack 2140683423, win 64296, options [mss 1380,sackOK,TS val 2682332000 ecr 2514772347,nop,wscale 7], length 0</span></span>
@@ -116,8 +184,7 @@
 <span class="line"><span style="color: #d8dee9ff">^C</span></span>
 <span class="line"><span style="color: #d8dee9ff">23 packets captured</span></span>
 <span class="line"><span style="color: #d8dee9ff">23 packets received by filter</span></span>
-<span class="line"><span style="color: #d8dee9ff">0 packets dropped by kernel</span></span></code></pre>
-<p>Server behind NAT (Port forward destination)</p>
+<span class="line"><span style="color: #d8dee9ff">0 packets dropped by kernel</span></span></code></pre><figcaption>Server behind NAT (Port forward destination)</figcaption></figure>
 <p>I found out that the connection is being properly forwarded, but some packets were not received by the Oracle Cloud instance. Upon closer look packets with large lengths (1000+) are missing from the Oracle Cloud instance side. Weird.</p>
 <p>After comparing the states of the old VM instance on Vultr it seems like the MTU for the Wireguard interface is different; Oracle Cloud's MTU is 9000 (!).</p>
 <pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ ip link</span></span>

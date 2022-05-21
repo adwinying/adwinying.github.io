@@ -41,23 +41,92 @@
   <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
 
   
-<link rel="stylesheet" href="/assets/asset.64214057.css"></link>
+<link rel="stylesheet" href="/assets/asset.a7449c37.css"></link>
 </head>
 
 <body class="flex flex-col bg-gray-50 min-h-screen ">
   <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">Enabling HTTPS in a Ghost + Docker environment</h1><span class="inline-block text-sm text-gray-600">01 Sept 2018 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/docker" class="text-sm text-gray-600 underline-offset-1 hover:underline ">docker</a>, <a href="/tag/ghost" class="text-sm text-gray-600 underline-offset-1 hover:underline ">ghost</a>, <a href="/tag/https" class="text-sm text-gray-600 underline-offset-1 hover:underline ">https</a></span></div><div class="prose prose-lg max-w-none font-serif
-          prose-headings:font-sans
-          prose-figcaption:-mt-6 prose-figcaption:text-center
-          prose-figcaption:font-sans prose-figcaption:text-sm
-          prose-img:mx-auto"><p>So I have a <a href="https://ghost.org">Ghost</a> blog running on top of <a href="https://www.docker.com/">Docker</a> on a <a href="https://www.digitalocean.com/">DigitalOcean</a> cloud server. One fine day, I got an email from ghost announcing Ghost v2 is out. Since I'm a sucker for shiny new things I attempted to upgrade and see what's the fuss is all about. But that's not the main point.</p>
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"><p>So I have a <a href="https://ghost.org">Ghost</a> blog running on top of <a href="https://www.docker.com/">Docker</a> on a <a href="https://www.digitalocean.com/">DigitalOcean</a> cloud server. One fine day, I got an email from ghost announcing Ghost v2 is out. Since I'm a sucker for shiny new things I attempted to upgrade and see what's the fuss is all about. But that's not the main point.</p>
 <p>As you may guessed from the title, I 1-uped the difficulty by attempting to add HTTPS support as well. I tried to do so when setting up the blog initially but decided setting it up was plenty and decided to call it a day. Furthermore, as Chrome <a href="https://www.theverge.com/2018/2/8/16991254/chrome-not-secure-marked-http-encryption-ssl">doesn't wanna play nice with non-HTTPS sites</a> in the near future, now couldn't have been a better time to implement HTTPS. This time around, I finally manage to get HTTPS running, or else this blog post wouldn't exist right?</p>
-<p></p><figure class="remarkri--figure"><picture class="remarkri--picture"><img srcset="/uploads/https-320.png" src="/uploads/https-320.png" alt="Browser address bar showing a green lock" class="remarkri--img" loading="eager"></picture><figcaption class="remarkri--figcaption">Having that green lock puts a smile on my face</figcaption></figure>
+<figure><style >
+    
+
+    .astro-imagetools-picture-8D3592C2 {
+      --opacity: 1;
+      --z-index: 0;
+    }
+
+    
+            .astro-imagetools-picture-8D3592C2 img {
+              z-index: 1;
+              position: relative;
+            }
+          
+
+    .astro-imagetools-picture-8D3592C2::after {
+      inset: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: opacity 1s;
+      opacity: var(--opacity);
+      z-index: var(--z-index);
+    }
+  
+        .astro-imagetools-picture-8D3592C2 img {
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+
+        .astro-imagetools-picture-8D3592C2::after {
+          background-size: cover;
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjUlEQVQImRXIywqCQABA0f7/g6RaRVnoTEE6Qgq+KsdH6ihjtb3RWZ5VZweiOkFPDWEV09uB+6jpF4P9WJI2J32VPEzNPBtUqLjFMVpriqIgCBV5npFlOcZMrMqxYp8Kmrlll3gEzwi/uPL/5ftGVQmnVHJML3Rdg+f5uAcXx3EQQrJZb5FCIOWZpu34AfD0jtdcDeLGAAAAAElFTkSuQmCC");
+          background-position: 50% 50%;
+        }
+      </style><picture
+    
+    class="astro-imagetools-picture astro-imagetools-picture-8D3592C2"
+    style="position: relative; display: inline-block;  max-width: 100%; height: auto;"
+    ><source
+            srcset="/assets/https@320w.22d17ead.avif 320w, /assets/https@424w.a9bc827f.avif 424w"
+            sizes="(min-width: 424px) 424px, 100vw"
+            width="424"
+            height="52"
+            type="image/avif"
+            
+          />
+<source
+            srcset="/assets/https@320w.1b898f10.webp 320w, /assets/https@424w.db4d6148.webp 424w"
+            sizes="(min-width: 424px) 424px, 100vw"
+            width="424"
+            height="52"
+            type="image/webp"
+            
+          />
+<img
+    
+    src="/assets/https@424w.daf88437.png"
+    alt="Browser address bar showing a green lock"
+    srcset="/assets/https@320w.d4b8ae00.png 320w, /assets/https@424w.daf88437.png 424w"
+    sizes="(min-width: 424px) 424px, 100vw"
+    width="424"
+    height="52"
+    loading="lazy"
+    decoding="async"
+    class="astro-imagetools-img"
+    style="display: inline-block; overflow: hidden; vertical-align: middle;  max-width: 100%; height: auto;"
+    onload="parentElement.style.setProperty('--z-index', 1);parentElement.style.setProperty('--opacity', 0);"
+  />
+  </picture>
+<figcaption>Having that green lock puts a smile on my face</figcaption></figure>
 <p><em>If you don't really care about how it works and you just want to set it up, the files and setup instructions are up on my</em> <a href="https://github.com/adwinying/docker-ghost"><em>Github</em></a>.</p>
 <h2 id="ghost-and-https">Ghost and HTTPS</h2>
 <p>So the way Ghost supports HTTPS is via nginx. This is achieved by using a <a href="https://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a>, where nginx would "redirect" a request to the corresponding web service by looking at the host URL. For example, you could have example1.com and example2.com hosting different services on the same machine pointing to the same IP address; and nginx would direct the request to the right service depending on the host URL of the request. It's almost like magic!</p>
 <h2 id="the-barebones-docker--ghost">The Barebones Docker + Ghost</h2>
 <p>To start off, we would use the <a href="https://hub.docker.com/_/ghost/">official</a> Docker image for Ghost. Since entering all the container parameters every time in the command line is a pain in the ass, we would compose a utilize Docker Compose by creating a <code>docker-compose.yml</code> file:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #8FBCBB">version</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&#39;</span><span style="color: #A3BE8C">2</span><span style="color: #ECEFF4">&#39;</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #8FBCBB">version</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&#39;</span><span style="color: #A3BE8C">2</span><span style="color: #ECEFF4">&#39;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #8FBCBB">services</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
@@ -67,14 +136,13 @@
 <span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">2368:2368</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># To persist user data after container has been destroyed</span></span>
-<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./content:/var/lib/ghost/content</span></span></code></pre>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">./content:/var/lib/ghost/content</span></span></code></pre><figcaption>docker-compose.yml</figcaption></figure>
 <p>This basically starts the Ghost container, connects the container's port 2368 with the host machine's port 2368 and links the host machines working directory <code>content</code> folder with <code>ghost/content</code> folder, so if any data is created would persist even after the container is destroyed.</p>
 <p>To spin up the instance, just run <code>docker-compose up</code> and when its done you should be able to access it on <a href="http://localhost:2368">http://localhost:2368</a>.</p>
 <h2 id="nginx---the-reverse-proxy-handler">nginx - The reverse proxy handler</h2>
 <p>Next, we're going to set up nginx. Now since we are using Docker, we might as well containerize nginx as well. <a href="https://hub.docker.com/r/jwilder/nginx-proxy/">jwilder's</a> nginx-proxy has provided a very useful nginx image that will detect all the Docker containers and automagically configure the nginx reverse proxy. All we need to do is to define the environmental variables for the containers that we would want to use nginx with.</p>
 <p>In order to set up nginx, we would add the following onto our existing <code>docker-compose.yml</code> file:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">  </span><span style="color: #616E88"># Reverse Proxy container</span></span>
-<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">nginx_proxy</span><span style="color: #ECEFF4">:</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">nginx_proxy</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">jwilder/nginx-proxy:latest</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">ports</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># Expose port 80 and 443 to host machine </span></span>
@@ -82,10 +150,9 @@
 <span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">443:443</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># To monitor the status/events of other docker containers</span></span>
-<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/var/run/docker.sock:/tmp/docker.sock:ro</span></span></code></pre>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">/var/run/docker.sock:/tmp/docker.sock:ro</span></span></code></pre><figcaption>Reverse Proxy container</figcaption></figure>
 <p>In addition, we make additional modifications to the existing Ghost container:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">  </span><span style="color: #616E88"># ghost container</span></span>
-<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">ghost:2</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">restart</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">always</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">expose</span><span style="color: #ECEFF4">:</span></span>
@@ -98,7 +165,7 @@
 <span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">url=https://blog.example.com</span><span style="color: #D8DEE9FF">  </span><span style="color: #616E88"># URL value needed by Ghost</span></span>
 <span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">VIRTUAL_HOST=blog.example.com</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># The domain we want to use</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">depends_on</span><span style="color: #ECEFF4">:</span></span>
-<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre><figcaption>Ghost container</figcaption></figure>
 <p>If everything goes well, rerun <code>docker-compose up</code> and you should be able to connect to the Ghost instance from the Docker host by executing the following command:</p>
 <pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ curl -H </span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">Host: blog.example.com</span><span style="color: #ECEFF4">&quot;</span><span style="color: #D8DEE9FF"> localhost:80</span></span></code></pre>
 <p>If you see a bunch of HTML tags, then great! Time to set up HTTPS.</p>
@@ -106,8 +173,7 @@
 <p>In order to set up HTTPS, we need to obtain a certificate from a trusted provider. <a href="https://letsencrypt.org/">Let's Encrypt</a> has been providing free certificates for HTTPS, which is what we will be using. Unfortunately, the certs provided has a pretty short lifespan but with the magic of Docker we can spin up a container to automate this process as well. jcrs' <a href="https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion/#lets-encrypt">letsencrypt-nginx-proxy-companion</a>, as the name suggests, complements the nginx-proxy image by issuing HTTPS certs that could be used by nginx.</p>
 <p><em>NOTE: You'll need an existing domain that supports</em> <a href="https://letsencrypt.org/docs/caa/">CAA</a>.</p>
 <p>So, we add another container in our existing <code>docker-compose.yml</code> file:</p>
-<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #616E88"># Let&#39;s Encrypt SSL Cert Manager container</span></span>
-<span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ssl_manager</span><span style="color: #ECEFF4">:</span></span>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ssl_manager</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">image</span><span style="color: #ECEFF4">:</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">jrcs/letsencrypt-nginx-proxy-companion:latest</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #ECEFF4">      </span><span style="color: #616E88"># Need to monitor docker containers too</span></span>
@@ -117,7 +183,7 @@
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">volumes_from</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span><span style="color: #D8DEE9FF"> </span><span style="color: #616E88"># Allow it to access nginx&#39;s volumes</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #8FBCBB">depends_on</span><span style="color: #ECEFF4">:</span></span>
-<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre>
+<span class="line"><span style="color: #D8DEE9FF">      </span><span style="color: #ECEFF4">-</span><span style="color: #D8DEE9FF"> </span><span style="color: #A3BE8C">nginx_proxy</span></span></code></pre><figcaption>Let's Encrypt SSL Cert Manager container</figcaption></figure>
 <p>In addition, we need to make changes to our existing containers as well:</p>
 <pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  </span><span style="color: #8FBCBB">ghost</span><span style="color: #ECEFF4">:</span></span>
 <span class="line"><span style="color: #D8DEE9FF">    </span><span style="color: #B48EAD">...</span></span>
