@@ -15,7 +15,8 @@ So I have a [Ghost](https://ghost.org) blog running on top of [Docker](https://w
 
 As you may guessed from the title, I 1-uped the difficulty by attempting to add HTTPS support as well. I tried to do so when setting up the blog initially but decided setting it up was plenty and decided to call it a day. Furthermore, as Chrome [doesn't wanna play nice with non-HTTPS sites](https://www.theverge.com/2018/2/8/16991254/chrome-not-secure-marked-http-encryption-ssl) in the near future, now couldn't have been a better time to implement HTTPS. This time around, I finally manage to get HTTPS running, or else this blog post wouldn't exist right?
 
-![Browser address bar showing a green lock](/uploads/https.png "Having that green lock puts a smile on my face")
+![Browser address bar showing a green lock](/uploads/https.png)
+Figure: Having that green lock puts a smile on my face
 
 _If you don't really care about how it works and you just want to set it up, the files and setup instructions are up on my_ [_Github_](https://github.com/adwinying/docker-ghost).
 
@@ -40,6 +41,7 @@ services:
       # To persist user data after container has been destroyed
       - ./content:/var/lib/ghost/content
 ```
+Code: docker-compose.yml
 
 This basically starts the Ghost container, connects the container's port 2368 with the host machine's port 2368 and links the host machines working directory `content` folder with `ghost/content` folder, so if any data is created would persist even after the container is destroyed.
 
@@ -52,7 +54,6 @@ Next, we're going to set up nginx. Now since we are using Docker, we might as we
 In order to set up nginx, we would add the following onto our existing `docker-compose.yml` file:
 
 ```yaml
-  # Reverse Proxy container
   nginx_proxy:
     image: jwilder/nginx-proxy:latest
     ports:
@@ -63,11 +64,11 @@ In order to set up nginx, we would add the following onto our existing `docker-c
       # To monitor the status/events of other docker containers
       - /var/run/docker.sock:/tmp/docker.sock:ro
 ```
+Code: Reverse Proxy container
 
 In addition, we make additional modifications to the existing Ghost container:
 
 ```yaml
-  # ghost container
   ghost:
     image: ghost:2
     restart: always
@@ -83,6 +84,7 @@ In addition, we make additional modifications to the existing Ghost container:
     depends_on:
       - nginx_proxy
 ```
+Code: Ghost container
 
 If everything goes well, rerun `docker-compose up` and you should be able to connect to the Ghost instance from the Docker host by executing the following command:
 
@@ -101,7 +103,6 @@ _NOTE: You'll need an existing domain that supports_ [CAA](https://letsencrypt.o
 So, we add another container in our existing `docker-compose.yml` file:
 
 ```yaml
-# Let's Encrypt SSL Cert Manager container
   ssl_manager:
     image: jrcs/letsencrypt-nginx-proxy-companion:latest
     volumes:
@@ -114,6 +115,7 @@ So, we add another container in our existing `docker-compose.yml` file:
     depends_on:
       - nginx_proxy
 ```
+Code: Let's Encrypt SSL Cert Manager container
 
 In addition, we need to make changes to our existing containers as well:
 

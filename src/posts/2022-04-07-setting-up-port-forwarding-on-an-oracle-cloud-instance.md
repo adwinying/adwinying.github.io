@@ -21,7 +21,8 @@ So, I took the plunge and tried to migrate my tunnel server from Vultr to Oracle
 
 Traditional cloud services gives you a lot more control over your VM's network, so does Oracle Cloud. By default, all ports except 22 (SSH) are closed, and you need to explicitly state which ports to open for the VM.
 
-![Oracle Cloud compute instance ingress rules](/uploads/ingress-rules.png "Configure ingress rules for the virtual cloud network your VM instance is under")
+![Oracle Cloud compute instance ingress rules](/uploads/ingress-rules.png)
+Figure: Configure ingress rules for the virtual cloud network your VM instance is under
 
 ## Updating iptable rules to the correct physical interface
 
@@ -45,6 +46,7 @@ And it seems to me that Oracle Cloud has defined a couple of rules by default. I
 :InstanceServices - [0:0]
 COMMIT
 ```
+Code: iptable rules
 
 Pretty much everything is enabled, which you might think is bad for security, but I had `ufw` configured so it should be fine...
 
@@ -76,8 +78,7 @@ listening on wg0, link-type RAW (Raw IP), capture size 262144 bytes
 10 packets received by filter
 0 packets dropped by kernel
 ```
-
-Public-facing server (Oracle Cloud)
+Code: Public-facing server (Oracle Cloud)
 
 ```
 tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
@@ -110,8 +111,7 @@ listening on wg0, link-type RAW (Raw IP), snapshot length 262144 bytes
 23 packets received by filter
 0 packets dropped by kernel
 ```
-
-Server behind NAT (Port forward destination)
+Code: Server behind NAT (Port forward destination)
 
 I found out that the connection is being properly forwarded, but some packets were not received by the Oracle Cloud instance. Upon closer look packets with large lengths (1000+) are missing from the Oracle Cloud instance side. Weird.
 

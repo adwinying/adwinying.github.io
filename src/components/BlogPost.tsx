@@ -44,10 +44,8 @@ export default function BlogPost({
 
       <div
         className="prose prose-lg max-w-none font-serif
-          prose-headings:font-sans
-          prose-figcaption:-mt-6 prose-figcaption:text-center
-          prose-figcaption:font-sans prose-figcaption:text-sm
-          prose-img:mx-auto"
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"
       >
         {children}
 

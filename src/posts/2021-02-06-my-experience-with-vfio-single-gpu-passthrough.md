@@ -69,7 +69,8 @@ evdev didn't seem to work with my mouse (Logitech MX Master 2) most of the time.
 
 It is generally recommended that a dedicated USB PCIe card is used for pass through. Most users that tried passing through the motherboard's built in USB controller seems to have reset issues. Nevertheless I gave it a try and suprisingly works flawlessly, even surviving reboots.
 
-![I/O layout of an MSI B550 MORTAR WIFI motherboard](/uploads/desktop-io.png "On the MSI B550 MORTAR WIFI, red ports are on one USB controller, and the blue ports + front ports are on another controller")
+![I/O layout of an MSI B550 MORTAR WIFI motherboard](/uploads/desktop-io.png)
+Figure: On the MSI B550 MORTAR WIFI, red ports are on one USB controller, and the blue ports + front ports are on another controller
 
 ## First, start by running a Windows VM
 

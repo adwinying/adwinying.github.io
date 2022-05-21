@@ -30,7 +30,8 @@ In the case of Proxy ARP, as the name suggest the ARP response is done by someon
 
 The simplest way to set up bridge networking is via virt-manager. Under **Edit > Connection Details > Virtual Networks** we will add a new virtual network.
 
-![Create virtual network dialog](/uploads/create-virtual-network.png "Create virtual network dialog")
+![Create virtual network dialog](/uploads/create-virtual-network.png)
+Figure: Create virtual network dialog
 
 * **Name:** Network name. Put something that you'll be familiar with.
 * **Mode:** Choose _Routed_.
@@ -47,7 +48,8 @@ For IPv6 configuration and DNS, I left it at default settings.
 
 Click **Finish**, and the virtual network will be created:
 
-![proxyArp virtual network created with interface virbr1](/uploads/virt-man-network-interface.png "proxyArp virtual network created with interface virbr1")
+![proxyArp virtual network created with interface virbr1](/uploads/virt-man-network-interface.png)
+Figure: proxyArp virtual network created with interface virbr1
 
 ## Change network interface for guest VM
 

@@ -51,8 +51,6 @@ Hence, I tried creating my own from scratch.
 So the first thing I did was configuring a file called `docker-compose.yml`. In this file, the docker containers to be hosted and each of its configuration is listed out. In an empty directory I created the file, then entered the following:
 
 ```yaml
-# docker-compose.yml
-
 version: '2'
 
 services:                        # list of services(containers)
@@ -67,6 +65,7 @@ services:                        # list of services(containers)
     links:                       # links to other container
       - db                       # db container; hosts the db container
 ```
+Code: docker-compose.yml
 
 First off, the `web` container hosts the NGINX HTTP service, with Node.js and Laravel's `cli` installed and ready to use. This is done by loading up `web.dockerfile` which is created in the next step, then the relevant ports and volumes (directories) are linked between the local machine and docker container. Finally, `links` is used to link the web container with other containers, in this case the `db` container (created later) in order for laravel to communicate with the database.
 
@@ -75,8 +74,6 @@ First off, the `web` container hosts the NGINX HTTP service, with Node.js and La
 A `dockerfile` is a file that list outs the steps to build an image. A container is an instance of an image. In this case, I made a `dockerfile`named `web.dockerfile` for the `web` container:
 
 ```docker
-# web.dockerfile
-
 # Sourcing official docker image of PHP 7.1 with Apache web server
 FROM php:7.1-apache
 
@@ -105,6 +102,7 @@ RUN composer global require "laravel/installer"
 RUN echo export PATH='$HOME/.composer/vendor/bin:$PATH' >> ~/.bashrc && \
 	echo cd .. >> ~/.bashrc
 ```
+Code: web.dockerfile
 
 At the time of this writing, PHP7.2 is available but it doesn't play well during the installation of Laravel, and hence PHP7.1 was used instead.
 
@@ -115,8 +113,6 @@ On top of the PHP7.1 image, Node.js and Laravel, together with their dependencie
 Although now we have Laravel set up, we still need a database for it to store data. An instance of MYSQL is added by adding the following lines into `docker-compose.yml`:
 
 ```yaml
-# docker-compose.yml
-
 version: '2'
 
 services:                       # list of services(containers)
@@ -130,6 +126,7 @@ services:                       # list of services(containers)
       MYSQL_USER: homestead     # Username
       MYSQL_PASSWORD: secret    # User password
 ```
+Code: docker-compose.yml
 
 The MYSQL instance was spun up with the above credentials, which were injected to the container as environment variables. Then, the port 3306 of the container is then mapped to the local machine's port 3306.
 
@@ -140,8 +137,6 @@ At this point we can already start working on Laravel but, I wanted to set up ph
 Again, going back to `docker-compose.yml`, another container `phpmyadmin` is set up by adding the following lines:
 
 ```yaml
-# docker-compose.yml
-
 services:
   phpmyadmin:                        # phpmyadmin container
     image: phpmyadmin/phpmyadmin:4.7 # Sourced from the official docker image of phpMyAdmin
@@ -150,6 +145,7 @@ services:
     links:
       - db                           # Linking phpmyadmin container with db container
 ```
+Code: docker-compose.yml
 
 ## STEP4: Putting it all together
 

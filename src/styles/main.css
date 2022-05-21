@@ -1,0 +1,9 @@
+.prose-lg picture {
+  width: 100%;
+  text-align: center;
+}
+
+.prose-lg picture + figcaption,
+.prose-lg pre + figcaption {
+  margin-top: -24px;
+}
