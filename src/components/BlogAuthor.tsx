@@ -1,5 +1,6 @@
 import Link from "@/components/common/Link";
 import ChainIcon from "@/components/icons/Chain";
+import ProfileImages from "@/../public/img/avatar.png?w=112;128&process_img=true";
 
 type Props = {
   className?: string;
@@ -13,7 +14,7 @@ export default function BlogAuthor({ className = "" }: Props) {
       <div className="w-28 sm:w-32">
         <img
           src="/img/avatar.png"
-          srcSet="/img/avatar.png, /img/avatar-2x.png 2x"
+          srcSet={ProfileImages}
           alt="Adwin Ying's avatar"
         />
       </div>

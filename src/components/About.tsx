@@ -1,5 +1,6 @@
 import Section from "@/components/common/Section";
 import Link from "@/components/common/Link";
+import ProfileImages from "@/../public/img/avatar.png?w=176;352&process_img=true";
 
 export default function About() {
   return (
@@ -7,7 +8,7 @@ export default function About() {
       <div className="mx-auto mb-4 w-44">
         <img
           src="/img/avatar.png"
-          srcSet="/img/avatar.png, /img/avatar-2x.png 2x"
+          srcSet={ProfileImages}
           alt="Profile avatar"
         />
       </div>
