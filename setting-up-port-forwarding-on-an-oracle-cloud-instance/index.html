@@ -54,19 +54,19 @@
 <figure><style >
     
 
-    .astro-imagetools-picture-BF99A4E5 {
+    .astro-imagetools-picture-CE4DC0AB {
       --opacity: 1;
       --z-index: 0;
     }
 
     
-            .astro-imagetools-picture-BF99A4E5 img {
+            .astro-imagetools-picture-CE4DC0AB img {
               z-index: 1;
               position: relative;
             }
           
 
-    .astro-imagetools-picture-BF99A4E5::after {
+    .astro-imagetools-picture-CE4DC0AB::after {
       inset: 0;
       content: "";
       width: 100%;
@@ -77,19 +77,19 @@
       z-index: var(--z-index);
     }
   
-        .astro-imagetools-picture-BF99A4E5 img {
+        .astro-imagetools-picture-CE4DC0AB img {
           object-fit: cover;
           object-position: 50% 50%;
         }
 
-        .astro-imagetools-picture-BF99A4E5::after {
+        .astro-imagetools-picture-CE4DC0AB::after {
           background-size: cover;
           background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVQokV1SW07DMBDM/a/ASbgAf3xW8AFSIYLyqNrYjl/rJINm3bgpllb2vmZ3dt3tXno8Pr/h/fMbRQRZBNM03cg8zypbWymlynSrd/dPBncPv9h9WETvEFNqASIFUgqMsRjH8Zp4KbIsi9pEpOkdpowljQoWYgTP+XxGCBHOOVjnMBijnXvvYa2FcyOGYVBgEVFb7XxGF1NGLpN2FmPUSjnnRlO74A2ozsO4w+ELx+OxMWKcUmYyHwxaAVPKjTKDa4GlFWDc6XSCMUbf9DfA1ACvHbIq6dBeC6Sbjuk31mL0HiEEHU+d5waQSQQlvdo151NUp2+7bTLgnAlKQM6Q9pAE3RpIkNo6GoVVthvl4XL2+z36vtflrOf1J6DjxnRG28TL/V9WPxmR5vo3+aU4Lucj/gCOKb8M6Kav9wAAAABJRU5ErkJggg==");
           background-position: 50% 50%;
         }
       </style><picture
     
-    class="astro-imagetools-picture astro-imagetools-picture-BF99A4E5"
+    class="astro-imagetools-picture astro-imagetools-picture-CE4DC0AB"
     style="position: relative; display: inline-block;  max-width: 100%; height: auto;"
     ><source
             srcset="/assets/ingress-rules@320w.042d1e45.avif 320w, /assets/ingress-rules@2405w.e3ccb1f6.avif 2405w, /assets/ingress-rules@4230w.ae162e5b.avif 4230w, /assets/ingress-rules@5794w.c3e79022.avif 5794w, /assets/ingress-rules@7097w.4efceb5b.avif 7097w, /assets/ingress-rules@8140w.7cbdeb0f.avif 8140w, /assets/ingress-rules@8922w.54785215.avif 8922w, /assets/ingress-rules@9443w.07e95751.avif 9443w, /assets/ingress-rules@2666w.d7b2f423.avif 2666w"
@@ -196,5 +196,5 @@
 <span class="line"><span style="color: #D8DEE9FF">    link/none123456</span></span></code></pre>
 <p>Googling for "Wireguard MTU" seems to suggest that the MTU is the problem here. <a href="https://gist.github.com/nitred/f16850ca48c48c79bf422e90ee5b9d95">This Github gist here</a> states that the optimal MTU is 1420 for the server and 1384 for the peer so I tried it out by adding the MTU into my wireguard config files. <code>curl</code> finally worked!</p>
 <p>...or so I thought.</p>
-<p><code>curl</code> to an HTTPS address however, seems to remain stuck. <a href="https://keremerkan.net/posts/wireguard-mtu-fixes/">This blog post here</a> recommends an MTU of 1280 throughout the network and with this value HTTPS finally worked as well.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/img/avatar.png, /img/avatar-2x.png 2x" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2022 Adwin Ying.</footer>
+<p><code>curl</code> to an HTTPS address however, seems to remain stuck. <a href="https://keremerkan.net/posts/wireguard-mtu-fixes/">This blog post here</a> recommends an MTU of 1280 throughout the network and with this value HTTPS finally worked as well.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2022 Adwin Ying.</footer>
 </body></html>
