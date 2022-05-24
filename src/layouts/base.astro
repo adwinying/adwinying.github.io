@@ -7,9 +7,9 @@ const title = Astro.props.title ?? "iAdwin";
 const pageTitle = Astro.props.title ? `${title} - iAdwin` : title;
 const description = Astro.props.description ?? "The landing page of Adwin Ying.";
 const type = Astro.props.isPost ? "article": "website";
-const image = Astro.site + (Astro.props.image ?? "img/social.jpg");
+const image = Astro.site + (Astro.props.image || "img/social.jpg");
 
-const seo ={
+const seo = {
   title: pageTitle,
   description,
   openGraph: {
@@ -34,7 +34,7 @@ const seo ={
       { name: "author", content: "Adwin Ying" },
     ],
   },
-}
+};
 
 const className = Astro.props.className ?? "";
 ---
