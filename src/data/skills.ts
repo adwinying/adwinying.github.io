@@ -25,10 +25,11 @@ const skills: Skill[] = [
     icon: "server",
     contents: [
       "PHP | Laravel",
-      "Node.js | Express.js",
+      "NodeJS | Express",
+      "NestJS",
+      "Remix",
       "MySQL",
       "PostgreSQL",
-      "MongoDB",
       "Redis",
       "Web Sockets (Socket.io)",
     ],
