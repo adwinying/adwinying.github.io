@@ -24,7 +24,7 @@ const projects: Project[] = [
     description:
       "A full-stack web application with a built-in reservation system.",
     img: "projects_hotel_hamlet.jpg",
-    url: "https://hotel-hamlet.herokuapp.com/admin",
+    url: "https://hotel-hamlet.fly.dev/admin",
   },
   {
     title: "Webdev",
