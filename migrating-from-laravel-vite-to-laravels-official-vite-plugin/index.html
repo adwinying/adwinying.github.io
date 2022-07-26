@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Migrating from laravel-vite to Laravel's Official Vite Plugin - iAdwin</title>
+
+<link rel="canonical" href="https://iadw.in/migrating-from-laravel-vite-to-laravels-official-vite-plugin/">
+
+<meta name="description" content="Outlined the steps to migrate to Laravel's official vite plugin.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Migrating from laravel-vite to Laravel's Official Vite Plugin">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iadw.in/img/social.jpg">
+<meta property="og:url" content="https://iadw.in/migrating-from-laravel-vite-to-laravels-official-vite-plugin/">
+
+
+<meta property="og:description" content="Outlined the steps to migrate to Laravel's official vite plugin.">
+
+
+
+
+
+
+<meta property="og:image:url" content="https://iadw.in/img/social.jpg">
+
+
+
+<meta property="og:image:height">
+<meta property="og:image:alt" content="Migrating from laravel-vite to Laravel's Official Vite Plugin">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Adwin Ying" name="author">
+
+
+  <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
+
+  
+<link rel="stylesheet" href="/assets/asset.a7449c37.css"></link>
+</head>
+
+<body class="flex flex-col bg-gray-50 min-h-screen ">
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">Migrating from laravel-vite to Laravel&#x27;s Official Vite Plugin</h1><span class="inline-block text-sm text-gray-600">25 Jul 2022 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/tutorial" class="text-sm text-gray-600 underline-offset-1 hover:underline ">tutorial</a>, <a href="/tag/laravel" class="text-sm text-gray-600 underline-offset-1 hover:underline ">laravel</a>, <a href="/tag/vite" class="text-sm text-gray-600 underline-offset-1 hover:underline ">vite</a></span></div><div class="prose prose-lg max-w-none font-serif
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"><p>I love how fast vite is and adopted vite into my Laravel projects using <a href="https://laravel-vite.dev/">laravel-vite</a>. About a month ago, Laravel announced that vite will replace Laravel Mix to be the <a href="https://laravel-news.com/vite-is-the-default-frontend-asset-bundler-for-laravel-applications" title="default frontend asset builder">default frontend asset bundler</a>. I decided to migrate to the official plugin and try it out.</p>
+<p>Overall, I find the official plugin provides a much better experience. The official plugin has a more seamless configuration, where the configs are all done in <code>vite.config.ts</code>, removing the need for a separate <code>config/vite.php</code> file (perhaps due to some Laravel Magic™ baked in). Hence, I highly recommend migrating to the official plugin if you have an hour or two to spare.</p>
+<h2 id="how-to-migrate-to-the-official-plugin">How to migrate to the official plugin</h2>
+<h3 id="step-1-remove-old-packages">Step 1: Remove old packages</h3>
+<p>First, we need to remove the laravel-vite package as well as configs.</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ composer remove innocenzi/laravel-vite</span></span>
+<span class="line"><span style="color: #D8DEE9FF">$ npm rm laravel-vite</span></span>
+<span class="line"><span style="color: #D8DEE9FF">$ rm config/vite.php</span></span></code></pre>
+<h3 id="step-2-upgrade-laravel">Step 2: Upgrade Laravel</h3>
+<p>On the backend, the official vite plugin is baked into Laravel v9.19 onwards so you'll need to upgrade if your Laravel version is older:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ composer require laravel/framework:^9.19.0</span></span></code></pre>
+<p>Additionally, if you're upgrade from v8 and below you should follow the <a href="https://laravel.com/docs/9.x/upgrade">upgrade guide</a> as well.</p>
+<h3 id="step-3-install-laravel-vite-plugin-npm-integration">Step 3: Install laravel-vite-plugin NPM integration</h3>
+<p>On the frontend, you'll need to install the <code>laravel-vite-plugin</code> package:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ npm install --save-dev laravel-vite-plugin</span></span></code></pre>
+<h3 id="step-4-upgrade-existing-packages">Step 4: Upgrade existing packages</h3>
+<p>In my case, my version of vite was too old so I had to upgrade vite:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ npm install --save-dev vite@latest</span></span></code></pre>
+<p>While I'm at it, I upgraded vue as well.</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ npm install --save-dev vue@latest @vitejs/plugin-vue@latest @vue/compiler-sfc@latest</span></span></code></pre>
+<p>If you're using <a href="https://inertiajs.com">Inertia.js</a>, you'll need at least v0.6.3 of the <code>laravel-inertia</code> package as well:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ composer require inertiajs/inertia-laravel:^0.6.3</span></span></code></pre>
+<h3 id="step-5-update-configs">Step 5: Update configs</h3>
+<p>In <code>vite.config.ts</code>, we import <code>defineConfig</code> from vite instead of <code>laravel-vite</code>:</p>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A"> import { defineConfig } from &#39;laravel-vite&#39;</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> import { defineConfig } from &#39;vite&#39;</span></span></code></pre><figcaption>vite.config.ts</figcaption></figure>
+<p>We then move the custom configs into <code>defineConfig</code>:</p>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A"> export default defineConfig()</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">   .withPlugin(vue)</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">   .merge({</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">     resolve: {</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">       alias: {</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">         &#39;@&#39;: path.resolve(__dirname, &#39;/resources&#39;),</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">       },</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">     },</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">   })</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> export default defineConfig({</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   resolve: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     alias: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       &#39;@&#39;: &#39;/resources&#39;,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> })</span></span></code></pre><figcaption>vite.config.ts</figcaption></figure>
+<p>Then finally we add the laravel and vue plugins:</p>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> import laravel from &#39;laravel-vite-plugin&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D8DEE9FF">  export default defineConfig({</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   plugins: [</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     laravel([</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       // list all entry points here</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       &#39;resources/css/app.css&#39;,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       &#39;resources/js/app.ts&#39;,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     ]),</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     vue({</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       template: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">         transformAssetUrls: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">           base: null,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">           includeAbsolute: false,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">         },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">       },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     }),</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   ],</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D8DEE9FF">    resolve: {</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      alias: {</span></span>
+<span class="line"><span style="color: #D8DEE9FF">        &#39;@&#39;: &#39;/resources&#39;,</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      },</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    },</span></span>
+<span class="line"><span style="color: #D8DEE9FF">  })</span></span></code></pre><figcaption>vite.config.ts</figcaption></figure>
+<h3 id="step-6-update-vite-directive-in-blade-files">Step 6: Update <code>@vite</code> directive in blade files</h3>
+<p>In the blade files where you used the <code>@vite</code> directive, you'll need to additionally define the entry point for the blade file:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A"> @vite</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> @vite(&#39;resources/js/app.ts&#39;)</span></span></code></pre>
+<p>If you have multiple entry points:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A"> @vite</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C"> @vite([&#39;resources/js/app.ts&#39;, &#39;resources/css/app.css&#39;])</span></span></code></pre>
+<h3 id="step-7-update-asset-paths">Step 7: Update asset paths</h3>
+<p>With the official vite plugin, there are two ways to use static assets. With <code>laravel-vite</code>, it is likely that you imported the asset and let vite bundle the assets at build time. However, the official plugin also supports using assets from the <code>/public</code> directory, allowing Laravel to serve the asset instead. This can be achieved by specifying an absolute path instead of a relative one:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #616E88">&lt;!-- This asset is not handled by Vite and will not be included in the build --&gt;</span></span>
+<span class="line"><span style="color: #81A1C1">&lt;img</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">src</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">/taylor.png</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">&gt;</span></span>
+<span class="line"><span style="color: #D8DEE9FF"> </span></span>
+<span class="line"><span style="color: #616E88">&lt;!-- This asset will be re-written, versioned, and bundled by Vite --&gt;</span></span>
+<span class="line"><span style="color: #81A1C1">&lt;img</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">src</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">../../images/abigail.png</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">&gt;</span></span></code></pre>
+<p>More details on this can be found <a href="https://laravel.com/docs/9.x/vite#url-processing">in the docs</a>.</p>
+<h3 id="optional-step-8-configure-remote-access">[Optional] Step 8: Configure remote access</h3>
+<p>If you need to access the dev environment from another machine, you'll need to specify the server host and port. Laravel will then use these values to load the JS files from HTML.</p>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  export default defineConfig({</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   server: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     host: &#39;192.168.1.5&#39;,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     port: 3005,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    plugins: [</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      laravel([</span></span></code></pre><figcaption>vite.config.ts</figcaption></figure>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #616E88">&lt;!-- This is what will be injected when you load the page via the browser --&gt;</span></span>
+<span class="line"><span style="color: #81A1C1">&lt;script</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">type</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">module</span><span style="color: #ECEFF4">&quot;</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">src</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">http://192.168.1.5:3005/resources/js/app.ts</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">&gt;&lt;/script&gt;</span></span>
+<span class="line"><span style="color: #81A1C1">&lt;script</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">type</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">module</span><span style="color: #ECEFF4">&quot;</span><span style="color: #D8DEE9FF"> </span><span style="color: #8FBCBB">src</span><span style="color: #ECEFF4">=</span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">http://192.168.1.5:3005/@vite/client</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">&gt;&lt;/script&gt;</span></span></code></pre>
+<p>Personally, I use <code>.env</code> to change these values instead:</p>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">  export default defineConfig({</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   server: {</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     host: process.env.VITE_HOST,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">     port: parseInt(process.env.VITE_PORT ?? 3000, 10),</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">   },</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span></span>
+<span class="line"><span style="color: #D8DEE9FF">    plugins: [</span></span>
+<span class="line"><span style="color: #D8DEE9FF">      laravel([</span></span></code></pre><figcaption>vite.config.ts</figcaption></figure>
+<p>At this point, vite has not load the environmental values so import.meta​.env does not work. Instead, I use <code>env-cmd</code> to load up the environmental values beforehand:</p>
+<pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">$ npm install --save-dev env-cmd</span></span></code></pre>
+<figure><pre class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #D8DEE9FF">   &quot;scripts&quot;: {</span></span>
+<span class="line"><span style="color: #ECEFF4">-</span><span style="color: #BF616A">    &quot;dev&quot;: &quot;vite&quot;,</span></span>
+<span class="line"><span style="color: #ECEFF4">+</span><span style="color: #A3BE8C">    &quot;dev&quot;: &quot;env-cmd vite&quot;,</span></span></code></pre><figcaption>package.json</figcaption></figure><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2022 Adwin Ying.</footer>
+</body></html>
