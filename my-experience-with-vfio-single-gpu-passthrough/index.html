@@ -41,11 +41,10 @@
   <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
 
   
-<link rel="stylesheet" href="/assets/asset.a7449c37.css"></link>
-</head>
+<link rel="stylesheet" href="/assets/404-_slug_-blog-index-tag-_tag_.e5d1e939.css" /></head>
 
 <body class="flex flex-col bg-gray-50 min-h-screen ">
-  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">My Experience with VFIO + Single GPU Passthrough</h1><span class="inline-block text-sm text-gray-600">06 Feb 2021 | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/vfio" class="text-sm text-gray-600 underline-offset-1 hover:underline ">vfio</a>, <a href="/tag/vm" class="text-sm text-gray-600 underline-offset-1 hover:underline ">vm</a>, <a href="/tag/linux" class="text-sm text-gray-600 underline-offset-1 hover:underline ">linux</a>, <a href="/tag/macos" class="text-sm text-gray-600 underline-offset-1 hover:underline ">macos</a>, <a href="/tag/windows" class="text-sm text-gray-600 underline-offset-1 hover:underline ">windows</a>, <a href="/tag/pc" class="text-sm text-gray-600 underline-offset-1 hover:underline ">pc</a></span></div><div class="prose prose-lg max-w-none font-serif
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">My Experience with VFIO + Single GPU Passthrough</h1><span class="inline-block text-sm text-gray-600">06 Feb 2021<!-- --> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/vfio" class="text-sm text-gray-600 underline-offset-1 hover:underline ">vfio</a>, <a href="/tag/vm" class="text-sm text-gray-600 underline-offset-1 hover:underline ">vm</a>, <a href="/tag/linux" class="text-sm text-gray-600 underline-offset-1 hover:underline ">linux</a>, <a href="/tag/macos" class="text-sm text-gray-600 underline-offset-1 hover:underline ">macos</a>, <a href="/tag/windows" class="text-sm text-gray-600 underline-offset-1 hover:underline ">windows</a>, <a href="/tag/pc" class="text-sm text-gray-600 underline-offset-1 hover:underline ">pc</a></span></div><div class="prose prose-lg max-w-none font-serif
           prose-headings:font-sans prose-figcaption:text-center
           prose-figcaption:font-sans prose-figcaption:text-sm"><h2 id="desktop-specs">Desktop Specs</h2>
 <ul>
@@ -83,78 +82,7 @@
 <p>evdev didn't seem to work with my mouse (Logitech MX Master 2) most of the time. Tried all sorts of things (unplug/plug USB etc.) between reboots but no avail. Gave up and used USB passthrough instead. USB passthrough worked great until you need to hotplug a device. So I tried to passthrough one of my USB controllers.</p>
 <h2 id="usb-controller-passthrough">USB Controller Passthrough</h2>
 <p>It is generally recommended that a dedicated USB PCIe card is used for pass through. Most users that tried passing through the motherboard's built in USB controller seems to have reset issues. Nevertheless I gave it a try and suprisingly works flawlessly, even surviving reboots.</p>
-<figure><style >
-    
-
-    .astro-imagetools-picture-3E2DD0F2 {
-      --opacity: 1;
-      --z-index: 0;
-    }
-
-    
-            .astro-imagetools-picture-3E2DD0F2 img {
-              z-index: 1;
-              position: relative;
-            }
-          
-
-    .astro-imagetools-picture-3E2DD0F2::after {
-      inset: 0;
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transition: opacity 1s;
-      opacity: var(--opacity);
-      z-index: var(--z-index);
-    }
-  
-        .astro-imagetools-picture-3E2DD0F2 img {
-          object-fit: cover;
-          object-position: 50% 50%;
-        }
-
-        .astro-imagetools-picture-3E2DD0F2::after {
-          background-size: cover;
-          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABuElEQVQokU2STW/aAAyGowoJCY4ISAigQrhM2kRLgRC+6VpKAy0taSGFhG8WtGqFcqg0TVp322V/YL/2mUh72OHVa/u1Lcu2IAgCsiyTSikkk0kURXGxt//3U6mUm6O48QSJw0MXyruWSCTweDwIXq+XzWbDfLHAsm1G1sjl5WrFbD7Htm3Gk4nLljXii+MwHtv0+31Mc+DGBoM+r68/EUURwe/3sVguKWgaR8fH5HJ5tKJGtVpFKxYpV8rEoxE0TUNVVfRbA7VU5vePFfrFZ9JHGbLZHOu189bQ5/O50+jtNvV6nWbznFLTINPokWsY3J+2qX5I06/Ueag1WJVrDPMa2/Wci8sWut7hz/KR3dOGUCi0n9DPbDbj9OyMeqNBqaihtiw+nWRJfyxwq49Q8jVyhRKVYgn9JIORyfL31xPtq0vy+QJlVcNxHMLh8NsOp9Mp5oPJdfcavXXOzWRLb/WCMXthZ39l2TVYd3s83vTYWTbfzSHfpiPMocn93R2dqw7Pz1uCwSDC/sqBQABZjhCJSC7EcJCIJCLLEqIUJipLRPb6e44oiYiS5NbEYlHi8Zj7KQcHB/wDCSrubwJtxg4AAAAASUVORK5CYII=");
-          background-position: 50% 50%;
-        }
-      </style><picture
-    
-    class="astro-imagetools-picture astro-imagetools-picture-3E2DD0F2"
-    style="position: relative; display: inline-block;  max-width: 100%; height: auto;"
-    ><source
-            srcset="/assets/desktop-io@320w.1c788c30.avif 320w, /assets/desktop-io@1516w.79fb2344.avif 1516w, /assets/desktop-io@2512w.6893ae6a.avif 2512w, /assets/desktop-io@3309w.1fe4288a.avif 3309w, /assets/desktop-io@3907w.b013e31a.avif 3907w, /assets/desktop-io@4306w.15a83e62.avif 4306w, /assets/desktop-io@1715w.fd869313.avif 1715w"
-            sizes="(min-width: 1715px) 1715px, 100vw"
-            width="1715"
-            height="639"
-            type="image/avif"
-            
-          />
-<source
-            srcset="/assets/desktop-io@320w.4bea4e29.webp 320w, /assets/desktop-io@1516w.abdf2528.webp 1516w, /assets/desktop-io@2512w.c3cb36df.webp 2512w, /assets/desktop-io@3309w.9ec4eadc.webp 3309w, /assets/desktop-io@3907w.cddff424.webp 3907w, /assets/desktop-io@4306w.1190c77c.webp 4306w, /assets/desktop-io@1715w.5864179a.webp 1715w"
-            sizes="(min-width: 1715px) 1715px, 100vw"
-            width="1715"
-            height="639"
-            type="image/webp"
-            
-          />
-<img
-    
-    src="/assets/desktop-io@1715w.930d0e49.png"
-    alt="I/O layout of an MSI B550 MORTAR WIFI motherboard"
-    srcset="/assets/desktop-io@320w.5f743407.png 320w, /assets/desktop-io@1516w.e8451755.png 1516w, /assets/desktop-io@2512w.0c145b13.png 2512w, /assets/desktop-io@3309w.32e23cbd.png 3309w, /assets/desktop-io@3907w.9207fa91.png 3907w, /assets/desktop-io@4306w.e801ce28.png 4306w, /assets/desktop-io@1715w.930d0e49.png 1715w"
-    sizes="(min-width: 1715px) 1715px, 100vw"
-    width="1715"
-    height="639"
-    loading="lazy"
-    decoding="async"
-    class="astro-imagetools-img"
-    style="display: inline-block; overflow: hidden; vertical-align: middle;  max-width: 100%; height: auto;"
-    onload="parentElement.style.setProperty('--z-index', 1);parentElement.style.setProperty('--opacity', 0);"
-  />
-  </picture>
-<figcaption>On the MSI B550 MORTAR WIFI, red ports are on one USB controller, and the blue ports + front ports are on another controller</figcaption></figure>
+<figure><img src="/uploads/desktop-io.png" alt="I/O layout of an MSI B550 MORTAR WIFI motherboard"><figcaption>On the MSI B550 MORTAR WIFI, red ports are on one USB controller, and the blue ports + front ports are on another controller</figcaption></figure>
 <h2 id="first-start-by-running-a-windows-vm">First, start by running a Windows VM</h2>
 <p>My ultimate goal is to get a functional macOS build running. But to get a general feel of setting up a VM on linux, it is better to start by getting a working Windows VM.</p>
 <p>Windows in a VM is well supported and documented. Few bumps and hiccups along the way (more on that below), but mostly a smooth process.</p>
@@ -180,5 +108,5 @@ and realized that CSM was not enabled. RTFM kids.</p>
 <h2 id="overall-thoughts">Overall thoughts</h2>
 <p>The ability to run any OS is great, it's like having the best of all worlds.<br>
 Couple of caveats here and there, but generally speaking works great.<br>
-Would only recommend to people who are willing to put time and effort into this.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo. <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © 2022 Adwin Ying.</footer>
+Would only recommend to people who are willing to put time and effort into this.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo.<!-- --> <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © <!-- -->2022<!-- --> Adwin Ying.</footer>
 </body></html>
