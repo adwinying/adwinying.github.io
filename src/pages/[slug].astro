@@ -4,31 +4,11 @@ import BlogHeader from "@/components/BlogHeader.tsx";
 import BlogPost from "@/components/BlogPost.tsx";
 import Footer from "@/components/Footer.tsx";
 
-export async function getStaticPaths({ rss }) {
+export async function getStaticPaths() {
   const posts = await Astro.glob("/src/posts/*.md");
   const filteredPosts = posts.filter(({ frontmatter }) => (
     process.env.NODE_ENV === "development" || !frontmatter.draft
   ));
-
-  // Generate an RSS feed from this collection
-  rss({
-    title: "iAdwin",
-    stylesheet: true,
-    description: "A place to gather and sort thoughts.",
-    customData: "<language>en-us</language>",
-    items: filteredPosts
-      .sort((a, b) =>
-        new Date(b.frontmatter.date).getTime() -
-        new Date(a.frontmatter.date).getTime()
-      )
-      .map(post => ({
-        title: post.frontmatter.title,
-        description: post.frontmatter.excerpt,
-        link: `/${post.frontmatter.slug}`,
-        pubDate: post.frontmatter.date,
-      })),
-    dest: "/blog/rss.xml",
-  });
 
   return filteredPosts.map((post) => ({
     params: { slug: post.frontmatter.slug },
@@ -37,7 +17,7 @@ export async function getStaticPaths({ rss }) {
 }
 
 const { post } = Astro.props;
-const { frontmatter, Content } = post;
+const { frontmatter, default: PostContent } = post;
 const { title, excerpt, thumbnail } = frontmatter;
 ---
 
@@ -49,7 +29,7 @@ const { title, excerpt, thumbnail } = frontmatter;
   <BlogHeader />
 
   <BlogPost {...frontmatter}>
-    <Content />
+    <PostContent />
   </BlogPost>
 
   <Footer />
