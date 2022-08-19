@@ -1,0 +1,3 @@
+let tmp_file = system('mktemp')
+silent execute '!curl https://raw.githubusercontent.com/adwinying/dotfiles/master/vim/.vim/basic.vim https://raw.githubusercontent.com/adwinying/dotfiles/master/vim/.vim/colors/nord.vim > '.tmp_file
+silent execute 'source '.tmp_file
