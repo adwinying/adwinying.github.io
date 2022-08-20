@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>A simple and clean git workflow - iAdwin</title>
+
+<link rel="canonical" href="https://iadw.in/a-simple-and-clean-git-workflow/">
+
+<meta name="description" content="If you're like me, this is probably the git workflow for you.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="A simple and clean git workflow">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iadw.in/img/social.jpg">
+<meta property="og:url" content="https://iadw.in/a-simple-and-clean-git-workflow/">
+
+
+<meta property="og:description" content="If you're like me, this is probably the git workflow for you.">
+
+
+
+
+
+
+<meta property="og:image:url" content="https://iadw.in/img/social.jpg">
+
+
+
+<meta property="og:image:height">
+<meta property="og:image:alt" content="A simple and clean git workflow">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Adwin Ying" name="author">
+
+
+  <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/>
+
+  
+<link rel="stylesheet" href="/assets/404-_slug_-blog-index-tag-_tag_.e5d1e939.css" /></head>
+
+<body class="flex flex-col bg-gray-50 min-h-screen ">
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">A simple and clean git workflow</h1><span class="inline-block text-sm text-gray-600">13 Aug 2022<!-- --> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/git" class="text-sm text-gray-600 underline-offset-1 hover:underline ">git</a>, <a href="/tag/gitlab" class="text-sm text-gray-600 underline-offset-1 hover:underline ">gitlab</a>, <a href="/tag/simple-and-clean" class="text-sm text-gray-600 underline-offset-1 hover:underline ">simple-and-clean</a>, <a href="/tag/kiss" class="text-sm text-gray-600 underline-offset-1 hover:underline ">kiss</a></span></div><div class="prose prose-lg max-w-none font-serif
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"><p>Even with years of experience in this industry, I can never seems to get my head around deciphering these huge and complicated git history trees. One time I had a chance to work on a brand new project with a great degree of freedom in determining our team's development process, and so I set out to find a git workflow that can satisfy me.</p>
+<p>I started out by looking at Git flow and Gitlab flow respectively, but none of these workflows are just not simple enough to satisfy the neat freak in me. After months of experimenting, I came up with this workflow that has worked so well that it has been the de-facto default git workflow for all of my projects from then onwards.</p>
+<figure><img src="https://mermaid.ink/img/pako:eNqNksFuwjAMhl8l8hmExm49b9oD7JqLSUwTQRpkEjGEeHccRreuTcVukb8__v_EvoCJlqCB1qcPxoPTnVImhuCT8rZRGgL6bvmioYANY2ec2hKmzLQyLAdapmjj5NqA9bdn-foJf31wR2YXc1IlUikE4pbm0oyykvWpnvSHVHP-0vW_Uvzx6TP4r9XRxdN3n01uJy6iqLqX-hPfWu_R2zGn6VxLsep5B3Omo86W9jS3AQNW9RlysYMFyIvEx8o2XopaQ3IUSMNdjbwrTa6iywcrk36Xn44MzRb3R1qU2PHz3BloEmfqRW8eW8bwUF1vZJkBBg" alt=""><figcaption>Your git repo can look as clean as this</figcaption></figure>
+<h2 id="this-workflow-is-for-you-if">This workflow is for you if</h2>
+<ul>
+<li>you like your git history to be simple and clean</li>
+<li>you want to onboard your new dev members fast</li>
+<li>you don't care about when commits are actually made in relation to other commits</li>
+</ul>
+<h2 id="this-workflow-is-not-for-you-if">This workflow is not for you if</h2>
+<ul>
+<li>your dev team is allergic to rebasing 😢</li>
+<li>you're a monster and like messy git histories the way it is 🤮</li>
+<li>other people might add commits to your branch</li>
+</ul>
+<h2 id="key-points">Key points</h2>
+<h3 id="rewriting-git-history-is-fair-game-as-long-as-its-not-the-main-branch">Rewriting git history is fair game, as long as it's not the main branch</h3>
+<p>This workflow makes heavy use of rebase. Rebasing in git, is not as scary as they seem to tell you. Rebasing may change the branch commit history, but to me, a branch is just a series of draft commits so I think it's okay to change history (even if it's pushed to a remote repository) as long as it has not been merged. Once you get the hang of it, rebasing branches are a walk in the park.</p>
+<p>However, changing commit history means that other people cannot add commits to your branches freely as there is no guarantee that the commits before will still exist. I think that commits should only be done by the branch author themselves, and hence rebasing would not pose such a problem.</p>
+<h3 id="support-for-multiple-environments-staging-production-etc">Support for multiple environments (staging, production etc.)</h3>
+<p>Eventually when you put your project into production you probably want to have different environments to try out new features before it gets shipped into production. This workflow easily supports multiple environments while maintaining a simple and clean git commit history. You don't even need to match the order you push for different environments!</p>
+<h3 id="only-see-commits-that-youve-made-in-your-branches">Only see commits that you've made in your branches</h3>
+<p>When you merge another branch into your branch, your branch would inevitably be "polluted" with commits from other branches. With this workflow, you can ensure only commits from your branch are visible.</p>
+<h3 id="cicd-friendly">CI/CD friendly</h3>
+<p>This workflow works really well if you have a CI/CD environment. Branches must be up to date (ie. branched off the latest commit of the main branch) before it can be merged. This guarantees your branch will pass CI/CD after merging as it is tested on your latest working state.</p>
+<h2 id="setting-it-up">Setting it up</h2>
+<p>Setting it up is very easy. In fact, you can even set it up for existing repositories.</p>
+<h3 id="step-0-get-your-teammates-onboard">Step 0: Get your teammates onboard</h3>
+<p>As git is a team sport, it is important to get your teammates onboard. Or at the very least, least show them this page. Technically you can implement this by yourself but your teammates may become very lost when they realize that they need to start rebasing...</p>
+<h3 id="step-1-enforce-linearsemi-linear-merging">Step 1: Enforce linear/semi-linear merging</h3>
+<p>You'll need to enable linear merging or semi-linear merging on whichever git service that you're using.</p>
+<p>What are the difference between linear and semi-linear merging? Linear merging does not create a merge commit, but instead fast forwards the main branch to the latest commit of the branch. It'll look something like this:</p>
+<figure><img src="https://mermaid.ink/img/pako:eNqFkMEKwjAMQH-l5OwQ9daz4gd47SW22VZc1xFTUMb-3U4mDpx67Xt5pOnBRkegofJyZOxq0yplYwhelHdaGbBMKFRIdLHYGPjJt3_4boGT8_K9_qZL7dLfFqfG98k_M7a2VmVeIjGtHTU0bfMxNWOL1TnPdVhBIA7oXT5fP9oGpKZABp428mWMDNlLncs3OOS_RAZdYnOlFWCSeLq3FrRwope091gxhskaHvYviqw" alt=""><figcaption>Before linear merge</figcaption></figure>
+<figure><img src="https://mermaid.ink/img/pako:eNqFkDEOwjAMRa8SeW4HYMsM4gCsWazYbS2apgquBKp6d1IEgiHA6vf-l-0ZfCQGC63oMeHYucEYH0MQNULWOPCJUbnWSLHeOPjJt3_4rsCZRL-3v2mpu5FrMbXOSz5xz79u-eQ5DxUETgGF8oPm1XagHQd28LAxndeSJXvTSPnKQ942JrAN9heuACeNp9vgwWqa-CXtBduE4Wktd8Omf6M" alt=""><figcaption>After performing a linear merge. Git history will become a single straight line</figcaption></figure>
+<p>On the other hand, a semi-linear merge will make a merge commit every time you merge a branch:</p>
+<figure><img src="https://mermaid.ink/img/pako:eNqNksFuAiEQhl-FzFljam97rukD9MoFYVyIsphxSNsY393BurqubOyN8P3M_wU4gk0OoYE28CeZvdedUjbFGFgF1ygN0YRu_qahgDWZznq1QcOZcGFJFjjn5NLTsQHrT0_y5Qv-fuUe7TZlVkWpbESkFqdsRq7oAtdNb6TqeafLf1k89PQO4Wdx8On7b846t08tkqi2l_0XvdXZ4-zoMhzucOrhBqyqNOSiBjMQEelx8omOJa2BPUbUcEkb2pYhJ8nlvZMHWskFJYJmY3YHnIHJnL5-OwsNU8Y-9BFMSyZeU6czG_PoxQ" alt=""><figcaption>Before semi-linear merge</figcaption></figure>
+<figure><img src="https://mermaid.ink/img/pako:eNqNkkFuAjEMRa8SeQ1CpbtZg3qAbrMxiZlEkAkyjmiFuHuTloHpkBHsIr_v7y87ZzDREjTQevlgPDjdKWViCF6Ut43SENB38zcNBWwYO-PUllAS08JwftBcoo0PbQPWd0_y5RP-fuWOzC4mUSVSKQTilqbSjLKS9VJPeiPVnHe6fCnFvzl9Bv-1OLp4-vPZpPZhSlZUp5f6k7lV77F2tAxLe5o63IBVIw35aysZdMAMMssym7_cuUg1iKNAGn69kXfF8pJ16WDzOdd5nZGh2eL-SDPAJPHzuzPQCCfqRSuPLWO4qi4_34b5lQ" alt=""><figcaption>After semi-linear merge</figcaption></figure>
+<p>I personally prefer a semi-linear merge as you can see where a branch starts and end easily.</p>
+<p>If you're using Gitlab, you can easily enforce either one in your repository settings under Merge Requests:</p>
+<figure><img src="/uploads/gitlab-merge-request-settings.png" alt=""><figcaption>Gitlab's merge request settings. "Merge commit with semi-linear history" for well, semi-linear merging and "Fast-forward merge" for linear merging</figcaption></figure>
+<p>In Github, linear merging can be enforced by only allowing rebase merging:</p>
+<figure><img src="/uploads/github-pull-request-settings.png" alt=""><figcaption>Only check "Allow rebase merging" if you want linear merging</figcaption></figure>
+<p>As for semi-linear merging in Github, unfortunately there's no setting to enforce semi-linear merging. There is a <a href="https://github.com/community/community/discussions/8940#discussioncomment-2845065">workaround</a> to emulate semi-linear merging but it does not prevent users from merging to update a branch.</p>
+<h3 id="step-2-done">Step 2: Done</h3>
+<p>There's no step 2! Let it run for a couple of branch merges and let your eyes feast on that beautiful git commit history.</p>
+<h2 id="workflow-scenarios">Workflow scenarios</h2>
+<p>Here are some common workflow scenarios that I've encountered which may give you a general sense on how the git history may look like with this workflow.</p>
+<h3 id="scenario-1-a-typical-featurebugfix-workflow">Scenario #1: A typical feature/bugfix workflow</h3>
+<p>First you would checkout a new branch from the latest main branch and commit some changes:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqFkDEOwjAMRa8SeaZCwNYZxAFYs5jEbaOSpjLOgKrenURqAUErNivvf_spA5hgCUqonZwZ-0Z3SpngvRPlbKk0eHRdsdOQwZWxM42qCCUybQ2ngQoJNvzUPtjcXuX7P_ww8YZMG6KorJQfPHFNazZfrmSdLJu-yKLnmyZL2EC6mc7b9GNDzmqQhjxpyFmL3OYVY8rF3iabU2oHhrLC2502gFHC5dEZKIUjzaGjw5rRT6nxCSELiYc" alt=""></p>
+<p>While committing new changes there may be new commits added to the main branch:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqFkTEOwjAMRa8SeQYhytYZxAFYs5jENBGkQcYRIMTdSQQFBC1skd_397dzARMtQQ2NlyXj3ulWKRND8KK8rZWGgL4dTzUUsGZsjVMbQklME8P5QWOJNn61vbGue5BXf_jswR2ZbUyiSqRSCMQNDaX5yErWS3_SJ-nN-aLVQIpukD9NDi4e7-J1ar6ssqJ3RKlXv1f89IYRZJJFNn_dpQg1iKNAGoqjRd4Ww2vWpb3NZ1nkNSJDvcHdgUaASeLq3BqohRN1ornHhjE8VNcbhqS4pA" alt=""></p>
+<p>When you want to reflect the new changes from the main branch we would rebase the working branch against the latest commit from the main branch (while you're at it, feel free to do an interactive rebase if you want to reorganize your commits):</p>
+<p><img src="https://mermaid.ink/img/pako:eNqFkdEOQTEMhl9l6TUR3J1r4gHc7qa2OlvYmVQXRLy7LRyE4a7p9__tn_YMJlqCBlovC8ad051SJobgRXnbKA0BfTccayhgxdgZp9aEkphGhnNBQ4k2ftheWO_-yid_-PTOHZlNTKJKpNIIxC19S9Nn9cfR3sXDbdIqtR-bsqKasPQnvzfXZr_diKyX-oUepLr9SWsZYAA5Qq5sft25YA3iKJCGYrbIm-K6ZF3a2XyWeR4XGZo1bvc0AEwSl6fOQCOcqBfNPLaM4a66XAGFPLik" alt=""></p>
+<p>Then just push the branch to the remote repository when you're ready to create a pull/merge request. It does not necessarily need to be up to date, but I would at least resolve any conflicts before requesting a code review.</p>
+<p>When you need to add commits (fixes etc.) you can just add new commits, or just add the changes into the existing commits (<a href="https://github.com/jesseduffield/lazygit">lazygit</a>'s "Amend commit with staged changes" allows you to easily do just that). Personally I would make changes to existing commits when its a minor bug that got caught in CI or linting errors.</p>
+<p>And when you're ready to merge you will be prompted to rebase if it's out of date; or else just merge away!</p>
+<figure><img src="https://mermaid.ink/img/pako:eNqNkc0OAiEMhF-F9Kwxrrc9a3wAr1wq1IUoi6klaozvLkRXja4_N9JvOp0MJzDREtTQeJkzbp1ulTIxBC_K21ppCOjb4VhDAUvG1ji1IpTENDKcHzSUaOPb2hPrtj_y6gef3Lgjs45JVIlUBoG4oU9puqz-MNq5uL86LVPzdikrehOWefX9cp_3S0dkvfQ3dCe91x-0-kr_6-auhwFkkkU2__mpCDWIo0Aaiq9FXhfDc9alrc19zvJmZKhXuNnRADBJXBxbA7Vwok409dgwhpvqfAHDLMxB" alt=""><figcaption>End result looks something like this</figcaption></figure>
+<h3 id="scenario-2-working-on-top-of-an-unmerged-branch">Scenario #2: Working on top of an unmerged branch</h3>
+<p>Another common scenario is when you need to use the changes you made on another branch when building another feature. For example, if you need to build on top of <code>edit-todo</code>, you would first checkout a new branch (in this case <code>delete-todo</code>) off the latest commit <code>edit-todo</code> instead of the main branch and add commits to <code>delete-todo</code>:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqFkcsOwiAQRX-FzFpjtLuuNX6AWzYjjC2pFDMOC9P03wXjo6mt7gjnwhwuHZhgCUqonOwZL7VulTLBeyfK2VJp8Oja5VpDBkfG1tTqRCiRaWU4LWgpwYavYwP2Oj3LN3948eQ1mSZEUVkpb3jiimZtxumRPFkn0-pvMin-oZuftJiszNKZ5iobsMnJQ55mwwJSAel1Nn1fl9MapCZPGh5p5CZf0qdcvNhUzS65BYbyhOcrLQCjhMOtNVAKR3qFtg4rRv9M9Xdn8LmJ" alt=""></p>
+<p>When you diff with the main branch you'll probably notice that the commits from <code>edit-todo</code> would appear, and that is okay. Eventually the commits from <code>edit-todo</code> will disappear after it has merged. When <code>edit-todo</code> gets merged into main, you would just rebase <code>delete-todo</code> against the latest commit from the main branch:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqNkUsOwiAQQK9CZm1j1F3XGg_gls0I05YoxYzDwhjvLhg_tbbqjvAe8DKcwQRLUELtZM14aHSrlAneO1HOlkqDR9cWMw0ZbBlb06iKUCLT1HBaUCHBho9jHfY4PcrnP_jizhsyuxBF5aS84YlrGq3p2714sk6G059kMPxF51_pf9FvFb1CS3saG2-HDVZ2eeqECaR3U4JNX33OtgZpyJOGm428y5dckhcPNo1xlboCQ1nh_kgTwChhc2oNlMKRHtLSYc3o79blCmndyYw" alt=""></p>
+<p>Git is smart enough to know that the same commits are already in the main branch and would remove them for you. How neat!</p>
+<h4 id="changes-on-unmerged-branch">Changes on unmerged branch</h4>
+<p>What if changes were made to the unmerged branch while working on the new branch? If you need to reflect the new changes from the unmerged branch you could try to rebase against the latest commit of the unmerged branch. However, most likely you'll encounter conflicts. In that case, I recommend creating a new branch off the latest commit and <strong>cherry-picking</strong> the commits from the new branch instead.</p>
+<figure><img src="https://mermaid.ink/img/pako:eNqVkb0OwjAMhF8l8gxCtEydQTwAaxaTmDaCNMg4A0K8OwnipyotiM3ydydfLhcwwRJUUDtZMx4b3SplgvdOlLOV0uDRtdO5hgy2jK1p1I5QItPMcBpoKsGGD1uHPd2jvPjBywdvyOxDFJUj5YUnrmk0TV_dC0_WyXD0FxkM_qbFV1oOVmbpQGOVddjg5S4vepX886pF9sIEUn2pG5s-_5LVGqQhTxrut5D3WXZNuni0qdhV8geGaoeHE00Ao4TNuTVQCUd6ipYOa0b_UF1vQ97PNw" alt=""><figcaption>If only new commits are added, you can easily rebase against the latest commit</figcaption></figure>
+<figure><img src="https://mermaid.ink/img/pako:eNqVksGOwiAQhl-FzNnGbN1Tz2v2AfbKBWFsSQs04xBjjO--YKzbtNVmb4Tv_8MHwxV0MAgV1Ja_SfWN9ELo4JxlYU0lJDhlffEhIYMDKa8bcUTFkXCrKS2w4GDCrDZiQ_slL1f47sEb1G2ILLJS3nBINb60maYn8mgsL6s_yaL4Hy3f0t3ikxnscLhW6MysP-ZLp495OXmW_9zsc9XO4_m9XZEOJroUvdUtmjXXeRo2kAaYpmPS97vmtgRu0KGEe1tRm2O3lIu9SaPdJ_tAUB1Vd8INqMjh5-I1VEwRh9CXVTUp90jdfgG8j_zm" alt=""><figcaption>If commits were modified and you can't rebase easily, cherry-pick the commits into a new branch instead. Be sure to confirm the branch contents before deleting the old branch</figcaption></figure>
+<h3 id="scenario-3-working-with-multiple-environments">Scenario #3: Working with multiple environments</h3>
+<p>Let's say I have two environments, production and staging, and I would like to push a new feature to staging so I could preview it before pushing to production. If the production environment is in sync with the main branch, how do I preview features in staging?</p>
+<p>Let's assume that I have a branch that is ready to be pushed into the staging environment (<code>edit-todo</code>):</p>
+<p><img src="https://mermaid.ink/img/pako:eNqFkL0OAiEQBl-FbO3FqB21xgewpVlh7yDKYdalMMZ3F4x_OU_tyM58yYQz2OQINHRB1owHb3qlbIoxiApOKwMRQ9_MDFSwZeytVy2hZKap5fKgRpJLH7M39lh_5fM_fHHnnuwuZVE1qR4icUdfa4b2IJ5ckPH0JxkNf9H5T3qLhgmUyFLgyhefq21APEUyUG2HvKvapXj54Er-quwTg25xf6QJYJa0OfUWtHCmh7QM2DHGu3W5Aji8mjU" alt=""></p>
+<p>I would have a dedicated branch for the staging environment, aptly named <code>staging</code> branch, and cherry-pick commits from <code>edit-todo</code> to <code>staging</code>. You would then configure your staging environment to be in sync with the <code>staging</code> branch.</p>
+<p><img src="https://mermaid.ink/img/pako:eNqVksGOwiAQhl-FzNlms_bWsxsfYK9cRhgpqUAzDgdjfPeFpK6m2m72Rvj-f_gy4QomWYIOnJc949jrqJRJIXhR3nZKQ0Afm08NFRwYo-nVkVAy04fhcqBGkk0vtSd2by_y7R-8nXhPZkhZVFWqF4HY0aLNPD2TJ-vlvfoveSv-oNtVuiQ9aZwFnY9u7fGmdJkvzejNQHZd5R_Zdp6FDZRNFj9b_sG1NjVIT4E01KZFHurAW8nl0ZYdf5VZiaE74ulMG8As6fsSDXTCme6hnUfHGKbU7Qd4JdNU" alt=""></p>
+<p>Most likely you would have more that one branch that you would like to preview in the staging environment. In that case, you would just cherry-pick the commits from all the branches you want to preview in staging:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqVkkFuwjAQRa9izZqoathl3aoH6DabqT04VrAdDeMFQty9NgKahiSIXeT3v_PGmhPoaAgasE6-GIeuDUrp6L0T5UyjWvDoQvXeQgE_jEF3akcoielNc_6gSqKJD7URu7UXef2Eb6-8I93HJKoolQNPbGnRZpqeyJNxMq9-J7Pif7RepUvSEw1De1p6wxGbVRnzev13B0Hrgl2btcpd5mM1ON2TWZ_8hez2afbfmC-lHzxgA3kp8uwmr_SpdFuQjjy1cOki9-XKc86lweR1-cyekaHZ4f5AG8Ak8fsYNDTCiW6hD4eW0V9T518ydRlp" alt=""></p>
+<p>Let's say features added in <code>edit-todo</code> was approved and ready to be pushed to production, so you would merge <code>edit-todo</code> as usual:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqVksFuwyAMhl8F-dxoWnrLudMeYFcuHrgEpUDkwqGq-u6Dqu2yLKHqDfH9xp-Rz6CCJujA2PjJOPbSC6GCczYKqzshwaH1zbuEAr4ZverFnjAmpjfF-UBNDDr8K5uwe_Uqb5_w7Y33pIaQoihK5cIRG1q1madn8qRtXFZ_kEXxX9pW6Zr0TEPTgdb-cMIWVaa8rbc7RjTWm9qsTa5lPjWjVQPp-uQvZLdPs3_GfCm97FFfk4cZbCCTHNJ5_c8lKCH25EjCtQ_yUB685FwadV6tj1wZGLo9Ho60AUwxfJ28gi5yontoZ9Ewulvq8gNRTCls" alt=""></p>
+<p>After that, you'll need to <strong>rebase the staging branch against the latest commit from the main branch</strong>. Ideally, you would have a CI job that would rebase the staging branch for you whenever you push new commits to the main branch. After rebasing the staging branch, you'll  notice that the commits from the merged branch would disappear from the staging branch, again due to fact that the commits are already in the main branch and will be removed automatically:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqNksFuwyAMhl8F-dxoWnbLedMeYFcuLrgEpUDkmkNV9d0HU7plWdLuZvH9hg_DBUyyBB04L--MY6-jUiaF4EV52ykNAX1snjVUsGeMplcHQslMT4ZLQY0km_60zdite5O3D_jLxHsyQ8qiqlJdCMSONm2W6YU8WS_r6t9kVfyHtnfplvRCw9KRtmY4Y6sqc97-a0a_Lj2ZnASdj-7-6U3ZmPncjN4MZB-5rKbnZrCDIlYqW77epWIN0lMgDV-bIQ-161pyebTlWd-KeGLoDng80Q4wS_o4RwOdcKZb6NWjYwxT6voJYOb8Hg" alt=""></p>
+<h4 id="the-branch-order-you-push-to-staging-does-not-need-to-match-the-order-that-you-push-to-production">The branch order you push to staging does not need to match the order that you push to production!</h4>
+<p>What if instead of <code>edit-todo</code>, <code>delete-todo</code> got approved first? Just merge the <code>delete-todo</code> branch and rebase the staging branch! The commits from <code>delete-todo</code> will disappear from the staging branch instead of the <code>edit-todo</code> branch:</p>
+<p><img src="https://mermaid.ink/img/pako:eNqVkkFuwyAQRa-CZh2rqrPzOlUP0K03E5hg5ADWZFhEUe5eqJzUcm233SHeH3h8cQMdDUED1sk749C1QSkdvXeinGlUCx5dqF5bKODIGHSnToSSmF405wVVEk38MTZhj-lVXv_C9yPvSPcxiSpKZcMTW1q1madn8mScLKs_yaL4N6036Zr0TMPQmdY6nLBFlSmv_9TR7LbR5SJoXbBbRVT5YOZrNTjdk9mu5R_Z_WJ2-gbYQX5CXpn8SW8FtyAdeWrhqwLkvkzdcy4NJn-At3x4ZGhOeL7QDjBJ_LgGDY1wokfo4NAy-jF1_wTVRgp2" alt=""></p>
+<p>And once all the changes have been pushed to production, your main branch and staging branch would be in sync and will share the same latest commit.</p>
+<h4 id="even-more-environments">Even more environments</h4>
+<p>If you have other environments, you would also create a dedicated branch for that environment and cherry-pick commits to the environments that you'll like to preview the changes. Similar to the staging branch, you would need to make sure the environment branch is always off the latest commit from the main branch.</p>
+<h3 id="scenario-4-reviewing-rebased-branches">Scenario #4: Reviewing rebased branches</h3>
+<p>When reviewing a branch, you may notice that the commit history changed due to rebasing of these branches. If you need to re-review a branch I recommend deleting the branch and pull a new version of the branch.</p>
+<h2 id="try-it-out">Try it out!</h2>
+<p>Convinced? Give it a try and <a href="https://twitter.com/adw1n">tell me</a> how it works for you!</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo.<!-- --> <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © <!-- -->2022<!-- --> Adwin Ying.</footer>
+</body></html>
