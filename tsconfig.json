@@ -6,7 +6,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "types": ["astro/env"],
+    "types": ["astro/env", "vite/client"],
     "baseUrl": ".",
     "jsx": "react-jsx",
     "strict": true,

@@ -19,6 +19,15 @@ export default function CommonHead() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
       />
+
+      {import.meta.env.PROD && (
+        <script
+          async
+          defer
+          data-website-id="5defccd5-b1c2-4556-8635-cfd36e168899"
+          src="https://u.iadw.in/bundle.js"
+        />
+      )}
     </>
   );
 }
