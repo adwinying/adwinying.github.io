@@ -24,7 +24,7 @@ export default function BlogIndex({ className = "", posts = [] }: Props) {
               new Date(a.frontmatter.date).getTime()
           )
           .map((post) => ({
-            url: `/${post.frontmatter.slug}`,
+            url: `/${post.frontmatter.slug}/`,
             title: post.frontmatter.title,
             date: post.frontmatter.date,
             tags: post.frontmatter.tags,

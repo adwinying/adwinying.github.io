@@ -7,7 +7,7 @@ tags:
 - simple-and-clean
 - kiss
 thumbnail: ''
-title: A simple and clean git workflow
+title: A Simple and Clean Git Workflow
 excerpt: If you're like me, this is probably the git workflow for you.
 slug: a-simple-and-clean-git-workflow
 

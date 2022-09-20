@@ -22,7 +22,7 @@ export default function TagIndex({ className = "", tag, posts = [] }: Props) {
             (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
           )
           .map((post) => ({
-            url: `/${post.slug}`,
+            url: `/${post.slug}/`,
             title: post.title,
             date: post.date,
             tags: post.tags,
