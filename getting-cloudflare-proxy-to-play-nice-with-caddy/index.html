@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Getting Cloudflare Proxy to Play Nice with Caddy - iAdwin</title>
+
+<link rel="canonical" href="https://iadw.in/getting-cloudflare-proxy-to-play-nice-with-caddy/">
+
+<meta name="description" content="Avoid getting infinite redirects when using Cloudflare Proxy.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Getting Cloudflare Proxy to Play Nice with Caddy">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iadw.in/img/social.jpg">
+<meta property="og:url" content="https://iadw.in/getting-cloudflare-proxy-to-play-nice-with-caddy/">
+
+
+<meta property="og:description" content="Avoid getting infinite redirects when using Cloudflare Proxy.">
+
+
+
+
+
+
+<meta property="og:image:url" content="https://iadw.in/img/social.jpg">
+
+
+
+<meta property="og:image:height">
+<meta property="og:image:alt" content="Getting Cloudflare Proxy to Play Nice with Caddy">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Adwin Ying" name="author">
+
+
+  <meta charSet="UTF-8"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon.svg"/><link rel="mask-icon" href="/mask-icon.svg" color="#000000"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&amp;family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&amp;display=swap"/><script async="" defer="" data-website-id="5defccd5-b1c2-4556-8635-cfd36e168899" src="https://u.iadw.in/bundle.js"></script>
+
+  
+<link rel="stylesheet" href="/assets/404-_slug_-blog-index-tag-_tag_.e5d1e939.css" /></head>
+
+<body class="flex flex-col bg-gray-50 min-h-screen ">
+  <header class="container mx-auto flex items-center space-x-3 px-5 py-7"><a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">iA</a><span class="h-9 border-r-[2.5px] border-black"></span><a href="/blog" class="font-sans text-3xl font-normal text-gray-900">Blog</a><a href="/blog/rss.xml" target="_parent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 h-5"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></header><article class="mx-auto w-full max-w-blog p-5 pb-9"><div class="mb-8 font-sans"><h1 class="mb-1 text-5xl font-bold text-gray-900">Getting Cloudflare Proxy to Play Nice with Caddy</h1><span class="inline-block text-sm text-gray-600">24 Sept 2022<!-- --> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="mr-1 inline-block h-2.5"><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><a href="/tag/servers/" class="text-sm text-gray-600 underline-offset-1 hover:underline ">servers</a>, <a href="/tag/cloudflare/" class="text-sm text-gray-600 underline-offset-1 hover:underline ">cloudflare</a>, <a href="/tag/cloudflare-proxy/" class="text-sm text-gray-600 underline-offset-1 hover:underline ">cloudflare-proxy</a>, <a href="/tag/caddy/" class="text-sm text-gray-600 underline-offset-1 hover:underline ">caddy</a>, <a href="/tag/https/" class="text-sm text-gray-600 underline-offset-1 hover:underline ">https</a></span></div><div class="prose prose-lg max-w-none font-serif
+          prose-headings:font-sans prose-figcaption:text-center
+          prose-figcaption:font-sans prose-figcaption:text-sm"><p>I wanted to enable Cloudflare proxy on a site that was behind <a href="https://caddyserver.com/">Caddy</a> for some DDoS protection on the site. As I enable the proxy via Cloudflare's DNS settings, the site could no longer be accessed, with the browser showing a <strong>too many redirects</strong> error.</p>
+<p>Seems like this is a <a href="https://caddy.community/t/infinite-redirection/3230/5">well known issue</a>, and here are the things that you should do if you want to enable Cloudflare's proxy and Caddy's HTTPS features at the same time.</p>
+<h2 id="how-do-i-fix-this">How do I fix this?</h2>
+<p>There's a few things you'll need to do to enable both Cloudflare's proxy and Caddy's HTTPS:</p>
+<h3 id="1-use-dns-challenge-when-issuing-https-certificates">1: Use DNS challenge when issuing HTTPS certificates</h3>
+<p>In Caddy, you can use DNS challenge instead by using a DNS provider plugin. The <a href="https://caddy.community/t/how-to-use-dns-provider-modules-in-caddy-2/8148">forums/wiki</a> explains on  how to install and use the plugin.</p>
+<p>For me, I decide to issue a wildcard certificate separately with <a href="https://github.com/acmesh-official/acme.sh">acme.sh</a> and import the certs to Caddy. Here is how I configure it in my <code>Caddyfile</code>:</p>
+<figure><pre is:raw="" class="astro-code" style="background-color: #2e3440ff; overflow-x: auto;"><code><span class="line"><span style="color: #d8dee9ff">*.example.org {</span></span>
+<span class="line"><span style="color: #d8dee9ff">  tls /path/to/certs/fullchain.cer /path/to/certs/*.example.org.key</span></span>
+<span class="line"><span style="color: #d8dee9ff">}</span></span></code></pre><figcaption>Caddyfile config</figcaption></figure>
+<h3 id="2-enable-strict-ssl-encryption-on-cloudflare">2: Enable strict SSL encryption on Cloudflare</h3>
+<p>In your Cloudflare dashboard under <strong>SSL/TLS</strong> > <strong>Overview</strong>, you can see there's 4 different modes to choose from:</p>
+<figure><img src="/uploads/cloudflare-ssl-modes.png" alt="Off, Flexible, Full and Full (strict)"><figcaption>Cloudflare SSL modes</figcaption></figure>
+<p>Select <strong>Full (strict)</strong>.</p>
+<p>Now you should be able to access your website with Cloudflare proxy and Caddy HTTPS working together.</p>
+<h2 id="why-is-this-happening">Why is this happening?</h2>
+<p>Cloudflare's proxy comes with HTTPS, which is not a necessary thing as Caddy enables HTTPS by default. However, there's no option to enable DDoS protection without enabling Cloudflare HTTPS. You could disable Caddy's HTTPS feature, but I want to access my sites hosted when I'm in the same network without going through Cloudflare while maintaining HTTPS.</p>
+<p>There are two things that are preventing both from coexisting with each other:</p>
+<h3 id="cloudflare-ssl-encryption-mode">Cloudflare SSL Encryption Mode</h3>
+<p>Coming back to Cloudflare's SSL encryption modes:</p>
+<figure><img src="/uploads/cloudflare-ssl-modes.png" alt="Off, Flexible, Full and Full (strict)"><figcaption>Cloudflare SSL modes</figcaption></figure>
+<p>I believe <strong>Flexible</strong> mode is selected by default. That means the requests that reach Caddy is HTTP and not HTTPS. Caddy redirects to HTTPS by default, so it will always return a redirect to HTTPS response. But on the other hand, Cloudflare keeps requesting a non-HTTPS page, and hence the infinite redirect loop. By selecting <strong>Full (strict)</strong> or <strong>Full</strong>, Cloudflare would send HTTPS requests to Caddy instead of HTTP, avoiding infinite redirects.</p>
+<h3 id="lets-encrypt-https-challenge">Let's Encrypt HTTPS Challenge</h3>
+<p>In order to obtain a HTTPS certificate, you'll need to prove that you actually own the server that you want to generate certificates for. This is done via completing a challenge that is issued by Let's Encrypt. There are three types of challenges, HTTP, TLS-ALPN and DNS.</p>
+<p>By default, Caddy uses the HTTP challenge. For the HTTP Challenge, Let's Encrypt will set up a page on your server and tries to access that said page from their servers. However, if you set Cloudflare SSL mode to <strong>Full (strict)</strong>, the HTTP challenge will fail. This is because Cloudflare would return an error as the HTTPS certificate has not been issued, creating a chicken and egg situation.</p>
+<p>The workaround is to use the DNS challenge instead, where Let's Encrypt would add a DNS entry on the domain you want to issue HTTPS certificates for and verify the entry exists before issuing a certificate.</p>
+<p><a href="https://caddyserver.com/docs/automatic-https#acme-challenges">The Caddy docs</a> explains, in detail regarding the various HTTPS challenges available in Let's Encrypt.</p><hr/></div><div class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 mt-14 mb-9 font-sans text-base"><div class="w-28 sm:w-32"><img src="/img/avatar.png" srcSet="/assets/avatar@112w.377da505.png 112w, /assets/avatar@128w.9acea303.png 128w" alt="Adwin Ying&#x27;s avatar"/></div><div class="flex flex-1 flex-col space-y-1"><span class="text-2xl font-bold">Adwin Ying</span><p class="text-gray-800">Self-taught full-stack web dev based in Tokyo.<!-- --> <br class="hidden sm:block"/>Occasionally wrecks servers through <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/selfhosted/">self-hosting</a> and <a class="text-sky-500 hover:text-sky-700 " href="https://www.reddit.com/r/homelab/">homelab-ing</a>.</p><div class="flex"><a class="text-sky-500 hover:text-sky-700 flex space-x-1" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg><span>https://iAdw.in</span></a></div></div></div><a class="text-sky-500 hover:text-sky-700 font-sans !text-gray-900 underline underline-offset-2" href="/blog">← Back to all posts</a></article><footer class="bg-black py-3 text-center text-gray-50">iAdwin © <!-- -->2022<!-- --> Adwin Ying.</footer>
+</body></html>
