@@ -8,6 +8,27 @@ export type Project = {
 
 const projects: Project[] = [
   {
+    title: "PinIt",
+    tags: [
+      "Typescript",
+      "Remix",
+      "Remix Auth",
+      "React",
+      "SQLite",
+      "TailwindCSS",
+      "zod",
+      "ESLint",
+      "Prettier",
+      "Vitest",
+      "Cypress",
+      "Github Actions",
+      "Fly.io",
+    ],
+    description: "A full-stack Pintrest clone.",
+    img: "projects_pinit.jpg",
+    url: "https://pinit.fly.dev/",
+  },
+  {
     title: "Hotel Hamlet",
     tags: [
       "PHP",
@@ -15,11 +36,11 @@ const projects: Project[] = [
       "MySQL",
       "Inertia.js",
       "Vue.js",
-      "TypeScript",
+      "Typescript",
       "TailwindCSS",
       "PHPUnit",
       "Github Actions",
-      "Heroku",
+      "Fly.io",
     ],
     description:
       "A full-stack web application with a built-in reservation system.",
@@ -47,13 +68,6 @@ const projects: Project[] = [
     description: "Automated provisioning of homelab servers.",
     img: "projects_server_provisioning.jpg",
     url: "https://github.com/adwinying/server-provisioning",
-  },
-  {
-    title: "PinIt",
-    tags: ["Node.js", "Express.js", "MongoDB", "Vue.js", "ESlint", "Heroku"],
-    description: "A Node.js-based Pintrest clone.",
-    img: "projects_pinit.jpg",
-    url: "http://pins.nodeapp.iadw.in/",
   },
 ];
 
