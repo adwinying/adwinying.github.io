@@ -48,6 +48,25 @@ const projects: Project[] = [
     url: "https://hotel-hamlet.fly.dev/admin",
   },
   {
+    title: "Roguelike2",
+    tags: [
+      "Typescript",
+      "React",
+      "Vite",
+      "Jotai",
+      "Immer",
+      "react-hot-toast",
+      "TailwindCSS",
+      "DaisyUI",
+      "ESLint",
+      "Prettier",
+      "Vitest",
+    ],
+    description: "Web-based roguelike dungeon game.",
+    img: "projects_roguelike.jpg",
+    url: "https://iadw.in/roguelike2",
+  },
+  {
     title: "Webdev",
     tags: [
       "Docker Compose",
