@@ -1,6 +1,6 @@
-import Section from "@/components/common/Section";
-import Link from "@/components/common/Link";
 import ProfileImages from "@/../public/img/avatar.png?w=176;352&process_img=true";
+import Link from "@/components/common/Link";
+import Section from "@/components/common/Section";
 
 export default function About() {
   return (

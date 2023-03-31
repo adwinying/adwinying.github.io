@@ -1,4 +1,4 @@
-import IconProps from "@/types/IconProps";
+import type IconProps from "@/types/IconProps";
 
 export default function CodeIcon({ className = "" }: IconProps) {
   return (

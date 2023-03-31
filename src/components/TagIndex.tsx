@@ -19,7 +19,7 @@ export default function TagIndex({ className = "", tag, posts = [] }: Props) {
       <BlogPostEntries
         posts={posts
           .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
           )
           .map((post) => ({
             url: `/${post.slug}/`,

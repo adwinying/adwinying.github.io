@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import smoothscroll from "smoothscroll-polyfill";
 
@@ -58,7 +59,7 @@ function initSectionTitle() {
     {
       rootMargin: "0px 0px -200px 0px",
       threshold: 1.0,
-    }
+    },
   );
 
   titles.forEach((title) => {

@@ -4,7 +4,7 @@ const postImportResult = import.meta.glob("/src/posts/*.md", { eager: true });
 const posts = Object.values(postImportResult);
 const filteredPosts = posts.filter(
   ({ frontmatter }) =>
-    process.env.NODE_ENV === "development" || !frontmatter.draft
+    process.env.NODE_ENV === "development" || !frontmatter.draft,
 );
 
 export const get = () =>
@@ -17,7 +17,7 @@ export const get = () =>
       .sort(
         (a, b) =>
           new Date(b.frontmatter.date).getTime() -
-          new Date(a.frontmatter.date).getTime()
+          new Date(a.frontmatter.date).getTime(),
       )
       .map((post) => ({
         title: post.frontmatter.title,

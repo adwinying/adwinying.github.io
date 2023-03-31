@@ -1,12 +1,12 @@
-import projects from "@/data/projects";
+import Project from "@/components/Project";
 import ButtonIcon from "@/components/common/ButtonIcon";
 import Section from "@/components/common/Section";
-import Project from "@/components/Project";
+import projects from "@/data/projects";
 
 export default function Projects() {
   return (
     <Section id="projects" title="Featured Projects">
-      <div className="mx-auto mt-10 mb-16 max-w-4xl space-y-12 md:space-y-20">
+      <div className="mx-auto mb-16 mt-10 max-w-4xl space-y-12 md:space-y-20">
         {projects.map(({ title, tags, description, img, url }) => (
           <Project
             key={title}

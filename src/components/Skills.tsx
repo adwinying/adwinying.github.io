@@ -1,6 +1,6 @@
-import skills from "@/data/skills";
 import Skill from "@/components/Skill";
 import Section from "@/components/common/Section";
+import skills from "@/data/skills";
 
 export default function Skills() {
   return (

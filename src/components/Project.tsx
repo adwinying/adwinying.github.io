@@ -1,8 +1,13 @@
-import { Project as ProjectType } from "@/data/projects";
 import Link from "@/components/common/Link";
 import LinkIcon from "@/components/icons/Link";
 
-type Props = ProjectType & {};
+type Props = {
+  title: string;
+  tags: string[];
+  description: string;
+  img: string;
+  url: string;
+};
 export default function Project({ title, tags, description, img, url }: Props) {
   return (
     <div className="md:flex md:items-center md:space-x-7">

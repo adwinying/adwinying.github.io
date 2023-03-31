@@ -1,4 +1,4 @@
-export type Project = {
+type Project = {
   title: string;
   tags: string[];
   description: string;
@@ -6,7 +6,7 @@ export type Project = {
   url: string;
 };
 
-const projects: Project[] = [
+const projects = [
   {
     title: "PinIt",
     tags: [
@@ -88,6 +88,6 @@ const projects: Project[] = [
     img: "projects_server_provisioning.jpg",
     url: "https://github.com/adwinying/server-provisioning",
   },
-];
+] satisfies Project[];
 
 export default projects;

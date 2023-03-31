@@ -1,6 +1,6 @@
+import ProfileImages from "@/../public/img/avatar.png?w=112;128&process_img=true";
 import Link from "@/components/common/Link";
 import ChainIcon from "@/components/icons/Chain";
-import ProfileImages from "@/../public/img/avatar.png?w=112;128&process_img=true";
 
 type Props = {
   className?: string;

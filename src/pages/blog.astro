@@ -1,18 +1,17 @@
 ---
+import BlogHeader from "@/components/BlogHeader";
+import BlogIndex from "@/components/BlogIndex";
+import Footer from "@/components/Footer";
 import BaseLayout from "@/layouts/base.astro";
-import BlogHeader from "@/components/BlogHeader.tsx";
-import BlogIndex from "@/components/BlogIndex.tsx";
-import Footer from "@/components/Footer.tsx";
 
 const posts = await Astro.glob("/src/posts/*.md");
-const filteredPosts = posts.filter(({ frontmatter }) => (
-  process.env.NODE_ENV === "development" || !frontmatter.draft
-));
+const filteredPosts = posts.filter(
+  ({ frontmatter }) =>
+    process.env.NODE_ENV === "development" || !frontmatter.draft,
+);
 ---
 
-<BaseLayout
-  title="Blog"
-  description="A place to gather and sort thoughts.">
+<BaseLayout title="Blog" description="A place to gather and sort thoughts.">
   <BlogHeader />
 
   <BlogIndex className="mt-4 mb-12 flex-grow" posts={filteredPosts} />

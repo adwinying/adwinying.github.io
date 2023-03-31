@@ -3,7 +3,7 @@ type NavLink = {
   url: string;
 };
 
-const navLinks: NavLink[] = [
+const navLinks = [
   {
     name: "About",
     url: "#about",
@@ -24,6 +24,6 @@ const navLinks: NavLink[] = [
     name: "Blog",
     url: "/blog",
   },
-];
+] satisfies NavLink[];
 
 export default navLinks;

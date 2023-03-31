@@ -1,8 +1,7 @@
-import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import { astroImageTools } from "astro-imagetools";
+import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({

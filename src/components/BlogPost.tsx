@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+
 import BlogAuthor from "@/components/BlogAuthor";
 import TagLinks from "@/components/TagLinks";
 import Link from "@/components/common/Link";
@@ -52,7 +53,7 @@ export default function BlogPost({
         <hr />
       </div>
 
-      <BlogAuthor className="mt-14 mb-9 font-sans text-base" />
+      <BlogAuthor className="mb-9 mt-14 font-sans text-base" />
 
       <Link
         href="/blog"

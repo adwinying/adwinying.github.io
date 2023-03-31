@@ -20,6 +20,6 @@ const connect = [
     icon: "mail",
     url: "mailto:adwinying[at]gmail[dot]com",
   },
-];
+] satisfies Connect[];
 
 export default connect;

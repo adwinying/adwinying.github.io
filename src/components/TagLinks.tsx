@@ -18,7 +18,7 @@ export default function TagLinks({ tags }: Props) {
             <>
               {acc}, {tag}
             </>
-          )
+          ),
         )}
     </>
   );

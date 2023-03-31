@@ -1,10 +1,10 @@
-export type Skill = {
+type Skill = {
   title: string;
   icon: string;
   contents: string[];
 };
 
-const skills: Skill[] = [
+const skills = [
   {
     title: "Client Side",
     icon: "user",
@@ -48,6 +48,6 @@ const skills: Skill[] = [
       "Git (Github | Gitlab)",
     ],
   },
-];
+] satisfies Skill[];
 
 export default skills;

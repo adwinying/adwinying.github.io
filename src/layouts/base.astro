@@ -1,13 +1,24 @@
 ---
 import { SEO } from "astro-seo";
-import CommonHead from "@/components/CommonHead.tsx";
+
+import CommonHead from "@/components/CommonHead";
 import "@/styles/main.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  isPost?: boolean;
+  className?: string;
+}
 
 const title = Astro.props.title ?? "iAdwin";
 const pageTitle = Astro.props.title ? `${title} - iAdwin` : title;
-const description = Astro.props.description ?? "The landing page of Adwin Ying.";
-const type = Astro.props.isPost ? "article": "website";
-const image = Astro.site + (Astro.props.image || "img/social.jpg");
+const description =
+  Astro.props.description ?? "The landing page of Adwin Ying.";
+const type = Astro.props.isPost ? "article" : "website";
+const image =
+  (Astro.site?.toString() ?? "") + (Astro.props.image || "img/social.jpg");
 
 const seo = {
   title: pageTitle,
@@ -23,10 +34,10 @@ const seo = {
     },
     image: {
       alt: title,
-    }
+    },
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary_large_image" as const,
   },
   extend: {
     meta: [
@@ -40,14 +51,15 @@ const className = Astro.props.className ?? "";
 ---
 
 <html lang="en">
-<head>
-  <SEO {...seo} />
-  <CommonHead />
+  <head>
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+    <SEO {...seo} />
+    <CommonHead />
 
-  <slot name="head" />
-</head>
+    <slot name="head" />
+  </head>
 
-<body class={`flex flex-col bg-gray-50 min-h-screen ${className}`}>
-  <slot />
-</body>
+  <body className={`flex flex-col bg-gray-50 min-h-screen ${className}`}>
+    <slot />
+  </body>
 </html>

@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+
 import Icons from "@/components/icons/Icons";
 
 type Props = {
