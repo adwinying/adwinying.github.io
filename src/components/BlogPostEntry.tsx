@@ -3,7 +3,7 @@ import TagLinks from "@/components/TagLinks";
 type Props = {
   url: string;
   title: string;
-  date: string;
+  date: Date;
   tags?: string[];
 };
 
@@ -19,7 +19,7 @@ export default function BlogPostEntry({ url, title, date, tags = [] }: Props) {
           day: "2-digit",
           month: "short",
           year: "numeric",
-        }).format(new Date(date))}
+        }).format(date)}
         {" | "}
         <TagLinks tags={tags} />
       </span>

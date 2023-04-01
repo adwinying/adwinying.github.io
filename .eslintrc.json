@@ -58,6 +58,15 @@
         }
       }
     ],
+    // supress unresolved import errors
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "astro:content"
+        ]
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

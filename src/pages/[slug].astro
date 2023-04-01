@@ -1,32 +1,39 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
 import BlogHeader from "@/components/BlogHeader";
 import BlogPost from "@/components/BlogPost";
 import Footer from "@/components/Footer";
 import BaseLayout from "@/layouts/base.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("/src/posts/*.md");
-  const filteredPosts = posts.filter(
-    ({ frontmatter }) =>
-      process.env.NODE_ENV === "development" || !frontmatter.draft,
+  const posts = await getCollection(
+    "posts",
+    ({ data }) => process.env.NODE_ENV === "development" || !data.draft,
   );
 
-  return filteredPosts.map((post) => ({
-    params: { slug: post.frontmatter.slug },
+  return posts.map((post) => ({
+    params: { slug: post.slug },
     props: { post },
   }));
 }
 
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
 const { post } = Astro.props;
-const { frontmatter, default: PostContent } = post;
-const { title, excerpt, thumbnail } = frontmatter;
+const { date, title, excerpt, thumbnail, tags } = post.data;
+
+const { Content } = await post.render();
 ---
 
 <BaseLayout title={title} description={excerpt} image={thumbnail} isPost>
   <BlogHeader />
 
-  <BlogPost {...frontmatter}>
-    <PostContent />
+  <BlogPost title={title} date={date} thumbnail={thumbnail} tags={tags}>
+    <Content />
   </BlogPost>
 
   <Footer />

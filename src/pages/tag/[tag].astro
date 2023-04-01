@@ -1,35 +1,40 @@
 ---
+import { getCollection } from "astro:content";
+
 import BlogHeader from "@/components/BlogHeader";
 import Footer from "@/components/Footer";
 import TagIndex from "@/components/TagIndex";
 import BaseLayout from "@/layouts/base.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("/src/posts/*.md");
-  const filteredPosts = posts.filter(
-    ({ frontmatter }) =>
-      process.env.NODE_ENV === "development" || !frontmatter.draft,
+  const posts = await getCollection(
+    "posts",
+    ({ data }) => process.env.NODE_ENV === "development" || !data.draft,
   );
+  const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 
-  const tagMap = {};
+  return tags.map((tag) => {
+    const filteredPosts = posts
+      .filter((post) => post.data.tags.includes(tag))
+      .map(({ slug, data }) => ({
+        title: data.title,
+        slug,
+        date: data.date,
+        tags: data.tags,
+      }));
 
-  filteredPosts.forEach(({ frontmatter }) => {
-    const { title, date, slug, tags } = frontmatter;
-
-    tags.forEach((tag) => {
-      const tagPosts = tagMap[tag] ?? [];
-
-      tagMap[tag] = [...tagPosts, { title, date, slug, tags }];
-    });
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
   });
-
-  return Object.entries(tagMap).map(([tag, posts]) => ({
-    params: { tag },
-    props: { posts },
-  }));
 }
 
-const { tag } = Astro.params;
+interface Props {
+  posts: Awaited<ReturnType<typeof getStaticPaths>>[0]["props"]["posts"];
+}
+
+const tag = Astro.params.tag ?? "";
 const { posts } = Astro.props;
 ---
 

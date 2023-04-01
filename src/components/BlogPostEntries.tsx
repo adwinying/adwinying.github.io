@@ -5,7 +5,7 @@ type Props = {
   posts: {
     url: string;
     title: string;
-    date: string;
+    date: Date;
     tags?: string[];
   }[];
 };

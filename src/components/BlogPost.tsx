@@ -6,7 +6,7 @@ import Link from "@/components/common/Link";
 
 type Props = {
   title: string;
-  date: string;
+  date: Date;
   thumbnail?: string;
   tags?: string[];
   children: ReactNode;
@@ -37,7 +37,7 @@ export default function BlogPost({
             day: "2-digit",
             month: "short",
             year: "numeric",
-          }).format(new Date(date))}
+          }).format(date)}
           {" | "}
           <TagLinks tags={tags} />
         </span>

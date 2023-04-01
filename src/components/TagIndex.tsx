@@ -6,7 +6,7 @@ type Props = {
   posts: {
     title: string;
     slug: string;
-    date: string;
+    date: Date;
     tags: string[];
   }[];
 };
@@ -18,9 +18,7 @@ export default function TagIndex({ className = "", tag, posts = [] }: Props) {
 
       <BlogPostEntries
         posts={posts
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-          )
+          .sort((a, b) => b.date.getTime() - a.date.getTime())
           .map((post) => ({
             url: `/${post.slug}/`,
             title: post.title,

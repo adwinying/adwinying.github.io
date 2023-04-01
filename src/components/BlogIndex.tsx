@@ -3,11 +3,11 @@ import BlogPostEntries from "@/components/BlogPostEntries";
 type Props = {
   className?: string;
   posts?: {
-    frontmatter: {
+    slug: string;
+    data: {
       title: string;
-      slug: string;
       excerpt: string;
-      date: string;
+      date: Date;
       tags?: string[];
     };
   }[];
@@ -18,16 +18,12 @@ export default function BlogIndex({ className = "", posts = [] }: Props) {
     <div className={`mx-auto max-w-blog px-5 ${className}`}>
       <BlogPostEntries
         posts={posts
-          .sort(
-            (a, b) =>
-              new Date(b.frontmatter.date).getTime() -
-              new Date(a.frontmatter.date).getTime(),
-          )
+          .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
           .map((post) => ({
-            url: `/${post.frontmatter.slug}/`,
-            title: post.frontmatter.title,
-            date: post.frontmatter.date,
-            tags: post.frontmatter.tags,
+            url: `/${post.slug}/`,
+            title: post.data.title,
+            date: post.data.date,
+            tags: post.data.tags,
           }))}
       />
     </div>

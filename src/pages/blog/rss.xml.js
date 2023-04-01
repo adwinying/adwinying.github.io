@@ -1,30 +1,24 @@
 import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 
-const postImportResult = import.meta.glob("/src/posts/*.md", { eager: true });
-const posts = Object.values(postImportResult);
-const filteredPosts = posts.filter(
-  ({ frontmatter }) =>
-    process.env.NODE_ENV === "development" || !frontmatter.draft,
-);
+export async function get() {
+  const posts = await getCollection(
+    "posts",
+    ({ data }) => process.env.NODE_ENV === "development" || !data.draft,
+  );
 
-export const get = () =>
-  rss({
+  return rss({
     title: "iAdwin",
     description: "A place to gather and sort thoughts.",
     site: import.meta.env.SITE,
     stylesheet: "/rss/styles.xsl",
-    items: filteredPosts
-      .sort(
-        (a, b) =>
-          new Date(b.frontmatter.date).getTime() -
-          new Date(a.frontmatter.date).getTime(),
-      )
+    items: posts
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
       .map((post) => ({
-        title: post.frontmatter.title,
-        description: post.frontmatter.excerpt,
-        link: `/${post.frontmatter.slug}`,
-        pubDate: post.frontmatter.date,
+        title: post.data.title,
+        description: post.data.excerpt,
+        link: `/${post.slug}`,
+        pubDate: post.data.date,
       })),
   });
-
-export default null;
+}
