@@ -12,10 +12,6 @@ module.exports = {
         serif: ["Georgia", ...defaultTheme.fontFamily.serif],
         title: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
-      backgroundImage: () => ({
-        hero: "url('/img/hero_bg.jpg')",
-        "hero-mobile": "url('/img/hero_bg_mobile.jpg')",
-      }),
       screens: {
         hero: "800px",
       },

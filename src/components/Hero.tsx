@@ -3,9 +3,10 @@ import MenuIcon from "@/components/icons/Menu";
 export default function Hero() {
   return (
     <header
-      className="relative flex h-screen items-center bg-hero-mobile bg-cover
-        bg-local bg-center bg-no-repeat px-3 md:h-[calc(100vh-3.75rem)] md:px-6
-        hero:bg-hero lg:px-10"
+      className="relative flex h-screen items-center
+        bg-[url('/img/hero_bg_mobile.jpg')] bg-cover bg-local bg-center
+        bg-no-repeat px-3 md:h-[calc(100vh-3.75rem)] md:px-6
+        hero:bg-[url('/img/hero_bg.jpg')] lg:px-10"
     >
       {/* Hamburger toggle */}
       <div className="js-nav-toggle absolute right-5 top-4 w-9 p-2 md:hidden">
