@@ -6,7 +6,7 @@ tags:
 - docker
 - fly-io
 - tailscale
-thumbnail: ''
+thumbnail:
 title: A Better Way to Integrate Tailscale on your fly.io-powered App
 excerpt: I think this is a better way than the official docs.
 slug: a-better-way-to-integrate-tailscale-on-your-fly-io-powered-app

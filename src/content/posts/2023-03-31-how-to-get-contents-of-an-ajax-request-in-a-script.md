@@ -6,6 +6,7 @@ tags:
 - playwright
 - scripting
 - bash
+thumbnail:
 title: How to Get Contents of an AJAX Request in a Script
 slug: how-to-get-contents-of-an-ajax-request-in-a-script
 excerpt: Getting the contents of an ajax request when scraping the web is a non-trivial task, but it could be achieved with a headless browser.
@@ -16,7 +17,7 @@ While I was performing web scraping, I discovered that I needed a specific strin
 
 ## Introducing HAR
 
-![Chrome Devtools > Network > right click request > context menu with "Save all as HAR with content" highlighted](/uploads/devtools-har.png)
+![Chrome Devtools > Network > right click request > context menu with "Save all as HAR with content" highlighted](../../assets/devtools-har.png)
 Figure: Under devtools > network tab, right click on any of the request and you'll see the term HAR
 
 If you've ever explored the network tab of your browser's devtools, you've probably come across the term HAR. HAR stands for HTTP Archive and is used to record all HTTP traffic exchanged between a web browser and a web server. Essentially, everything that you can access in the network tab is encompassed within an HAR file.

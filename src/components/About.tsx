@@ -1,4 +1,4 @@
-import ProfileImages from "@/../public/img/avatar.png?w=176;352&process_img=true";
+import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/common/Link";
 import Section from "@/components/common/Section";
 
@@ -7,8 +7,9 @@ export default function About() {
     <Section id="about" title="About Adwin">
       <div className="mx-auto mb-4 w-44">
         <img
-          src="/img/avatar.png"
-          srcSet={ProfileImages}
+          src={ProfileImage.src}
+          width={ProfileImage.width}
+          height={ProfileImage.height}
           alt="Profile avatar"
         />
       </div>

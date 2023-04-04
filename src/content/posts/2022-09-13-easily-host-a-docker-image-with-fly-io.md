@@ -6,7 +6,7 @@ tags:
 - homelab
 - docker
 - fly-io
-thumbnail: ''
+thumbnail:
 title: Easily Host a Docker Image with fly.io
 excerpt: It's free and easy, what more would you want?
 slug: easily-host-docker-docker-image-with-fly-io
@@ -79,5 +79,5 @@ You'll need to update your domain's DNS settings (CNAME for a subdomain, A recor
 
 If you're using Cloudflare's proxy DNS, you might run into problems verifying your domain ownership. You can try the alternative verification method that is listed on fly.io's web portal instead. The alternative verification involves adding a custom CNAME DNS entry to your domain.
 
-![Verifying custom domain ownership on fly.io](/uploads/fly-io-domain-verification.png)
+![Verifying custom domain ownership on fly.io](../../assets/fly-io-domain-verification.png)
 Figure: Under Organization > App > Certificates, select the domain you want to verify and follow the instructions provided

@@ -7,7 +7,7 @@ tags:
 - vuejs
 - laravel-passport
 - api
-thumbnail: ''
+thumbnail:
 title: Implementing Password Reset via API in Laravel
 excerpt: How to implement password reset via API in Laravel.
 slug: implementing-password-reset-via-api-in-laravel

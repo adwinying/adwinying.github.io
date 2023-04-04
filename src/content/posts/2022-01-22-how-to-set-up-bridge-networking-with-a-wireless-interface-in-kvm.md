@@ -8,7 +8,7 @@ tags:
 - linux
 - vfio
 - vm
-thumbnail: ''
+thumbnail:
 title: How to set up Bridge Networking with a Wireless Interface in KVM
 excerpt: If you want your VMs to have IP addresses in the same subnet as your local network.
 slug: how-to-set-up-bridge-networking-with-a-wireless-interface-in-kvm
@@ -30,7 +30,7 @@ In the case of Proxy ARP, as the name suggest the ARP response is done by someon
 
 The simplest way to set up bridge networking is via virt-manager. Under **Edit > Connection Details > Virtual Networks** we will add a new virtual network.
 
-![Create virtual network dialog](/uploads/create-virtual-network.png)
+![Create virtual network dialog](../../assets/create-virtual-network.png)
 Figure: Create virtual network dialog
 
 * **Name:** Network name. Put something that you'll be familiar with.
@@ -48,14 +48,14 @@ For IPv6 configuration and DNS, I left it at default settings.
 
 Click **Finish**, and the virtual network will be created:
 
-![proxyArp virtual network created with interface virbr1](/uploads/virt-man-network-interface.png)
+![proxyArp virtual network created with interface virbr1](../../assets/virt-man-network-interface.png)
 Figure: proxyArp virtual network created with interface virbr1
 
 ## Change network interface for guest VM
 
 We then change the network interface for the guest VM. Under virt-manager, we edit the guest VM configuration by selecting the NIC assigned to the guest VM and change the network source to the newly created network bridge interface, in this case `virbr1`.
 
-![VM network physical interface setting](/uploads/vm-network-setting.png)
+![VM network physical interface setting](../../assets/vm-network-setting.png)
 
 Hit **Apply** to save the configuration.
 

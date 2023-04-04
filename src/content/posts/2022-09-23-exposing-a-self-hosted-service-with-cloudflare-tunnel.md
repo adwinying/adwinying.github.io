@@ -7,7 +7,7 @@ tags:
 - cloudflare
 - cloudflare-tunnel
 - port-forward
-thumbnail: ''
+thumbnail:
 title: Exposing a Self-hosted Service with Cloudflare Tunnel
 excerpt: Expose your self-hosted services without port forwarding.
 slug: exposing-a-self-hosted-service-with-cloudflare-tunnel
@@ -18,10 +18,10 @@ slug: exposing-a-self-hosted-service-with-cloudflare-tunnel
 
 I recently replaced [my tunnel server hosted on Oracle cloud](/setting-up-port-forwarding-on-an-oracle-cloud-instance) with Cloudflare Tunnel, allowing me to simplify my homelab setup.
 
-![Web browser pointing towards cloud server, which is linked via SSH/VPN to a server in a private network that is within another private network that belongs to the ISP](/uploads/before-cloudflare-tunnel.excalidraw.png)
+![Web browser pointing towards cloud server, which is linked via SSH/VPN to a server in a private network that is within another private network that belongs to the ISP](../../assets/before-cloudflare-tunnel.excalidraw.png)
 Figure: Network tunnel setup before using Cloudflare Tunnel
 
-![Web browser pointing towards Cloudflare's server, which is linked via an outbound connection from a server in a private network that is within another private network that belongs to the ISP, and the outbound connection is initiated by Cloudflare daemon (cloudflared)](/uploads/after-cloudflare-tunnel.excalidraw.png)
+![Web browser pointing towards Cloudflare's server, which is linked via an outbound connection from a server in a private network that is within another private network that belongs to the ISP, and the outbound connection is initiated by Cloudflare daemon (cloudflared)](../../assets/after-cloudflare-tunnel.excalidraw.png)
 Figure: Network tunnel setup after using Cloudflare Tunnel
 
 ## Pros
@@ -71,7 +71,7 @@ Note that you can also redirect to a service hosted on another machine on your p
 
 The configs should look something like this:
 
-![Cloudflare Tunnel config](/uploads/cloudflare-tunnel-config.png)
+![Cloudflare Tunnel config](../../assets/cloudflare-tunnel-config.png)
 Figure: For each service, a new public hostname needs to be added
 
 Cloudflare would automatically add the corresponding DNS entry for each route that you added here.

@@ -5,7 +5,7 @@ tags:
 - tutorial
 - laravel
 - vite
-thumbnail: ''
+thumbnail:
 title: Migrating from laravel-vite to Laravel's Official Vite Plugin
 excerpt: Outlined the steps to migrate to Laravel's official vite plugin.
 slug: migrating-from-laravel-vite-to-laravels-official-vite-plugin

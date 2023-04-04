@@ -6,7 +6,7 @@ tags:
 - backup
 - kopia
 - rclone
-thumbnail: ''
+thumbnail:
 title: How to set up File Backups with Kopia + Rclone
 excerpt: Incremental file backups with support for multiple free cloud providers.
 slug: how-to-set-up-file-backups-with-kopia-rclone

@@ -6,7 +6,7 @@ tags:
 - laravel
 - php
 - nodejs
-thumbnail: ''
+thumbnail:
 title: Creating a Docker image for Laravel from scratch
 excerpt: How to make a docker image from scratch for Laravel.
 slug: creating-a-docker-image-for-laravel-from-scratch

@@ -5,7 +5,7 @@ tags:
 - laptop
 - linux
 - ubuntu
-thumbnail: ''
+thumbnail:
 title: Prevent Ubuntu Server from going to Sleep when Laptop Lid is Closed
 excerpt: You would assume that a server OS would disable this by default...
 slug: prevent-ubuntu-server-from-going-to-sleep-when-laptop-lid-is-closed

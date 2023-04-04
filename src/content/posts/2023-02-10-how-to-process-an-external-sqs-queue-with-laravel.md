@@ -8,6 +8,7 @@ tags:
 - php
 - queue
 - tutorial
+thumbnail:
 title: How to Process an External SQS Queue with Laravel
 slug: how-to-process-an-external-sqs-queue-with-laravel
 excerpt: Although Laravel's queues are designed for internal use, how do you process a queue that is shared with an external system?

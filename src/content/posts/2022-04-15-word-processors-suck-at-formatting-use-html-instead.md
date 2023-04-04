@@ -6,7 +6,7 @@ tags:
 - markdown
 - html
 - tailwindcss
-thumbnail: ''
+thumbnail:
 title: Word Processors suck at formatting, use HTML instead
 excerpt: Ditch your word processor and use HTML instead for that pixel perfect formatting.
 slug: word-processors-suck-at-formatting-use-html-instead

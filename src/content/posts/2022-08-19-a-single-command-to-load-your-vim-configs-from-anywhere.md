@@ -4,7 +4,7 @@ date: 2022-08-19T10:47:36.000+09:00
 tags:
 - vim
 - dotfiles
-thumbnail: ''
+thumbnail:
 title: A Single Command to Load your Vim Configs from Anywhere
 excerpt: Is it just me, or the urge to load my vim config on a remote server is real?
 slug: a-single-command-to-load-your-vim-configs-from-anywhere

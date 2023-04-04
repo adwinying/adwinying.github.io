@@ -7,7 +7,7 @@ tags:
 - port-forwarding
 - networking
 - troubleshooting
-thumbnail: ''
+thumbnail:
 title: Setting up Port Forwarding on an Oracle Cloud Instance
 excerpt: The troubles of port forwarding using an Oracle Cloud instance.
 slug: setting-up-port-forwarding-on-an-oracle-cloud-instance
@@ -21,7 +21,7 @@ So, I took the plunge and tried to migrate my tunnel server from Vultr to Oracle
 
 Traditional cloud services gives you a lot more control over your VM's network, so does Oracle Cloud. By default, all ports except 22 (SSH) are closed, and you need to explicitly state which ports to open for the VM.
 
-![Oracle Cloud compute instance ingress rules](/uploads/ingress-rules.png)
+![Oracle Cloud compute instance ingress rules](../../assets/ingress-rules.png)
 Figure: Configure ingress rules for the virtual cloud network your VM instance is under
 
 ## Updating iptable rules to the correct physical interface

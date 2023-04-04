@@ -6,7 +6,7 @@ tags:
 - gitlab
 - simple-and-clean
 - kiss
-thumbnail: ''
+thumbnail:
 title: A Simple and Clean Git Workflow
 excerpt: If you're like me, this is probably the git workflow for you.
 slug: a-simple-and-clean-git-workflow
@@ -81,12 +81,12 @@ I personally prefer a semi-linear merge as you can see where a branch starts and
 
 If you're using Gitlab, you can easily enforce either one in your repository settings under Merge Requests:
 
-![](/uploads/gitlab-merge-request-settings.png)
+![](../../assets/gitlab-merge-request-settings.png)
 Figure: Gitlab's merge request settings. "Merge commit with semi-linear history" for well, semi-linear merging and "Fast-forward merge" for linear merging
 
 In Github, linear merging can be enforced by only allowing rebase merging:
 
-![](/uploads/github-pull-request-settings.png)
+![](../../assets/github-pull-request-settings.png)
 Figure: Only check "Allow rebase merging" if you want linear merging
 
 As for semi-linear merging in Github, unfortunately there's no setting to enforce semi-linear merging. There is a [workaround](https://github.com/community/community/discussions/8940#discussioncomment-2845065) to emulate semi-linear merging but it does not prevent users from merging to update a branch.

@@ -6,7 +6,7 @@ tags:
 - linux
 - homelab
 - port-forward
-thumbnail: ''
+thumbnail:
 title: An Easy Way to Port Forward in Linux
 excerpt: The secret lies within SSH.
 slug: an-easy-way-to-port-forward-in-linux

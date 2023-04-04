@@ -5,7 +5,7 @@ tags:
 - home-assistant
 - sesame-lock
 - python
-thumbnail: ''
+thumbnail:
 title: Integrating the New Sesame Lock with Home Assistant
 excerpt: After putting it off for a year and a half, I finally added Sesame Lock to Home Assistant.
 slug: integrating-the-new-sesame-lock-with-home-assistant
@@ -22,7 +22,7 @@ The easiest way to integrate Sesame into Home Assistant is via their web API. Do
 
 To obtain an API key, go to [Sesame API portal](https://partners.candyhouse.co/) and login with the email that you used to login into the mobile app.
 
-![Sesame API Portal](/uploads/sesame-api-portal.jpg)
+![Sesame API Portal](../../assets/sesame-api-portal.jpg)
 Figure: Sesame API portal
 
 In the API portal, click on the user icon circled in red. You'll see your devices appear on the right. You might need to click on the icon a couple of times for all of the devices that you own to appear. Then, click on the device that you want to control. The device UUID and secret key fields will be populated. Add these values to your `secrets.yaml` file.

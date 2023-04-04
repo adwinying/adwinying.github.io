@@ -4,6 +4,7 @@ date: 2022-12-06T11:21:27.000+09:00
 tags:
 - typescript
 - tutorial
+thumbnail:
 title: How to Get Started with Typescript
 slug: how-to-get-started-with-typescript
 excerpt: No idea how to make the leap to Typescript? Read on.

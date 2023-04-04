@@ -5,7 +5,7 @@ tags:
 - some
 - test
 - tag
-thumbnail: /uploads/3600fd0b-416f-4ff6-a026-aa06007ffc5b.png
+thumbnail: ../../assets/3600fd0b-416f-4ff6-a026-aa06007ffc5b.png
 title: Kitchen Sink
 slug: kitchen-sink
 excerpt: excerpt goes here.
@@ -28,7 +28,7 @@ Mattis nunc sed blandit libero volutpat. Nulla facilisi nullam vehicula ipsum a 
 
 The quick brown fox jumps over the lazy dog.
 
-![test alt](/uploads/cb6d779b-cc42-4eb2-9719-42e4989642bd.png)
+![test alt](../../assets/cb6d779b-cc42-4eb2-9719-42e4989642bd.png)
 Figure: this is an image caption
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et [dolore magna aliqua](https://google.com). Scelerisque eu ultrices vitae auctor eu augue ut. Diam maecenas sed enim ut. Odio pellentesque diam volutpat commodo sed. In fermentum posuere urna nec tincidunt. Facilisis sed odio morbi quis commodo odio aenean sed. Cursus eget nunc scelerisque viverra mauris in. Ut morbi tincidunt augue interdum velit.

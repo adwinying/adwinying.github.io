@@ -6,7 +6,7 @@ tags:
 - vim
 - php
 - dotfiles
-thumbnail: ''
+thumbnail:
 title: How to Install phpcd Plugin for vim
 excerpt: phpcd is an autocomplete plugin for vim that integrates well with deoplete.
 slug: how-to-install-phpcd-plugin-for-vim

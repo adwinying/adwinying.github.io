@@ -1,3 +1,4 @@
+import type { ImageMetadata } from "astro";
 import type { ReactNode } from "react";
 
 import BlogAuthor from "@/components/BlogAuthor";
@@ -7,7 +8,7 @@ import Link from "@/components/common/Link";
 type Props = {
   title: string;
   date: Date;
-  thumbnail?: string;
+  thumbnail?: ImageMetadata;
   tags?: string[];
   children: ReactNode;
 };
@@ -25,7 +26,9 @@ export default function BlogPost({
         {thumbnail && (
           <img
             className="mb-5 aspect-video w-full object-cover"
-            src={thumbnail}
+            src={thumbnail.src}
+            width={thumbnail.width}
+            height={thumbnail.height}
             alt={title}
           />
         )}

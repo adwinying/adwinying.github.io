@@ -7,7 +7,7 @@ tags:
 - cloudflare-proxy
 - caddy
 - https
-thumbnail: ''
+thumbnail:
 title: Getting Cloudflare Proxy to Play Nice with Caddy
 excerpt: Avoid getting infinite redirects when using Cloudflare Proxy.
 slug: getting-cloudflare-proxy-to-play-nice-with-caddy
@@ -39,7 +39,7 @@ Code: Caddyfile config
 
 In your Cloudflare dashboard under __SSL/TLS__ > __Overview__, you can see there's 4 different modes to choose from:
 
-![Off, Flexible, Full and Full (strict)](/uploads/cloudflare-ssl-modes.png)
+![Off, Flexible, Full and Full (strict)](../../assets/cloudflare-ssl-modes.png)
 Figure: Cloudflare SSL modes
 
 Select __Full (strict)__.
@@ -56,7 +56,7 @@ There are two things that are preventing both from coexisting with each other:
 
 Coming back to Cloudflare's SSL encryption modes:
 
-![Off, Flexible, Full and Full (strict)](/uploads/cloudflare-ssl-modes.png)
+![Off, Flexible, Full and Full (strict)](../../assets/cloudflare-ssl-modes.png)
 Figure: Cloudflare SSL modes
 
 I believe __Flexible__ mode is selected by default. That means the requests that reach Caddy is HTTP and not HTTPS. Caddy redirects to HTTPS by default, so it will always return a redirect to HTTPS response. But on the other hand, Cloudflare keeps requesting a non-HTTPS page, and hence the infinite redirect loop. By selecting __Full (strict)__ or __Full__, Cloudflare would send HTTPS requests to Caddy instead of HTTP, avoiding infinite redirects.

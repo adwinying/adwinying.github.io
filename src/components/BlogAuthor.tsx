@@ -1,4 +1,4 @@
-import ProfileImages from "@/../public/img/avatar.png?w=112;128&process_img=true";
+import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/common/Link";
 import ChainIcon from "@/components/icons/Chain";
 
@@ -13,8 +13,9 @@ export default function BlogAuthor({ className = "" }: Props) {
     >
       <div className="w-28 sm:w-32">
         <img
-          src="/img/avatar.png"
-          srcSet={ProfileImages}
+          src={ProfileImage.src}
+          width={ProfileImage.width}
+          height={ProfileImage.height}
           alt="Adwin Ying's avatar"
         />
       </div>
