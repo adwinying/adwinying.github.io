@@ -1,0 +1,32 @@
+{
+  "name": "@adwinying/talks/theme",
+  "description": "Slidev theme",
+  "private": true,
+  "scripts": {
+    "dev": "slidev example.md --remote"
+  },
+  "slidev": {
+    "colorSchema": "both",
+    "highlighter": "shiki",
+    "defaults": {
+      "download": true,
+      "favicon": "https://iadw.in/favicon.svg",
+      "lineNumbers": true,
+      "fonts": {
+        "mono": "HackGen Console, Inconsolata",
+        "sans": "Open Sans, BIZ UDGothic",
+        "serif": "Georgia, BIZ UDMincho",
+        "italic": true,
+        "weights": "400, 700",
+        "provider": "none"
+      }
+    }
+  },
+  "dependencies": {
+    "@slidev/client": "^0.42.5",
+    "@slidev/types": "^0.22.7",
+    "codemirror-theme-vars": "^0.1.1",
+    "prism-theme-vars": "^0.2.2",
+    "theme-vitesse": "^0.1.12"
+  }
+}
