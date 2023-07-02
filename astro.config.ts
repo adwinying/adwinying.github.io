@@ -19,6 +19,13 @@ export default defineConfig({
       wrap: false,
     },
   },
+  vite: {
+    server: {
+      watch: {
+        ignored: ["**/.direnv/**"],
+      },
+    },
+  },
   experimental: {
     assets: true,
   },
