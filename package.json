@@ -10,9 +10,12 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\"",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "talks:dev": "slidev"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.52",
+    "@iconify-json/simple-icons": "^1.1.58",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
@@ -28,6 +31,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "playwright-chromium": "^1.35.1",
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.8.0",
     "prettier-plugin-tailwindcss": "^0.2.6",
@@ -42,8 +46,9 @@
     "@astrojs/rss": "^2.3.1",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@slidev/cli": "^0.42.5",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^2.2.0",
+    "astro": "^2.7.2",
     "astro-seo": "^0.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

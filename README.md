@@ -9,3 +9,4 @@ Landing Page of Adwin Ying.
 - Animations powered by vanilla JS + CSS Transitions
 - File formatting handled by [Prettier](https://prettier.io/)
 - JS/TS linting handled by [ESLint](https://eslint.org/) with Airbnb preset
+- Talks (presentations) powered by [Slidev](https://sli.dev)
