@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import { twMerge } from "tailwind-merge";
 
 import CommonHead from "@/components/CommonHead";
 import "@/styles/main.css";
@@ -59,7 +60,7 @@ const className = Astro.props.className ?? "";
     <slot name="head" />
   </head>
 
-  <body className={`flex flex-col bg-gray-50 min-h-screen ${className}`}>
+  <body className={twMerge("flex flex-col bg-gray-50 min-h-screen", className)}>
     <slot />
   </body>
 </html>

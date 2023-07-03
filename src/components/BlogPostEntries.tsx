@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import BlogPostEntry from "@/components/BlogPostEntry";
 
 type Props = {
@@ -12,7 +14,7 @@ type Props = {
 
 export default function BlogPostEntries({ className = "", posts }: Props) {
   return (
-    <div className={`flex flex-col space-y-8 ${className}`}>
+    <div className={twMerge("flex flex-col space-y-8", className)}>
       {posts.map((post) => (
         <BlogPostEntry
           key={post.url}

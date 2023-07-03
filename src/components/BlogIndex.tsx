@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import BlogPostEntries from "@/components/BlogPostEntries";
 
 type Props = {
@@ -15,7 +17,7 @@ type Props = {
 
 export default function BlogIndex({ className = "", posts = [] }: Props) {
   return (
-    <div className={`mx-auto w-full max-w-blog px-5 ${className}`}>
+    <div className={twMerge("mx-auto w-full max-w-blog px-5", className)}>
       <BlogPostEntries
         posts={posts
           .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())

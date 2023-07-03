@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/common/Link";
 import ChainIcon from "@/components/icons/Chain";
@@ -9,7 +11,11 @@ type Props = {
 export default function BlogAuthor({ className = "" }: Props) {
   return (
     <div
-      className={`flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0 ${className}`}
+      className={twMerge(
+        "flex flex-col space-y-3",
+        "sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0",
+        className,
+      )}
     >
       <div className="w-28 sm:w-32">
         <img

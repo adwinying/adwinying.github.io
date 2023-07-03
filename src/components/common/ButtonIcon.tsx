@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 import Icons from "@/components/icons/Icons";
 
@@ -18,9 +19,12 @@ export default function ButtonIcon({
 
   return (
     <a
-      className={`rounded-lg border-2 border-gray-800 bg-white px-4 py-2
-        text-lg font-light transition-all duration-200 hover:bg-gray-800
-        hover:text-gray-50 sm:px-5 sm:text-2xl ${className}`}
+      className={twMerge(
+        "rounded-lg border-2 px-4 py-2 text-lg font-light sm:px-5 sm:text-2xl",
+        "border-gray-800 bg-white hover:bg-gray-800 hover:text-gray-50",
+        "transition-all duration-200",
+        className,
+      )}
       href={href}
     >
       <span className="flex items-center space-x-2 sm:space-x-3">

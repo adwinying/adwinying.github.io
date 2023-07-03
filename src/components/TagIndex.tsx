@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import BlogPostEntries from "@/components/BlogPostEntries";
 
 type Props = {
@@ -13,7 +15,7 @@ type Props = {
 
 export default function TagIndex({ className = "", tag, posts = [] }: Props) {
   return (
-    <div className={`mx-auto w-full max-w-blog px-5 ${className}`}>
+    <div className={twMerge("mx-auto w-full max-w-blog px-5", className)}>
       <h1 className="mb-6 font-sans text-4xl font-bold">Posts Tagged: {tag}</h1>
 
       <BlogPostEntries

@@ -41,6 +41,9 @@ importers:
       smoothscroll-polyfill:
         specifier: ^0.4.4
         version: 0.4.4
+      tailwind-merge:
+        specifier: ^1.13.2
+        version: 1.13.2
       tailwindcss:
         specifier: ^3.0.24
         version: 3.3.1(postcss@8.4.24)
@@ -7406,6 +7409,10 @@ packages:
     dependencies:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
+
+  /tailwind-merge@1.13.2:
+    resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
+    dev: false
 
   /tailwindcss@3.3.1(postcss@8.4.24):
     resolution: {integrity: sha512-Vkiouc41d4CEq0ujXl6oiGFQ7bA3WEhUZdTgXAhtKxSy49OmKs8rEfQmupsfF0IGW8fv2iQkp1EVUuapCFrZ9g==}

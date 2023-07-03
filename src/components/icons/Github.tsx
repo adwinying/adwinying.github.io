@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import type IconProps from "@/types/IconProps";
 
 export default function GithubIcon({ className = "" }: IconProps) {
@@ -7,7 +9,7 @@ export default function GithubIcon({ className = "" }: IconProps) {
       focusable="false"
       data-prefix="fab"
       data-icon="github"
-      className={`svg-inline--fa fa-github fa-w-16 ${className}}`}
+      className={twMerge("svg-inline--fa fa-github fa-w-16", className)}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 512"
