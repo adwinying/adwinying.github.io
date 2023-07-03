@@ -1,34 +1,11 @@
 ---
-import About from "@/components/About";
-import Connect from "@/components/Connect";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import NavDesktop from "@/components/NavDesktop";
-import NavMobile from "@/components/NavMobile";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import LandingIndex from "@/features/landing/LandingIndex";
 import BaseLayout from "@/layouts/base.astro";
 ---
 
 <BaseLayout>
-  <main>
-    <NavMobile />
-
-    <Hero />
-
-    <NavDesktop />
-
-    <About />
-
-    <Skills />
-
-    <Projects />
-
-    <Connect />
-
-    <Footer />
-  </main>
+  <LandingIndex />
 </BaseLayout>
 
 {/* eslint-disable-next-line */}
-<script src="@/scripts/main.ts"></script>
+<script src="@/features/landing/script.ts"></script>

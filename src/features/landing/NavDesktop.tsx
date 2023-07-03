@@ -1,4 +1,4 @@
-import navLinks from "@/data/navLinks";
+import { navLinks } from "@/features/landing/data";
 
 export default function NavDesktop() {
   return (

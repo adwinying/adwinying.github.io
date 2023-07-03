@@ -1,3 +1,81 @@
+export type NavLink = {
+  name: string;
+  url: string;
+};
+export const navLinks = [
+  {
+    name: "About",
+    url: "#about",
+  },
+  {
+    name: "Skills",
+    url: "#skills",
+  },
+  {
+    name: "Projects",
+    url: "#projects",
+  },
+  {
+    name: "Connect",
+    url: "#connect",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
+] satisfies NavLink[];
+
+type Skill = {
+  title: string;
+  icon: string;
+  contents: string[];
+};
+export const skills = [
+  {
+    title: "Client Side",
+    icon: "user",
+    contents: [
+      "HTML | HTML5",
+      "CSS | CSS3",
+      "TailwindCSS",
+      "Javascript | ES6+",
+      "Typescript",
+      "jQuery",
+      "React | Remix",
+      "Vue.js | Vuex",
+      "Inertia.js",
+    ],
+  },
+  {
+    title: "Server Side",
+    icon: "server",
+    contents: [
+      "PHP | Laravel",
+      "NodeJS | Express",
+      "NestJS",
+      "Remix",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "Web Sockets (Socket.io)",
+    ],
+  },
+  {
+    title: "Others",
+    icon: "code",
+    contents: [
+      "C",
+      "CI/CD (Github Actions | GitlabCI)",
+      "Docker + Docker Compose",
+      "Vagrant",
+      "Ansible",
+      "Elastic Stack",
+      "LaTeX",
+      "Git (Github | Gitlab)",
+    ],
+  },
+] satisfies Skill[];
+
 type Project = {
   title: string;
   tags: string[];
@@ -5,8 +83,7 @@ type Project = {
   img: string;
   url: string;
 };
-
-const projects = [
+export const projects = [
   {
     title: "PinIt",
     tags: [
@@ -90,4 +167,25 @@ const projects = [
   },
 ] satisfies Project[];
 
-export default projects;
+export type Connect = {
+  title: string;
+  icon: string;
+  url: string;
+};
+export const connect = [
+  {
+    title: "LinkedIn",
+    icon: "linkedin",
+    url: "https://linkedin.com/in/adwinying",
+  },
+  {
+    title: "Github",
+    icon: "github",
+    url: "https://github.com/adwinying",
+  },
+  {
+    title: "Email",
+    icon: "mail",
+    url: "mailto:adwinying[at]gmail[dot]com",
+  },
+] satisfies Connect[];

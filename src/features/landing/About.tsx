@@ -1,6 +1,6 @@
 import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/common/Link";
-import Section from "@/components/common/Section";
+import Section from "@/features/landing/Section";
 
 export default function About() {
   return (

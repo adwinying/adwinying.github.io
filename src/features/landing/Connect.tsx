@@ -1,7 +1,6 @@
-import ButtonIcon from "./common/ButtonIcon";
-
-import Section from "@/components/common/Section";
-import connect from "@/data/connect";
+import ButtonIcon from "@/components/common/ButtonIcon";
+import Section from "@/features/landing/Section";
+import { connect } from "@/features/landing/data";
 
 export default function Connect() {
   return (
