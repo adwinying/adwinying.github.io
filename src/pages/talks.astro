@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+
+import TalksIndex from "@/features/talks/TalksIndex";
+import BaseLayout from "@/layouts/base.astro";
+
+const talks = await getCollection("talks");
+---
+
+<BaseLayout title="Talks" description="List of talks given by Adwin Ying.">
+  <TalksIndex talks={talks} />
+</BaseLayout>
