@@ -12,7 +12,8 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\"",
     "tsc": "tsc",
     "talks:dev": "slidev",
-    "talks:sync": "./src/talks/sync_talks.sh"
+    "talks:sync": "./src/talks/sync_talks.sh",
+    "talks:build": "./src/talks/build_talks.sh"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.52",

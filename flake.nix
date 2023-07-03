@@ -17,6 +17,8 @@
           nodePackages.pnpm
         ];
 
+        CHROMIUM_PATH = "${pkgs.playwright-driver.browsers}/chromium-1064/chrome-linux/chrome";
+
         shellHook = ''
           echo "node: `${pkgs.nodejs_18}/bin/node --version`"
           echo "pnpm: v`${pkgs.nodePackages.pnpm}/bin/pnpm --version`"
