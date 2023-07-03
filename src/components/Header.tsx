@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function Header({ children }: Props) {
