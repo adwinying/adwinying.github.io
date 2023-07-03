@@ -9,9 +9,12 @@ export default function Hero() {
         hero:bg-[url('/img/hero_bg.jpg')] lg:px-10"
     >
       {/* Hamburger toggle */}
-      <div className="js-nav-toggle absolute right-5 top-4 w-9 p-2 md:hidden">
+      <button
+        type="button"
+        className="js-nav-toggle absolute right-5 top-4 w-9 p-2 md:hidden"
+      >
         <MenuIcon className="w-full text-white" />
-      </div>
+      </button>
 
       {/* Hero text */}
       <div className="text-[5rem] font-light leading-[5.5rem] text-white">
