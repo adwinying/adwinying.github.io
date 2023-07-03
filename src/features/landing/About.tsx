@@ -1,5 +1,5 @@
 import ProfileImage from "@/assets/avatar.png";
-import Link from "@/components/common/Link";
+import Link from "@/components/Link";
 import Section from "@/features/landing/Section";
 
 export default function About() {

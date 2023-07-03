@@ -2,7 +2,7 @@ import type { ImageMetadata } from "astro";
 import type { ReactNode } from "react";
 
 import Footer from "@/components/Footer";
-import Link from "@/components/common/Link";
+import Link from "@/components/Link";
 import BlogAuthor from "@/features/blog/BlogAuthor";
 import BlogHeader from "@/features/blog/BlogHeader";
 import TagLinks from "@/features/blog/TagLinks";

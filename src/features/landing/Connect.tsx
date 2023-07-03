@@ -1,4 +1,4 @@
-import ButtonIcon from "@/components/common/ButtonIcon";
+import ButtonIcon from "@/components/ButtonIcon";
 import Section from "@/features/landing/Section";
 import { connect } from "@/features/landing/data";
 

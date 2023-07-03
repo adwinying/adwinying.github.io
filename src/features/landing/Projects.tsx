@@ -1,5 +1,5 @@
-import ButtonIcon from "@/components/common/ButtonIcon";
-import Link from "@/components/common/Link";
+import ButtonIcon from "@/components/ButtonIcon";
+import Link from "@/components/Link";
 import LinkIcon from "@/components/icons/Link";
 import Section from "@/features/landing/Section";
 import { projects } from "@/features/landing/data";

@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 import ProfileImage from "@/assets/avatar.png";
-import Link from "@/components/common/Link";
+import Link from "@/components/Link";
 import ChainIcon from "@/components/icons/Chain";
 
 type Props = {

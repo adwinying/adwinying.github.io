@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Link from "@/components/common/Link";
+import Link from "@/components/Link";
 
 export default function NotFound() {
   return (
