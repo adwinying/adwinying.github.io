@@ -9,11 +9,13 @@
 </div>
 
 
-<div class="w-min grid grid-cols-[1.5rem_1fr] items-center gap-x-2 gap-y-3 mt-16 text-neutral-900 dark:text-neutral-50">
+<div class="w-min grid grid-cols-[1.5rem_1fr] items-center gap-x-2 gap-y-3 mt-14 text-neutral-900 dark:text-neutral-50">
    <mdi-github />
    <div><a href="https://github.com/adwinying">adwinying</a></div>
    <mdi-twitter />
    <div><a href="https://twitter.com/adw1n">adw1n</a></div>
+   <mdi-mastodon />
+   <div><a href="https://mas.to/@adwin">adwin@mas.to</a></div>
    <simple-icons-qiita />
    <div><a href="https://qiita.com/adwin">adwin</a></div>
    <mdi-blog />
