@@ -2,7 +2,7 @@
 theme: ../theme
 title: 最近・これからのWEBトレンド
 info: 2022年に流行りそうなものいくつ紹介します。
-event: 2022年1月LT会議
+event: 2022年1月レバテックLT会議
 layout: section
 ---
 
