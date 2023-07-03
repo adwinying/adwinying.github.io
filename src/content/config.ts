@@ -12,6 +12,17 @@ const postCollection = defineCollection({
     }),
 });
 
+const talkCollection = defineCollection({
+  type: "data",
+  schema: () =>
+    z.object({
+      title: z.string(),
+      info: z.string(),
+      event: z.string(),
+    }),
+});
+
 export const collections = {
   posts: postCollection,
+  talks: talkCollection,
 };
