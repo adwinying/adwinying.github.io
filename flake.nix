@@ -8,16 +8,17 @@
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      overlay = final: prev: { nodejs = prev.nodejs_18; };
+      pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
     in {
       devShell = with pkgs; mkShell {
         buildInputs = [
-          nodejs_16
+          nodejs_18
           nodePackages.pnpm
         ];
 
         shellHook = ''
-          echo "node: `${pkgs.nodejs_16}/bin/node --version`"
+          echo "node: `${pkgs.nodejs_18}/bin/node --version`"
           echo "pnpm: v`${pkgs.nodePackages.pnpm}/bin/pnpm --version`"
         '';
       };
