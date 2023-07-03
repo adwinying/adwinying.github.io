@@ -11,6 +11,7 @@
     "defaults": {
       "download": true,
       "favicon": "https://iadw.in/favicon.svg",
+      "routerMode": "hash",
       "lineNumbers": true,
       "fonts": {
         "mono": "HackGen Console, Inconsolata",
