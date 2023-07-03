@@ -18,7 +18,7 @@ jobs:
         run: nix develop --command pnpm i
 
       - name: Build for production
-        run: nix develop --command pnpm build
+        run: nix develop --command pnpm build:all
 
       - name: Run lint
         run: nix develop --command pnpm lint

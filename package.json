@@ -13,7 +13,8 @@
     "tsc": "tsc",
     "talks:dev": "slidev",
     "talks:sync": "./src/talks/sync_talks.sh",
-    "talks:build": "./src/talks/build_talks.sh"
+    "talks:build": "./src/talks/build_talks.sh",
+    "build:all": "run-s -l talks:sync build talks:build"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.52",
@@ -33,6 +34,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "npm-run-all": "^4.1.5",
     "playwright-chromium": "^1.35.1",
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.8.0",
