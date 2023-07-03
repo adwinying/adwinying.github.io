@@ -1,9 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import BlogHeader from "@/components/BlogHeader";
-import Footer from "@/components/Footer";
-import TagIndex from "@/components/TagIndex";
+import TagIndex from "@/features/blog/TagIndex";
 import BaseLayout from "@/layouts/base.astro";
 
 export async function getStaticPaths() {
@@ -42,9 +40,5 @@ const { posts } = Astro.props;
   title={`Posts Tagged ${tag}`}
   description={`A list of posts that are tagged with ${tag}`}
 >
-  <BlogHeader />
-
-  <TagIndex className="mt-4 mb-12 flex-grow" tag={tag} posts={posts} />
-
-  <Footer />
+  <TagIndex tag={tag} posts={posts} />
 </BaseLayout>

@@ -2,9 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-import BlogHeader from "@/components/BlogHeader";
-import BlogPost from "@/components/BlogPost";
-import Footer from "@/components/Footer";
+import BlogPost from "@/features/blog/BlogPost";
 import BaseLayout from "@/layouts/base.astro";
 
 export async function getStaticPaths() {
@@ -30,11 +28,7 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title={title} description={excerpt} image={thumbnail} isPost>
-  <BlogHeader />
-
   <BlogPost title={title} date={date} thumbnail={thumbnail} tags={tags}>
     <Content />
   </BlogPost>
-
-  <Footer />
 </BaseLayout>

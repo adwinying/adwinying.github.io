@@ -1,9 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import BlogHeader from "@/components/BlogHeader";
-import BlogIndex from "@/components/BlogIndex";
-import Footer from "@/components/Footer";
+import BlogIndex from "@/features/blog/BlogIndex";
 import BaseLayout from "@/layouts/base.astro";
 
 const posts = await getCollection(
@@ -13,9 +11,5 @@ const posts = await getCollection(
 ---
 
 <BaseLayout title="Blog" description="A place to gather and sort thoughts.">
-  <BlogHeader />
-
-  <BlogIndex className="mt-4 mb-12 flex-grow" posts={posts} />
-
-  <Footer />
+  <BlogIndex posts={posts} />
 </BaseLayout>

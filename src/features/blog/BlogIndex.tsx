@@ -1,9 +1,8 @@
-import { twMerge } from "tailwind-merge";
-
-import BlogPostEntries from "@/components/BlogPostEntries";
+import Footer from "@/components/Footer";
+import BlogHeader from "@/features/blog/BlogHeader";
+import BlogPostEntries from "@/features/blog/BlogPostEntries";
 
 type Props = {
-  className?: string;
   posts?: {
     slug: string;
     data: {
@@ -15,19 +14,24 @@ type Props = {
   }[];
 };
 
-export default function BlogIndex({ className = "", posts = [] }: Props) {
+export default function BlogIndex({ posts = [] }: Props) {
   return (
-    <div className={twMerge("mx-auto w-full max-w-blog px-5", className)}>
+    <>
+      <BlogHeader />
+
       <BlogPostEntries
+        className="mx-auto mb-12 mt-4 w-full max-w-blog flex-grow px-5"
         posts={posts
           .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
           .map((post) => ({
             url: `/${post.slug}/`,
             title: post.data.title,
             date: post.data.date,
-            tags: post.data.tags,
+            tags: post.data.tags ?? [],
           }))}
       />
-    </div>
+
+      <Footer />
+    </>
   );
 }
