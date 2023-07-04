@@ -19,7 +19,7 @@ https://iAdw.in/talks/2022-01-12
 -->
 
 ---
-src: ../slides/profile_ja.md
+src: ../slides/profile_levtech.md
 ---
 
 ---
