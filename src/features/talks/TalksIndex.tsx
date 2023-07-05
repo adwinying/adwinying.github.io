@@ -58,7 +58,7 @@ export default function TalksIndex({ className = "", talks }: Props) {
                 <h2 className="text-3xl font-bold">{title}</h2>
               </a>
 
-              <span>{info}</span>
+              <span className="text-neutral-600">{info}</span>
             </div>
           );
         })}
