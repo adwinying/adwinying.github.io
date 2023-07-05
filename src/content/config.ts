@@ -19,6 +19,7 @@ const talkCollection = defineCollection({
       title: z.string(),
       info: z.string(),
       event: z.string(),
+      event_url: z.string().optional(),
     }),
 });
 

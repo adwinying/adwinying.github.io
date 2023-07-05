@@ -10,6 +10,7 @@ type Props = {
     data: {
       title: string;
       event: string;
+      event_url?: string;
       info: string;
     };
   }[];
@@ -30,7 +31,7 @@ export default function TalksIndex({ className = "", talks }: Props) {
         {talks.map((talk) => {
           const date = new Date(talk.id);
           const url = `/talks/${talk.id}`;
-          const { title, event, info } = talk.data;
+          const { title, event, event_url: eventUrl, info } = talk.data;
 
           return (
             <div key={talk.id} className="flex flex-col space-y-0.5">
@@ -41,7 +42,16 @@ export default function TalksIndex({ className = "", talks }: Props) {
                   year: "numeric",
                 }).format(date)}
                 {" | "}
-                {event}
+                {eventUrl ? (
+                  <a
+                    href={eventUrl}
+                    className="uderline-offset-1 text-gray-600 hover:underline"
+                  >
+                    {event}
+                  </a>
+                ) : (
+                  event
+                )}
               </span>
 
               <a href={url}>
