@@ -24,3 +24,19 @@ image: https://source.unsplash.com/collection/94734566/1920x1080
   Vue.js/React/Next.js/Typescript/GraphQL/<br>
   Laravel/PHP/Docker/Nix/Ansible/CI/CD/IoT
 </div>
+
+<!--
+まず、自己紹介ですが
+
+名前 + Description
+
+エンジニア歴8年
+
+レバ歴1.5年
+
+主にPHP + JSが、日々触っている技術はこちら
+
+現在クリーマという現場で
+
+新規事業開発のフロントエンドリード担当
+-->
