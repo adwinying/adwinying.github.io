@@ -1,7 +1,7 @@
 ---
 theme: ../theme
 title: PHPのモテ期、再び来たのか？
-info: PHPはまだオワコンじゃないよー
+info: PHPはまだオワコンじゃない…かも
 event: Webエンジニアゆる飲み会＠池袋【第4回】
 event_url: https://crewbit.connpass.com/event/287551/
 layout: section
