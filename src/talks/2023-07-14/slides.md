@@ -231,14 +231,14 @@ JS開発者たちはどんな評価されていますでしょうか？
 layout: two-cols
 ---
 
-<div class="mt-45 mr-5 text-right">
+<div class="mt-45 mr-6 text-right">
 
 ### "新しく作ったLaravelプロジェクトは<br>自分で作ったアプリよりいい"
 
   <div class="mt-1">
     <simple-icons-youtube />
     <a href="https://www.youtube.com/watch?v=Spwv0RbITmE">
-      Laravel First Impressions From A JavaScript Dev
+      Laravel First Impressions<br>From A JavaScript Dev
     </a>
   </div>
 </div>
