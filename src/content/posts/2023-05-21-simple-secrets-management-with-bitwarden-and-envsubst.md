@@ -71,7 +71,7 @@ popd > /dev/null
 
 echo "Done."
 ```
-CODE: bootstrap-secrets.sh
+Code: bootstrap-secrets.sh
 
 This script assumes a couple of things:
 
