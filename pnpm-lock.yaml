@@ -123,6 +123,9 @@ importers:
       remark-gfm:
         specifier: ^3.0.1
         version: 3.0.1
+      retry-cli:
+        specifier: ^0.7.0
+        version: 0.7.0
       typescript:
         specifier: ^5.0.3
         version: 5.0.3
@@ -5944,6 +5947,11 @@ packages:
     resolution: {integrity: sha512-5IAMBTl9p6PaAjYCnMv5FmqIF6GcZnawAVnzaCG0rX2aYZJ4CxEkZNtVPuTRug7fL7wyM5BQYTlAzcyMPi6oTQ==}
     dev: false
 
+  /node-getopt@0.3.2:
+    resolution: {integrity: sha512-yqkmYrMbK1wPrfz7mgeYvA4tBperLg9FQ4S3Sau3nSAkpOA0x0zC8nQ1siBwozy1f4SE8vq2n1WKv99r+PCa1Q==}
+    engines: {node: '>= 0.6.0'}
+    dev: true
+
   /node-releases@2.0.10:
     resolution: {integrity: sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==}
     dev: false
@@ -6931,6 +6939,20 @@ packages:
       retext-stringify: 3.1.0
       unified: 10.1.2
     dev: false
+
+  /retry-cli@0.7.0:
+    resolution: {integrity: sha512-VSWsAZFV4AxAsxH2/r+TDQGTS4cTory266mmpI5KiZUZB/8VjqksCZ/kOGMLQ7XZFVNwzVdQ54pEJu6jnLbSVw==}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+      node-getopt: 0.3.2
+      retry: 0.13.1
+    dev: true
+
+  /retry@0.13.1:
+    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
+    engines: {node: '>= 4'}
+    dev: true
 
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}

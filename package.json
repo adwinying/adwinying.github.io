@@ -42,6 +42,7 @@
     "rehype-slug": "^5.1.0",
     "remark-captions": "^2.2.2",
     "remark-gfm": "^3.0.1",
+    "retry-cli": "^0.7.0",
     "typescript": "^5.0.3",
     "xtend": "^4.0.2"
   },
