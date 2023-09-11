@@ -10,7 +10,7 @@ import TagLinks from "@/features/blog/TagLinks";
 type Props = {
   title: string;
   date: Date;
-  thumbnail?: ImageMetadata;
+  thumbnail: ImageMetadata | null;
   tags?: string[];
   children: ReactNode;
 };
