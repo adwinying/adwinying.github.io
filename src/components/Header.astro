@@ -1,0 +1,13 @@
+<header class="container mx-auto flex items-center space-x-3 px-5 py-7">
+  <a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">
+    iA
+  </a>
+
+  {
+    Astro.slots.has("default") && (
+      <span class="h-9 border-r-[2.5px] border-black" />
+    )
+  }
+
+  <slot />
+</header>

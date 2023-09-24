@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import TagIndex from "@/features/blog/TagIndex";
+import Footer from "@/components/Footer.astro";
+import BlogHeader from "@/features/blog/BlogHeader.astro";
+import BlogPostEntries from "@/features/blog/BlogPostEntries.astro";
 import BaseLayout from "@/layouts/base.astro";
 
 export async function getStaticPaths() {
@@ -40,5 +42,24 @@ const { posts } = Astro.props;
   title={`Posts Tagged ${tag}`}
   description={`A list of posts that are tagged with ${tag}`}
 >
-  <TagIndex tag={tag} posts={posts} />
+  <BlogHeader />
+
+  <div class="mb-12 mt-4 flex-grow mx-auto w-full max-w-blog px-5">
+    <h1 class="mb-6 font-sans text-4xl font-bold">
+      Posts Tagged: {tag}
+    </h1>
+
+    <BlogPostEntries
+      posts={posts
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
+        .map((post) => ({
+          url: `/${post.slug}/`,
+          title: post.title,
+          date: post.date,
+          tags: post.tags,
+        }))}
+    />
+  </div>
+
+  <Footer />
 </BaseLayout>

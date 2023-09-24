@@ -4,10 +4,8 @@
     "es2021": true
   },
   "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
+    "airbnb-base",
+    "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
@@ -20,19 +18,6 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    // suppress errors for missing 'import React' in files
-    "react/react-in-jsx-scope": "off",
-    // allow tsx/astro files to use jsx syntax
-    "react/jsx-filename-extension": ["error", {
-      "extensions": [".js", ".jsx", ".ts", ".tsx", ".astro"]
-    }],
-    // allow function declarations for functional components
-    "react/function-component-definition": ["error", {
-      "namedComponents": "function-declaration",
-      "unnamedComponents": "function-expression"
-    }],
-    // disable default props validation since we don't use it
-    "react/require-default-props": "off",
     // separate import types from regular imports
     "@typescript-eslint/consistent-type-imports": "error",
     // supress unused vars errors for astro Prop types

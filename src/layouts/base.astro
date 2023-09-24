@@ -1,9 +1,9 @@
 ---
 import type { ImageMetadata } from "astro";
 import { SEO } from "astro-seo";
+
 import { cn } from "@/utils/css";
 
-import CommonHead from "@/components/CommonHead";
 import "@/styles/main.css";
 
 interface Props {
@@ -52,12 +52,38 @@ const seo = {
 const className = Astro.props.className ?? "";
 ---
 
-{/* eslint-disable react/no-unknown-property */}
 <html lang="en">
   <head>
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <SEO {...seo} />
-    <CommonHead />
+    <meta charset="UTF-8" />
+
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/mask-icon.svg" color="#000000" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
+    />
+
+    {
+      import.meta.env.PROD && (
+        <script
+          async
+          defer
+          data-website-id="5defccd5-b1c2-4556-8635-cfd36e168899"
+          src="https://u.iadw.in/bundle.js"
+        />
+      )
+    }
 
     <slot name="head" />
   </head>

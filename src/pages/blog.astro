@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import BlogIndex from "@/features/blog/BlogIndex";
+import Footer from "@/components/Footer.astro";
+import BlogHeader from "@/features/blog/BlogHeader.astro";
+import BlogPostEntries from "@/features/blog/BlogPostEntries.astro";
 import BaseLayout from "@/layouts/base.astro";
 
 const posts = await getCollection(
@@ -11,5 +13,19 @@ const posts = await getCollection(
 ---
 
 <BaseLayout title="Blog" description="A place to gather and sort thoughts.">
-  <BlogIndex posts={posts} />
+  <BlogHeader />
+
+  <BlogPostEntries
+    className="mx-auto mb-12 mt-4 w-full max-w-blog flex-grow px-5"
+    posts={posts
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .map((post) => ({
+        url: `/${post.slug}/`,
+        title: post.data.title,
+        date: post.data.date,
+        tags: post.data.tags ?? [],
+      }))}
+  />
+
+  <Footer />
 </BaseLayout>

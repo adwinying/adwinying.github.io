@@ -1,3 +1,5 @@
+import type Icons from "@/components/icons/Icons";
+
 export type NavLink = {
   name: string;
   url: string;
@@ -27,7 +29,7 @@ export const navLinks = [
 
 type Skill = {
   title: string;
-  icon: string;
+  icon: keyof typeof Icons;
   contents: string[];
 };
 export const skills = [
@@ -169,7 +171,7 @@ export const projects = [
 
 export type Connect = {
   title: string;
-  icon: string;
+  icon: keyof typeof Icons;
   url: string;
 };
 export const connect = [

@@ -1,13 +1,24 @@
-import CodeIcon from "@/components/icons/Code";
-import GithubIcon from "@/components/icons/Github";
-import LinkIcon from "@/components/icons/Link";
-import LinkedinIcon from "@/components/icons/Linkedin";
-import MailIcon from "@/components/icons/Mail";
-import MenuIcon from "@/components/icons/Menu";
-import ServerIcon from "@/components/icons/Server";
-import UserIcon from "@/components/icons/User";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// ignoring because tsc does not load @astro/ts-plugin
+// https://github.com/withastro/language-tools/issues/479#issuecomment-1419233268
+// @ts-ignore
+import CodeIcon from "@/components/icons/Code.astro";
+// @ts-ignore
+import GithubIcon from "@/components/icons/Github.astro";
+// @ts-ignore
+import LinkIcon from "@/components/icons/Link.astro";
+// @ts-ignore
+import LinkedinIcon from "@/components/icons/Linkedin.astro";
+// @ts-ignore
+import MailIcon from "@/components/icons/Mail.astro";
+// @ts-ignore
+import MenuIcon from "@/components/icons/Menu.astro";
+// @ts-ignore
+import ServerIcon from "@/components/icons/Server.astro";
+// @ts-ignore
+import UserIcon from "@/components/icons/User.astro";
 
-const Icons: Record<string, typeof CodeIcon> = {
+const Icons = {
   code: CodeIcon,
   github: GithubIcon,
   link: LinkIcon,

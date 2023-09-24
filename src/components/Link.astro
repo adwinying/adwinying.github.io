@@ -1,0 +1,19 @@
+---
+import { cn } from "@/utils/css";
+
+type Props = {
+  href: string;
+  ariaLabel?: string;
+  className?: string;
+};
+
+const { href, ariaLabel, className = "" } = Astro.props;
+---
+
+<a
+  class={cn("text-sky-500 hover:text-sky-700", className)}
+  href={href}
+  aria-label={ariaLabel}
+>
+  <slot />
+</a>

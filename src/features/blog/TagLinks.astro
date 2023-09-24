@@ -1,0 +1,32 @@
+---
+import TagIcon from "@/components/icons/Tag.astro";
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<TagIcon className="mr-1 inline-block h-2.5" />
+
+{
+  tags
+    .map((tag) => (
+      <a
+        href={`/tag/${tag}/`}
+        class="text-sm text-gray-600 underline-offset-1 hover:underline"
+      >
+        {tag}
+      </a>
+    ))
+    .reduce((acc, tag) => {
+      if (acc === null) return tag;
+
+      return (
+        <>
+          {acc}, {tag}
+        </>
+      );
+    })
+}

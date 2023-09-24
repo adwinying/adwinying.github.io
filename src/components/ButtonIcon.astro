@@ -1,0 +1,29 @@
+---
+import Icons from "@/components/icons/Icons";
+import { cn } from "@/utils/css";
+
+interface Props {
+  href: string;
+  icon: keyof typeof Icons;
+  className?: string;
+}
+
+const { href, icon, className = "" } = Astro.props;
+
+const Icon = Icons[icon];
+---
+
+<a
+  class={cn(
+    "rounded-lg border-2 px-4 py-2 text-lg font-light sm:px-5 sm:text-2xl",
+    "border-gray-800 bg-white hover:bg-gray-800 hover:text-gray-50",
+    "transition-all duration-200",
+    className,
+  )}
+  href={href}
+>
+  <span class="flex items-center space-x-2 sm:space-x-3">
+    <Icon className="w-6 hover:text-gray-50" />
+    <span><slot /></span>
+  </span>
+</a>

@@ -1,10 +1,33 @@
 ---
-import LandingIndex from "@/features/landing/LandingIndex";
+import Footer from "@/components/Footer.astro";
+import About from "@/features/landing/About.astro";
+import Connect from "@/features/landing/Connect.astro";
+import Hero from "@/features/landing/Hero.astro";
+import NavDesktop from "@/features/landing/NavDesktop.astro";
+import NavMobile from "@/features/landing/NavMobile.astro";
+import Projects from "@/features/landing/Projects.astro";
+import Skills from "@/features/landing/Skills.astro";
 import BaseLayout from "@/layouts/base.astro";
 ---
 
 <BaseLayout>
-  <LandingIndex />
+  <main>
+    <NavMobile />
+
+    <Hero />
+
+    <NavDesktop />
+
+    <About />
+
+    <Skills />
+
+    <Projects />
+
+    <Connect />
+
+    <Footer />
+  </main>
 </BaseLayout>
 
 {/* eslint-disable-next-line */}

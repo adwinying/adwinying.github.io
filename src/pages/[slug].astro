@@ -2,8 +2,13 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-import BlogPost from "@/features/blog/BlogPost";
+import Footer from "@/components/Footer.astro";
+import Link from "@/components/Link.astro";
+import BlogAuthor from "@/features/blog/BlogAuthor.astro";
+import BlogHeader from "@/features/blog/BlogHeader.astro";
+import TagLinks from "@/features/blog/TagLinks.astro";
 import BaseLayout from "@/layouts/base.astro";
+import { cn } from "@/utils/css";
 
 export async function getStaticPaths() {
   const posts = await getCollection(
@@ -28,7 +33,58 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title={title} description={excerpt} image={thumbnail} isPost>
-  <BlogPost title={title} date={date} thumbnail={thumbnail} tags={tags}>
-    <Content />
-  </BlogPost>
+  <BlogHeader />
+
+  <article class="mx-auto w-full max-w-blog p-5 pb-9">
+    <div class="mb-8 font-sans">
+      {
+        thumbnail && (
+          <img
+            class="mb-5 aspect-video w-full object-cover"
+            src={thumbnail.src}
+            width={thumbnail.width}
+            height={thumbnail.height}
+            alt={title}
+          />
+        )
+      }
+
+      <h1 class="mb-1 text-5xl font-bold text-gray-900">{title}</h1>
+
+      <span class="inline-block text-sm text-gray-600">
+        {
+          Intl.DateTimeFormat("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          }).format(date)
+        }
+        {" | "}
+        <TagLinks tags={tags} />
+      </span>
+    </div>
+
+    <div
+      class={cn(
+        "prose prose-lg max-w-none font-serif",
+        "prose-headings:font-sans prose-figcaption:text-center",
+        "prose-figcaption:font-sans prose-figcaption:text-sm",
+      )}
+    >
+      <Content />
+
+      <hr />
+    </div>
+
+    <BlogAuthor className="mb-9 mt-14 font-sans text-base" />
+
+    <Link
+      href="/blog"
+      className="font-sans !text-gray-900 underline underline-offset-2"
+    >
+      &larr; Back to all posts
+    </Link>
+  </article>
+
+  <Footer />
 </BaseLayout>

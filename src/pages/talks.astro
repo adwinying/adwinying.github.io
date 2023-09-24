@@ -1,12 +1,60 @@
 ---
 import { getCollection } from "astro:content";
 
-import TalksIndex from "@/features/talks/TalksIndex";
+import Footer from "@/components/Footer.astro";
+import TalksHeader from "@/features/talks/TalksHeader.astro";
 import BaseLayout from "@/layouts/base.astro";
+import { cn } from "@/utils/css";
 
 const talks = await getCollection("talks");
 ---
 
 <BaseLayout title="Talks" description="List of talks given by Adwin Ying.">
-  <TalksIndex talks={talks} />
+  <TalksHeader />
+
+  <div
+    class={cn(
+      "mx-auto mb-12 mt-4 w-full max-w-blog px-5",
+      "flex flex-grow flex-col space-y-8",
+    )}
+  >
+    {
+      talks.map((talk) => {
+        const date = new Date(talk.id);
+        const url = `/talks/${talk.id}`;
+        const { title, event, event_url: eventUrl, info } = talk.data;
+
+        return (
+          <div class="flex flex-col space-y-0.5">
+            <span class="inline-block text-sm text-gray-600">
+              {Intl.DateTimeFormat("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              }).format(date)}
+              {" | "}
+              {eventUrl ? (
+                <a
+                  href={eventUrl}
+                  class="uderline-offset-1 text-gray-600 hover:underline"
+                >
+                  {event}
+                </a>
+              ) : (
+                event
+              )}
+            </span>
+
+            <a href={url}>
+              <h2 class="text-3xl font-bold">{title}</h2>
+            </a>
+
+            <span class="text-neutral-600">{info}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <Footer />
 </BaseLayout>

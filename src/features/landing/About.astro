@@ -1,0 +1,30 @@
+---
+import ProfileImage from "@/assets/avatar.png";
+import Link from "@/components/Link.astro";
+import Section from "@/features/landing/Section.astro";
+---
+
+<Section id="about">
+  <Fragment slot="title">About Adwin</Fragment>
+
+  <div class="mx-auto mb-4 w-44">
+    <img
+      src={ProfileImage.src}
+      width={ProfileImage.width}
+      height={ProfileImage.height}
+      alt="Profile avatar"
+    />
+  </div>
+
+  <div class="mx-auto max-w-lg text-center">
+    <p class="mb-2 italic">Tokyo, Japan</p>
+    <p class="text-gray-800">
+      Self-taught full-stack web dev. Speaks English, 中文, Bahasa Melayu,
+      日本語. Hobbies include cooking and traveling. Occasionally wrecks servers
+      through&nbsp;
+      <Link href="https://www.reddit.com/r/selfhosted/">self-hosting</Link>
+      &nbsp;and&nbsp;
+      <Link href="https://www.reddit.com/r/homelab/">homelab-ing</Link>.
+    </p>
+  </div>
+</Section>

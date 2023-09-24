@@ -1,0 +1,49 @@
+---
+import ProfileImage from "@/assets/avatar.png";
+import Link from "@/components/Link.astro";
+import ChainIcon from "@/components/icons/Chain.astro";
+import { cn } from "@/utils/css";
+
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div
+  class={cn(
+    "flex flex-col space-y-3",
+    "sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0",
+    className,
+  )}
+>
+  <div class="w-28 sm:w-32">
+    <img
+      src={ProfileImage.src}
+      width={ProfileImage.width}
+      height={ProfileImage.height}
+      alt="Adwin Ying's avatar"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col space-y-1">
+    <span class="text-2xl font-bold">Adwin Ying</span>
+
+    <p class="text-gray-800">
+      Self-taught full-stack web dev based in Tokyo.{" "}
+      <br class="hidden sm:block" />
+      Occasionally wrecks servers through&nbsp;
+      <Link href="https://www.reddit.com/r/selfhosted/">self-hosting</Link>
+      &nbsp;and&nbsp;
+      <Link href="https://www.reddit.com/r/homelab/">homelab-ing</Link>.
+    </p>
+
+    <div class="flex">
+      <Link href="/" className="flex space-x-1">
+        <ChainIcon className="w-4" />
+        <span>https://iAdw.in</span>
+      </Link>
+    </div>
+  </div>
+</div>

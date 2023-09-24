@@ -1,0 +1,25 @@
+---
+import ButtonIcon from "@/components/ButtonIcon.astro";
+import Section from "@/features/landing/Section.astro";
+import { connect } from "@/features/landing/data";
+---
+
+<Section id="connect" className="bg-white">
+  <Fragment slot="title">Connect</Fragment>
+
+  <div class="mx-auto max-w-4xl text-center text-gray-800">
+    Connect with Adwin through social media or request a resumé through email:
+  </div>
+
+  <div
+    class="mx-auto my-10 grid max-w-4xl grid-cols-1 gap-x-7 gap-y-5 md:my-20 md:grid-cols-3"
+  >
+    {
+      connect.map((item) => (
+        <ButtonIcon href={item.url} icon={item.icon} className="block w-full">
+          {item.title}
+        </ButtonIcon>
+      ))
+    }
+  </div>
+</Section>
