@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 type Props = {
   id: string;
@@ -14,11 +14,11 @@ export default function Section({
   children,
 }: Props) {
   return (
-    <section id={id} className={twMerge("px-7 py-16 md:py-32", className)}>
+    <section id={id} className={cn("px-7 py-16 md:py-32", className)}>
       {title && (
         <div className="mb-8 flex justify-center">
           <h2
-            className={twMerge(
+            className={cn(
               "js-section-title",
               "text-center font-title text-2xl uppercase tracking-wider",
               "after:mx-auto after:-mt-1 after:block after:border-b-2",

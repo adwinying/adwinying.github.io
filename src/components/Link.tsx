@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 type Props = {
   href: string;
@@ -15,7 +15,7 @@ export default function Link({
 }: Props) {
   return (
     <a
-      className={twMerge("text-sky-500 hover:text-sky-700", className)}
+      className={cn("text-sky-500 hover:text-sky-700", className)}
       href={href}
       aria-label={ariaLabel}
     >

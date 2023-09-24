@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 import type IconProps from "@/types/IconProps";
 
@@ -9,7 +9,7 @@ export default function ServerIcon({ className = "" }: IconProps) {
       focusable="false"
       data-prefix="fas"
       data-icon="server"
-      className={twMerge("svg-inline--fa fa-server fa-w-16", className)}
+      className={cn("svg-inline--fa fa-server fa-w-16", className)}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"

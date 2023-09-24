@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 import type IconProps from "@/types/IconProps";
 
@@ -9,7 +9,7 @@ export default function LinkIcon({ className = "" }: IconProps) {
       focusable="false"
       data-prefix="fas"
       data-icon="external-link-alt"
-      className={twMerge(
+      className={cn(
         "svg-inline--fa fa-external-link-alt fa-w-16",
         className,
       )}

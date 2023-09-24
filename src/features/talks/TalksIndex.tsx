@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 import Footer from "@/components/Footer";
 import TalksHeader from "@/features/talks/TalksHeader";
@@ -22,7 +22,7 @@ export default function TalksIndex({ className = "", talks }: Props) {
       <TalksHeader />
 
       <div
-        className={twMerge(
+        className={cn(
           "mx-auto mb-12 mt-4 w-full max-w-blog px-5",
           "flex flex-grow flex-col space-y-8",
           className,

@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 import TagLinks from "@/features/blog/TagLinks";
 
@@ -14,7 +14,7 @@ type Props = {
 
 export default function BlogPostEntries({ className = "", posts }: Props) {
   return (
-    <div className={twMerge("flex flex-col space-y-8", className)}>
+    <div className={cn("flex flex-col space-y-8", className)}>
       {posts.map((post) => {
         const { url, title, date } = post;
         const tags = post.tags ?? [];

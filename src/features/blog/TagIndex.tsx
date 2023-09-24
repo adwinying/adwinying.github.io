@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/css";
 
 import Footer from "@/components/Footer";
 import BlogHeader from "@/features/blog/BlogHeader";
@@ -20,7 +20,7 @@ export default function TagIndex({ tag, posts = [] }: Props) {
       <BlogHeader />
 
       <div
-        className={twMerge(
+        className={cn(
           "mb-12 mt-4 flex-grow",
           "mx-auto w-full max-w-blog px-5",
         )}

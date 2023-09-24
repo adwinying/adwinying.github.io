@@ -55,6 +55,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^2.7.2",
     "astro-seo": "^0.7.2",
+    "clsx": "^2.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "smoothscroll-polyfill": "^0.4.4",
