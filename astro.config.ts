@@ -1,4 +1,3 @@
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
@@ -11,7 +10,7 @@ export default defineConfig({
   server: {
     host: true,
   },
-  integrations: [react(), tailwind(), sitemap()],
+  integrations: [tailwind(), sitemap()],
   markdown: {
     remarkPlugins: [
       "remark-gfm",
