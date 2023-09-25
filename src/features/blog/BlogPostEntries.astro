@@ -3,7 +3,7 @@ import TagLinks from "@/features/blog/TagLinks.astro";
 import { cn } from "@/utils/css";
 
 interface Props {
-  className?: string;
+  class?: string;
   posts: {
     url: string;
     title: string;
@@ -12,10 +12,10 @@ interface Props {
   }[];
 }
 
-const { className, posts } = Astro.props;
+const { posts } = Astro.props;
 ---
 
-<div class={cn("flex flex-col space-y-8", className)}>
+<div class={cn("flex flex-col space-y-8", Astro.props.class)}>
   {
     posts.map((post) => {
       const { url, title, date } = post;

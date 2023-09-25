@@ -5,17 +5,15 @@ import ChainIcon from "@/components/icons/Chain.astro";
 import { cn } from "@/utils/css";
 
 interface Props {
-  className?: string;
+  class?: string;
 }
-
-const { className = "" } = Astro.props;
 ---
 
 <div
   class={cn(
     "flex flex-col space-y-3",
     "sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0",
-    className,
+    Astro.props.class,
   )}
 >
   <div class="w-28 sm:w-32">
@@ -40,8 +38,8 @@ const { className = "" } = Astro.props;
     </p>
 
     <div class="flex">
-      <Link href="/" className="flex space-x-1">
-        <ChainIcon className="w-4" />
+      <Link href="/" class="flex space-x-1">
+        <ChainIcon class="w-4" />
         <span>https://iAdw.in</span>
       </Link>
     </div>

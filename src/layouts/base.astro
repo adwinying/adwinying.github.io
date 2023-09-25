@@ -11,7 +11,7 @@ interface Props {
   description?: string;
   image?: ImageMetadata | null;
   isPost?: boolean;
-  className?: string;
+  class?: string;
 }
 
 const title = Astro.props.title ?? "iAdwin";
@@ -48,8 +48,6 @@ const seo = {
     ],
   },
 };
-
-const className = Astro.props.className ?? "";
 ---
 
 <html lang="en">
@@ -88,7 +86,7 @@ const className = Astro.props.className ?? "";
     <slot name="head" />
   </head>
 
-  <body class={cn("flex flex-col bg-gray-50 min-h-screen", className)}>
+  <body class={cn("flex flex-col bg-gray-50 min-h-screen", Astro.props.class)}>
     <slot />
   </body>
 </html>

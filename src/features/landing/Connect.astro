@@ -4,7 +4,7 @@ import Section from "@/features/landing/Section.astro";
 import { connect } from "@/features/landing/data";
 ---
 
-<Section id="connect" className="bg-white">
+<Section id="connect" class="bg-white">
   <Fragment slot="title">Connect</Fragment>
 
   <div class="mx-auto max-w-4xl text-center text-gray-800">
@@ -16,7 +16,7 @@ import { connect } from "@/features/landing/data";
   >
     {
       connect.map((item) => (
-        <ButtonIcon href={item.url} icon={item.icon} className="block w-full">
+        <ButtonIcon href={item.url} icon={item.icon} class="block w-full">
           {item.title}
         </ButtonIcon>
       ))

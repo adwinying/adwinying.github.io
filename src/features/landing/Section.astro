@@ -3,13 +3,13 @@ import { cn } from "@/utils/css";
 
 interface Props {
   id: string;
-  className?: string;
+  class?: string;
 }
 
-const { id, className = "" } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<section id={id} class={cn("px-7 py-16 md:py-32", className)}>
+<section id={id} class={cn("px-7 py-16 md:py-32", Astro.props.class)}>
   {
     Astro.slots.has("title") && (
       <div class="mb-8 flex justify-center">
@@ -19,7 +19,7 @@ const { id, className = "" } = Astro.props;
             "text-center font-title text-2xl uppercase tracking-wider",
             "after:mx-auto after:-mt-1 after:block after:border-b-2",
             "after:border-black after:transition-all after:duration-300 ",
-            className,
+            Astro.props.class,
           )}
         >
           <slot name="title" />

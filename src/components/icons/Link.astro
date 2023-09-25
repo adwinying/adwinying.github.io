@@ -3,8 +3,6 @@ import type IconProps from "@/types/IconProps";
 import { cn } from "@/utils/css";
 
 type Props = IconProps;
-
-const { className = "" } = Astro.props;
 ---
 
 <svg
@@ -12,7 +10,7 @@ const { className = "" } = Astro.props;
   focusable="false"
   data-prefix="fas"
   data-icon="external-link-alt"
-  class={cn("svg-inline--fa fa-external-link-alt fa-w-16", className)}
+  class={cn("svg-inline--fa fa-external-link-alt fa-w-16", Astro.props.class)}
   role="img"
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 512 512"

@@ -16,7 +16,7 @@ const posts = await getCollection(
   <BlogHeader />
 
   <BlogPostEntries
-    className="mx-auto mb-12 mt-4 w-full max-w-blog flex-grow px-5"
+    class="mx-auto mb-12 mt-4 w-full max-w-blog flex-grow px-5"
     posts={posts
       .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
       .map((post) => ({
