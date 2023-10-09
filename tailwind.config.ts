@@ -10,9 +10,6 @@ module.exports = {
         serif: ["Georgia", ...defaultTheme.fontFamily.serif],
         title: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
-      screens: {
-        hero: "800px",
-      },
       maxWidth: {
         blog: "46rem",
       },

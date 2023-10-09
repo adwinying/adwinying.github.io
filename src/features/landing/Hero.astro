@@ -1,14 +1,27 @@
 ---
+import { getImage } from "astro:assets";
+
 import MenuIcon from "@/components/icons/Menu.astro";
+import heroBgImg from "@/features/landing/hero_bg.jpg";
+import heroBgMobileImg from "@/features/landing/hero_bg_mobile.jpg";
 import { cn } from "@/utils/css";
+
+const [heroBg, heroBgMobile] = await Promise.all([
+  getImage({ quality: "high", src: heroBgImg }),
+  getImage({ quality: "high", src: heroBgMobileImg }),
+]);
 ---
 
 <header
+  style={{
+    "--hero-bg-mobile": `url(${heroBgMobile.src})`,
+    "--hero-bg": `url(${heroBg.src})`,
+  }}
   class={cn(
     "relative flex h-screen items-center",
-    "bg-[url('/img/hero_bg_mobile.jpg')] bg-cover bg-local bg-center",
+    "bg-[image:var(--hero-bg-mobile)] bg-cover bg-local bg-center",
     "bg-no-repeat px-3 md:h-[calc(100vh-3.75rem)] md:px-6",
-    "hero:bg-[url('/img/hero_bg.jpg')] lg:px-10",
+    "min-[800px]:bg-[image:var(--hero-bg)] lg:px-10",
   )}
 >
   {/* Hamburger toggle */}
