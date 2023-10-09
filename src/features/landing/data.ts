@@ -1,4 +1,11 @@
+import type { ImageMetadata } from "astro";
+
 import type Icons from "@/components/icons/Icons";
+import projHotelHamlet from "@/features/landing/projects_hotel_hamlet.jpg";
+import projPinit from "@/features/landing/projects_pinit.jpg";
+import projRoguelike from "@/features/landing/projects_roguelike.jpg";
+import projServerProvisioning from "@/features/landing/projects_server_provisioning.jpg";
+import projWebdev from "@/features/landing/projects_webdev.jpg";
 
 export type NavLink = {
   name: string;
@@ -82,7 +89,7 @@ type Project = {
   title: string;
   tags: string[];
   description: string;
-  img: string;
+  img: ImageMetadata;
   url: string;
 };
 export const projects = [
@@ -104,7 +111,7 @@ export const projects = [
       "Fly.io",
     ],
     description: "A full-stack Pintrest clone.",
-    img: "projects_pinit.jpg",
+    img: projPinit,
     url: "https://pinit.fly.dev/",
   },
   {
@@ -123,7 +130,7 @@ export const projects = [
     ],
     description:
       "A full-stack web application with a built-in reservation system.",
-    img: "projects_hotel_hamlet.jpg",
+    img: projHotelHamlet,
     url: "https://hotel-hamlet.fly.dev/admin",
   },
   {
@@ -142,7 +149,7 @@ export const projects = [
       "Vitest",
     ],
     description: "Web-based roguelike dungeon game.",
-    img: "projects_roguelike.jpg",
+    img: projRoguelike,
     url: "https://iadw.in/roguelike2",
   },
   {
@@ -157,14 +164,14 @@ export const projects = [
     ],
     description:
       "A set of commonly used services in web development all bundled in a docker compose file.",
-    img: "projects_webdev.jpg",
+    img: projWebdev,
     url: "https://github.com/adwinying/webdev",
   },
   {
     title: "Server Provisioning",
     tags: ["Terraform", "Ansible", "MergerFS", "Let's Encrypt", "Wireguard"],
     description: "Automated provisioning of homelab servers.",
-    img: "projects_server_provisioning.jpg",
+    img: projServerProvisioning,
     url: "https://github.com/adwinying/server-provisioning",
   },
 ] satisfies Project[];

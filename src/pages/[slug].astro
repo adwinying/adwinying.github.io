@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -39,11 +40,9 @@ const { Content } = await post.render();
     <div class="mb-8 font-sans">
       {
         thumbnail && (
-          <img
+          <Image
             class="mb-5 aspect-video w-full object-cover"
-            src={thumbnail.src}
-            width={thumbnail.width}
-            height={thumbnail.height}
+            src={thumbnail}
             alt={title}
           />
         )

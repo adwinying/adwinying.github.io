@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/Link.astro";
 import ChainIcon from "@/components/icons/Chain.astro";
@@ -17,12 +19,7 @@ interface Props {
   )}
 >
   <div class="w-28 sm:w-32">
-    <img
-      src={ProfileImage.src}
-      width={ProfileImage.width}
-      height={ProfileImage.height}
-      alt="Adwin Ying's avatar"
-    />
+    <Image src={ProfileImage} alt="Adwin Ying's avatar" />
   </div>
 
   <div class="flex flex-1 flex-col space-y-1">

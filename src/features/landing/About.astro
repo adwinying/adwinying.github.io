@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import ProfileImage from "@/assets/avatar.png";
 import Link from "@/components/Link.astro";
 import Section from "@/features/landing/Section.astro";
@@ -8,12 +10,7 @@ import Section from "@/features/landing/Section.astro";
   <Fragment slot="title">About Adwin</Fragment>
 
   <div class="mx-auto mb-4 w-44">
-    <img
-      src={ProfileImage.src}
-      width={ProfileImage.width}
-      height={ProfileImage.height}
-      alt="Profile avatar"
-    />
+    <Image src={ProfileImage} alt="Profile avatar" />
   </div>
 
   <div class="mx-auto max-w-lg text-center">
