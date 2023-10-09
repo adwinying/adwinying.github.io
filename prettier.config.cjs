@@ -2,8 +2,8 @@
 module.exports = {
   trailingComma: "all",
   plugins: [
-    require("prettier-plugin-tailwindcss"),
-    require("prettier-plugin-astro"),
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-astro",
   ],
   overrides: [
     {
