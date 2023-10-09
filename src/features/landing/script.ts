@@ -73,5 +73,7 @@ function main() {
   initSectionTitle();
 }
 
-smoothscroll.polyfill();
-main();
+document.addEventListener("astro:page-load", () => {
+  smoothscroll.polyfill();
+  main();
+});

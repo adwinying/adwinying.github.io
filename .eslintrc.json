@@ -49,7 +49,8 @@
       {
         "ignore": [
           "astro:assets",
-          "astro:content"
+          "astro:content",
+          "astro:transitions"
         ]
       }
     ]
