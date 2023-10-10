@@ -22,7 +22,7 @@ export interface IconProps {
   class?: string;
 }
 
-const Icons = {
+export const Icons = {
   code: CodeIcon,
   github: GithubIcon,
   link: LinkIcon,
@@ -32,5 +32,3 @@ const Icons = {
   server: ServerIcon,
   user: UserIcon,
 };
-
-export default Icons;

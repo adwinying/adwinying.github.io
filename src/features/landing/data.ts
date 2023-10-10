@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-import type Icons from "@/components/icons/Icons";
+import type { Icons } from "@/components/icons/Icons";
 import projHotelHamlet from "@/features/landing/projects_hotel_hamlet.jpg";
 import projPinit from "@/features/landing/projects_pinit.jpg";
 import projRoguelike from "@/features/landing/projects_roguelike.jpg";
