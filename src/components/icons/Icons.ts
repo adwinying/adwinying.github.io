@@ -2,33 +2,33 @@
 // ignoring because tsc does not load @astro/ts-plugin
 // https://github.com/withastro/language-tools/issues/479#issuecomment-1419233268
 // @ts-ignore
-import CodeIcon from "@/components/icons/Code.astro";
+import Code from "@/components/icons/Code.astro";
 // @ts-ignore
-import GithubIcon from "@/components/icons/Github.astro";
+import Github from "@/components/icons/Github.astro";
 // @ts-ignore
-import LinkIcon from "@/components/icons/Link.astro";
+import Link from "@/components/icons/Link.astro";
 // @ts-ignore
-import LinkedinIcon from "@/components/icons/Linkedin.astro";
+import Linkedin from "@/components/icons/Linkedin.astro";
 // @ts-ignore
-import MailIcon from "@/components/icons/Mail.astro";
+import Mail from "@/components/icons/Mail.astro";
 // @ts-ignore
-import MenuIcon from "@/components/icons/Menu.astro";
+import Menu from "@/components/icons/Menu.astro";
 // @ts-ignore
-import ServerIcon from "@/components/icons/Server.astro";
+import Server from "@/components/icons/Server.astro";
 // @ts-ignore
-import UserIcon from "@/components/icons/User.astro";
+import User from "@/components/icons/User.astro";
 
 export interface IconProps {
   class?: string;
 }
 
-export const Icons = {
-  code: CodeIcon,
-  github: GithubIcon,
-  link: LinkIcon,
-  linkedin: LinkedinIcon,
-  mail: MailIcon,
-  menu: MenuIcon,
-  server: ServerIcon,
-  user: UserIcon,
+export const Icon = {
+  Code,
+  Github,
+  Link,
+  Linkedin,
+  Mail,
+  Menu,
+  Server,
+  User,
 };

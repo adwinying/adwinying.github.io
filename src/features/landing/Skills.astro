@@ -1,5 +1,5 @@
 ---
-import { Icons } from "@/components/icons/Icons";
+import { Icon } from "@/components/icons/Icons";
 import Section from "@/features/landing/Section.astro";
 import { skills } from "@/features/landing/data";
 import { cn } from "@/utils/css";
@@ -16,7 +16,7 @@ import { cn } from "@/utils/css";
   >
     {
       skills.map(({ title, icon, contents }) => {
-        const SkillIcon = Icons[icon];
+        const SkillIcon = Icon[icon];
 
         return (
           <div class="relative flex-1 rounded-md border-2 border-black px-6 py-6">

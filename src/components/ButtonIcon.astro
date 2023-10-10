@@ -1,16 +1,16 @@
 ---
-import { Icons } from "@/components/icons/Icons";
+import { Icon } from "@/components/icons/Icons";
 import { cn } from "@/utils/css";
 
 interface Props {
   href: string;
-  icon: keyof typeof Icons;
+  icon: keyof typeof Icon;
   class?: string;
 }
 
 const { href, icon } = Astro.props;
 
-const Icon = Icons[icon];
+const IconComponent = Icon[icon];
 ---
 
 <a
@@ -23,7 +23,7 @@ const Icon = Icons[icon];
   href={href}
 >
   <span class="flex items-center space-x-2 sm:space-x-3">
-    <Icon class="w-6 hover:text-gray-50" />
+    <IconComponent class="w-6 hover:text-gray-50" />
     <span><slot /></span>
   </span>
 </a>

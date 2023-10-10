@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-import type { Icons } from "@/components/icons/Icons";
+import type { Icon } from "@/components/icons/Icons";
 import projHotelHamlet from "@/features/landing/projects_hotel_hamlet.jpg";
 import projPinit from "@/features/landing/projects_pinit.jpg";
 import projRoguelike from "@/features/landing/projects_roguelike.jpg";
@@ -36,13 +36,13 @@ export const navLinks = [
 
 type Skill = {
   title: string;
-  icon: keyof typeof Icons;
+  icon: keyof typeof Icon;
   contents: string[];
 };
 export const skills = [
   {
     title: "Client Side",
-    icon: "user",
+    icon: "User",
     contents: [
       "HTML | HTML5",
       "CSS | CSS3",
@@ -57,7 +57,7 @@ export const skills = [
   },
   {
     title: "Server Side",
-    icon: "server",
+    icon: "Server",
     contents: [
       "PHP | Laravel",
       "NodeJS | Express",
@@ -71,7 +71,7 @@ export const skills = [
   },
   {
     title: "Others",
-    icon: "code",
+    icon: "Code",
     contents: [
       "C",
       "CI/CD (Github Actions | GitlabCI)",
@@ -178,23 +178,23 @@ export const projects = [
 
 export type Connect = {
   title: string;
-  icon: keyof typeof Icons;
+  icon: keyof typeof Icon;
   url: string;
 };
 export const connect = [
   {
     title: "LinkedIn",
-    icon: "linkedin",
+    icon: "Linkedin",
     url: "https://linkedin.com/in/adwinying",
   },
   {
     title: "Github",
-    icon: "github",
+    icon: "Github",
     url: "https://github.com/adwinying",
   },
   {
     title: "Email",
-    icon: "mail",
+    icon: "Mail",
     url: "mailto:adwinying[at]gmail[dot]com",
   },
 ] satisfies Connect[];
