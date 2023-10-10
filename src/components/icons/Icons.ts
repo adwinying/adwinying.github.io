@@ -18,6 +18,10 @@ import ServerIcon from "@/components/icons/Server.astro";
 // @ts-ignore
 import UserIcon from "@/components/icons/User.astro";
 
+export interface IconProps {
+  class?: string;
+}
+
 const Icons = {
   code: CodeIcon,
   github: GithubIcon,
