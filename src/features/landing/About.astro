@@ -10,7 +10,11 @@ import Section from "@/features/landing/Section.astro";
   <Fragment slot="title">About Adwin</Fragment>
 
   <div class="mx-auto mb-4 w-44">
-    <Image src={ProfileImage} alt="Profile avatar" />
+    <Image
+      src={ProfileImage}
+      alt="Profile avatar"
+      widths={[180, 360, 540, 720]}
+    />
   </div>
 
   <div class="mx-auto max-w-lg text-center">
