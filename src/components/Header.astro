@@ -1,4 +1,20 @@
-<header class="container mx-auto flex items-center space-x-3 px-5 py-7">
+---
+import { cn } from "@/utils/css";
+
+type Props = {
+  width?: "blog";
+};
+
+const { width } = Astro.props;
+const widthClass = width === "blog" ? "max-w-blog" : "container";
+---
+
+<header
+  class={cn(
+    "container mx-auto flex items-center space-x-3 px-5 py-7",
+    widthClass,
+  )}
+>
   <a href="/" class="font-title text-3xl tracking-wider" aria-label="iAdwin">
     iA
   </a>
