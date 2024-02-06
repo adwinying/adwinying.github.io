@@ -12,6 +12,10 @@ slug: integrating-the-new-sesame-lock-with-home-assistant
 
 ---
 
+<div class="bg-slate-200 py-4 px-6 rounded">
+<b>[Update 2024/02/04]:</b> Instead of using Sesame's Web APIs, I <a href="/removing-cloud-dependency-of-sesame-lock-with-esphome">reintegrated my Sesame Lock without depending on the cloud</a> using an ESP32 module.
+</div>
+
 I've been using [Sesame Lock](https://jp.candyhouse.co/products/sesame4) for the past 1.5 years. At around ￥10,000 which also includes the Wifi Module and Sesame Bot (IoT button), it is a great option for those interested in a smart lock without breaking the bank. In addition, one could control it with a web API, opening up possibilities to integrate with any setup.
 
 While I relied on iOS shortcuts to unlock my doors, I came across a great post by Tats Shibata on [how to integrate the new Sesame Locks with Home Assistant](https://rewse.jp/blog/control-sesame-home-assistant/). As the official Home Assistant integration only support models before Sesame 3, it took some effort to make the new Sesame locks work with Home Assistant.
