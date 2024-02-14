@@ -3,7 +3,6 @@
   text-align: center;
 }
 
-.prose-lg picture + figcaption,
-.prose-lg pre + figcaption {
+.prose-lg picture + figcaption {
   margin-top: -24px;
 }
