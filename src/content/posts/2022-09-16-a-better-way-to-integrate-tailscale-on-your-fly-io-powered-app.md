@@ -13,6 +13,10 @@ slug: a-better-way-to-integrate-tailscale-on-your-fly-io-powered-app
 
 ---
 
+<div class="bg-slate-200 py-4 px-6 rounded">
+<b>[Update 2024/02/14]:</b> The Tailscale docs seemed to have updated and now follows the changes described in this post.
+</div>
+
 The [official Tailscale docs](https://tailscale.com/kb/1132/flydotio/) does explain on how to integrate Tailscale into a [fly.io](https://fly.io) app. However, I'm not a fan of how the Tailscale version and architecture were hardcoded in the `Dockerfile`. I prefer my `Dockerfile` to always include the latest and greatest Tailscale version, and also I would like to support [multi-arch Docker builds](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/).
 
 If you want to achieve the same, just replace the `Dockerfile` template like so:
