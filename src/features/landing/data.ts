@@ -5,6 +5,7 @@ import projHotelHamlet from "@/features/landing/projects_hotel_hamlet.jpg";
 import projPinit from "@/features/landing/projects_pinit.jpg";
 import projRoguelike from "@/features/landing/projects_roguelike.jpg";
 import projServerProvisioning from "@/features/landing/projects_server_provisioning.jpg";
+import projWeatherotg from "@/features/landing/projects_weatherotg.jpg";
 import projWebdev from "@/features/landing/projects_webdev.jpg";
 
 export type NavLink = {
@@ -93,6 +94,21 @@ type Project = {
   url: string;
 };
 export const projects = [
+  {
+    title: "WeatherOTG",
+    tags: [
+      "Golang",
+      "Templ",
+      "HTMX",
+      "TailwindCSS",
+      "DaisyUI",
+      "Github Actions",
+      "Fly.io",
+    ],
+    description: "A simple weather app powered by Golang + HTMX.",
+    img: projWeatherotg,
+    url: "https://weatherotg.fly.dev/",
+  },
   {
     title: "PinIt",
     tags: [
