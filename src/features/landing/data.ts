@@ -107,7 +107,7 @@ export const projects = [
     ],
     description: "A simple weather app powered by Golang + HTMX.",
     img: projWeatherotg,
-    url: "https://weatherotg.fly.dev/",
+    url: "https://weatherotg.onrender.com",
   },
   {
     title: "PinIt",
