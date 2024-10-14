@@ -50,7 +50,7 @@
     "@astrojs/tailwind": "^5.0.2",
     "@slidev/cli": "^0.42.11",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^3.4.0",
+    "astro": "^4.16.1",
     "astro-seo": "^0.8.0",
     "clsx": "^2.0.0",
     "smoothscroll-polyfill": "^0.4.4",
