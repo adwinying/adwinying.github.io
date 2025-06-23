@@ -26,7 +26,7 @@ function initSectionLinks() {
     const linkEl = link as HTMLAnchorElement;
     const targetHref = linkEl.getAttribute("href");
 
-    const isHashedLink = targetHref?.substring(0, 1) === "#" ?? false;
+    const isHashedLink = targetHref?.substring(0, 1) === "#";
     if (!isHashedLink) return;
 
     link.addEventListener("click", (e) => {
