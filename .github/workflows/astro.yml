@@ -15,20 +15,20 @@ jobs:
       - name: Checkout master branch
         uses: actions/checkout@v4
 
-      - name: Setup nix
-        uses: cachix/install-nix-action@v20
+      - name: Setup mise
+        uses: jdx/mise-action@v2
 
       - name: Install dependencies
-        run: nix develop --command pnpm i
+        run: pnpm i
 
       - name: Build for production
-        run: nix develop --command pnpm build:all
+        run: pnpm build:all
 
       - name: Run lint
-        run: nix develop --command pnpm lint
+        run: pnpm lint
 
       - name: Run typescript check
-        run: nix develop --command pnpm tsc
+        run: pnpm tsc
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

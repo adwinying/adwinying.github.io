@@ -19,7 +19,7 @@ for DIR in $DIRS; do
   DATE=$(echo "$DIR" | grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2}')
 
   # Build talk
-  pnpm retry -n 10 -- slidev build --base "/talks/$DATE/" --out "../../../dist/talks/$DATE" --executable-path $CHROMIUM_PATH "src/talks/$DATE/slides.md"
+  pnpm retry -n 10 -- slidev build --base "/talks/$DATE/" --out "../../../dist/talks/$DATE" "src/talks/$DATE/slides.md"
 done
 
 echo "Done!"

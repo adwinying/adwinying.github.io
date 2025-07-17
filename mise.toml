@@ -1,0 +1,14 @@
+[tools]
+node = "18"
+"npm:figlet" = "latest"
+pnpm = "8"
+
+[hooks]
+enter = """
+figlet adwinying.github.io
+echo "node: $(node --version)"
+echo "pnpm: v$(pnpm --version)"
+"""
+
+[settings]
+experimental = true
